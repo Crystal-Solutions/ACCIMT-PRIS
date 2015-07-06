@@ -8,7 +8,6 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
-use app\models\UserForm;
 
 class SiteController extends Controller
 {
@@ -94,50 +93,4 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-	
-	//my code
-	public function actionSay($message = 'Hello')
-	{
-		return $this -> render('say',['message' => $message]);
-	}
-	
-	/*public function actionUser()
-	{
-		$model= new UserForm;
-		
-		if($model->load(Yii::$app->request->post()) && $model->validate())
-		{
-			Yii::$app->session->setFlash('success','You have entered the data correctly!');
-		    return $this->render('userForm-confirm', ['model' => $model]);  
-        }
-        else
-        {
-            Yii::$app->session->setFlash('failure','You have entered the data incorrectly!');
-		    return $this->render('userForm',['model'=>$model]);
-        }	
-    }*/
-
-    public function actionUser()
-    {
-        $model= new UserForm;
-        
-        if($model->load(Yii::$app->request->post()) )
-        {
-            if($model->validate()){
-                Yii::$app->session->setFlash('success','You have entered the data correctly!');
-                return $this->render('userForm-confirm', ['model' => $model]);  
-            }
-            else{
-                Yii::$app->session->setFlash('failure','You have entered the data incorrectly!');//flash for failure not working
-                return $this->render('userForm',['model'=>$model]);
-            }
-        }
-        else
-        {
-            return $this->render('userForm',['model'=>$model]);
-        }   
-    }
-
 }
-
-?>
