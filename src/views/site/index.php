@@ -9,7 +9,7 @@ $this->title = 'ACCIMT-PRIS';
 
         <p class="lead">Login to use the system.</p>
 
-        <p><a class="btn btn-lg btn-success" href="/accimt-pris/src/web/index.php?r=site%2Flogin">Login</a></p> <!--how to get login.php-S-->
+        <p><a class="btn btn-lg btn-success" href="index.php?r=site%2Flogin">Login</a></p> <!--how to get login.php-S-->
     </div>
 
     <!--
