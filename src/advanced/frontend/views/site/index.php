@@ -1,19 +1,18 @@
 <?php
-
 /* @var $this yii\web\View */
-
-$this->title = 'My Yii Application';
+$this->title = 'ACCIMT-PRIS';
 ?>
 <div class="site-index">
 
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Project Registration & Information System</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Login to use the system.</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-success" href="index.php?r=site%2Flogin">Login</a></p>
     </div>
 
+    <!--
     <div class="body-content">
 
         <div class="row">
@@ -50,4 +49,5 @@ $this->title = 'My Yii Application';
         </div>
 
     </div>
+    <-->
 </div>
