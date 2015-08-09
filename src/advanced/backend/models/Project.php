@@ -16,15 +16,15 @@ use Yii;
  * @property integer $parent_project_id
  * @property integer $requested_user_id
  * @property integer $approved_ddg_user_id
- * @property integer $approved_head_user_id
+ * @property integer $approved_dh_user_id
  * @property integer $project_type_id
  *
  * @property Project $parentProject
  * @property Project[] $projects
+ * @property ProjectType $projectType
  * @property User $requestedUser
  * @property User $approvedDdgUser
- * @property User $approvedHeadUser
- * @property ProjectType $projectType
+ * @property User $approvedDhUser
  * @property Report[] $reports
  */
 class Project extends \yii\db\ActiveRecord
@@ -45,7 +45,7 @@ class Project extends \yii\db\ActiveRecord
         return [
             [['name', 'requested_user_id', 'project_type_id'], 'required'],
             [['state'], 'string'],
-            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_head_user_id', 'project_type_id'], 'integer'],
+            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
             [['name', 'code', 'client'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 6000]
         ];
@@ -66,7 +66,7 @@ class Project extends \yii\db\ActiveRecord
             'parent_project_id' => 'Parent Project ID',
             'requested_user_id' => 'Requested User ID',
             'approved_ddg_user_id' => 'Approved Ddg User ID',
-            'approved_head_user_id' => 'Approved Head User ID',
+            'approved_dh_user_id' => 'Approved Dh User ID',
             'project_type_id' => 'Project Type ID',
         ];
     }
@@ -90,6 +90,14 @@ class Project extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getProjectType()
+    {
+        return $this->hasOne(ProjectType::className(), ['id' => 'project_type_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getRequestedUser()
     {
         return $this->hasOne(User::className(), ['id' => 'requested_user_id']);
@@ -106,17 +114,9 @@ class Project extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getApprovedHeadUser()
+    public function getApprovedDhUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'approved_head_user_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProjectType()
-    {
-        return $this->hasOne(ProjectType::className(), ['id' => 'project_type_id']);
+        return $this->hasOne(User::className(), ['id' => 'approved_dh_user_id']);
     }
 
     /**

@@ -8,6 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenException; 
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -60,14 +61,18 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        $model = new User();
+        if(Yii::$app->user->can('system-admin')){   //system admin can create user-S
+            $model = new User();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
     }
 
@@ -98,9 +103,13 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+        }
     }
 
     /**

@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'parent_project_id',
             // 'requested_user_id',
             // 'approved_ddg_user_id',
-            // 'approved_head_user_id',
+            // 'approved_dh_user_id',
             // 'project_type_id',
 
             ['class' => 'yii\grid\ActionColumn'],

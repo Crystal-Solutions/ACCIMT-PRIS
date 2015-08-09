@@ -28,7 +28,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'approved_ddg_user_id')->textInput() ?>
 
-    <?= $form->field($model, 'approved_head_user_id')->textInput() ?>
+    <?= $form->field($model, 'approved_dh_user_id')->textInput() ?>
 
     <?= $form->field($model, 'project_type_id')->textInput() ?>
 

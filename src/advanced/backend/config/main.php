@@ -26,6 +26,10 @@ return [
                 ],
             ],
         ],
+        'authManager'=>[        //auth manager added-S
+            'class'=>'yii\rbac\DbManager',
+            'defaultRoles'=>['guest'],
+        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

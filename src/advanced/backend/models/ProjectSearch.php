@@ -18,7 +18,7 @@ class ProjectSearch extends Project
     public function rules()
     {
         return [
-            [['id', 'parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_head_user_id', 'project_type_id'], 'integer'],
+            [['id', 'parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
             [['name', 'code', 'client', 'state', 'description'], 'safe'],
         ];
     }
@@ -60,7 +60,7 @@ class ProjectSearch extends Project
             'parent_project_id' => $this->parent_project_id,
             'requested_user_id' => $this->requested_user_id,
             'approved_ddg_user_id' => $this->approved_ddg_user_id,
-            'approved_head_user_id' => $this->approved_head_user_id,
+            'approved_dh_user_id' => $this->approved_dh_user_id,
             'project_type_id' => $this->project_type_id,
         ]);
 

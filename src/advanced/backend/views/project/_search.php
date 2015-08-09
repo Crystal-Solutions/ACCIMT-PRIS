@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'approved_ddg_user_id') ?>
 
-    <?php // echo $form->field($model, 'approved_head_user_id') ?>
+    <?php // echo $form->field($model, 'approved_dh_user_id') ?>
 
     <?php // echo $form->field($model, 'project_type_id') ?>
 
