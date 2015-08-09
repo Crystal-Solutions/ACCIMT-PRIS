@@ -218,7 +218,7 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'name' => 'Name',
-            'edf_no' => 'Edf No',
+            'edf_no' => 'EPf No',
         ];
     }
 
