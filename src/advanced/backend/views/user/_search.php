@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'name') ?>
 
-    <?php // echo $form->field($model, 'edf_no') ?>
+    <?php // echo $form->field($model, 'epf_no') ?>
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

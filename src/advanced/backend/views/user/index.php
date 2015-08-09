@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
             // 'name',
-            // 'edf_no',
+            // 'epf_no',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
