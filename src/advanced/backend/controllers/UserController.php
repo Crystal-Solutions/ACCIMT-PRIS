@@ -3,12 +3,12 @@
 namespace backend\controllers;
 
 use Yii;
-use backend\models\User;
+use common\models\User;
 use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\ForbiddenException; 
+use yii\web\ForbiddenHttpException; 
 
 /**
  * UserController implements the CRUD actions for User model.
@@ -62,10 +62,18 @@ class UserController extends Controller
     public function actionCreate()
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can create user-S
+
             $model = new User();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post())) {
+                //Generate Authkey and set the password
+                $model->generateAuthKey();
+                $model->setPassword($model->password_hash);
+
+                if($model->save())
+                {
                 return $this->redirect(['view', 'id' => $model->id]);
+                }
             } else {
                 return $this->render('create', [
                     'model' => $model,

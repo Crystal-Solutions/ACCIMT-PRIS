@@ -52,6 +52,14 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+
+            //Extra rules
+            [['username', 'auth_key', 'password_hash', 'email'], 'required'],
+            [['username', 'email', 'name'], 'string', 'max' => 255],
+            [['edf_no'], 'string', 'max' => 45],
+            [['username'], 'unique'],
+            [['email'], 'unique'],
+            [['edf_no'], 'unique'],
         ];
     }
 
@@ -79,7 +87,10 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        $user =  static::findOne(['email' => $username, 'status' => self::STATUS_ACTIVE]);
+        if(!$user) $user = static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        if(!$user) $user = static::findOne(['edf_no' => $username, 'status' => self::STATUS_ACTIVE]);
+        return $user;
     }
 
     /**
@@ -184,5 +195,94 @@ class User extends ActiveRecord implements IdentityInterface
     public function removePasswordResetToken()
     {
         $this->password_reset_token = null;
+    }
+
+
+
+    //--------------------------------------------------------------------------------------------
+    //By ourselves
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => 'Username',
+            'auth_key' => 'Auth Key',
+            'password_hash' => 'Password',
+            'password_reset_token' => 'Password Reset Token',
+            'email' => 'Email',
+            'status' => 'Status',
+            'created_at' => 'Created At',
+            'updated_at' => 'Updated At',
+            'name' => 'Name',
+            'edf_no' => 'Edf No',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAuthAssignments()
+    {
+        return $this->hasMany(AuthAssignment::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDivisionHasUsers()
+    {
+        return $this->hasMany(DivisionHasUser::className(), ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDivisions()
+    {
+        return $this->hasMany(Division::className(), ['id' => 'division_id'])->viaTable('division_has_user', ['user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjects()
+    {
+        return $this->hasMany(Project::className(), ['requested_user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjects0()
+    {
+        return $this->hasMany(Project::className(), ['approved_ddg_user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProjects1()
+    {
+        return $this->hasMany(Project::className(), ['approved_head_user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getReports()
+    {
+        return $this->hasMany(Report::className(), ['requested_user_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getReports0()
+    {
+        return $this->hasMany(Report::className(), ['approved_user_id' => 'id']);
     }
 }
