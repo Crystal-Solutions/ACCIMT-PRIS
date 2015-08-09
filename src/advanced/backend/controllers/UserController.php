@@ -8,7 +8,7 @@ use backend\models\UserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\ForbiddenException; 
+use yii\web\ForbiddenHttpException; 
 
 /**
  * UserController implements the CRUD actions for User model.
