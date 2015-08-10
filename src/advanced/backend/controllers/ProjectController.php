@@ -8,6 +8,7 @@ use backend\models\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -60,14 +61,18 @@ class ProjectController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Project();
+        if(Yii::$app->user->can('create-project')){   //access to create project-S
+            $model = new Project();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -79,14 +84,18 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('update-project')){   //access to update project-S
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -98,9 +107,16 @@ class ProjectController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if('approved_ddg_user_id'==NULL && Yii::$app->user->can('delete-project')){   /*access to delete a project:: only dh can 
+                                                                                        and only before ddg approval, after ddg approval
+                                                                                        cant delete a project, project state can be changed 
+                                                                                        to cancelled -S*/
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
     }
 
     /**

@@ -8,6 +8,7 @@ use backend\models\AuthAssignmentSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * AuthAssignmentController implements the CRUD actions for AuthAssignment model.
@@ -60,14 +61,18 @@ class AuthAssignmentController extends Controller
      */
     public function actionCreate()
     {
-        $model = new AuthAssignment();
+        if(Yii::$app->user->can('create-auth-assignment')){   //access to create auth assignment-S
+            $model = new AuthAssignment();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->item_name]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->item_name]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -79,14 +84,18 @@ class AuthAssignmentController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('update-auth-assignment')){   //access to update auth assignment-S
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->item_name]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->item_name]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -98,9 +107,13 @@ class AuthAssignmentController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('delete-auth-assignment')){   //access to delete auth assignment-S
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
     }
 
     /**

@@ -61,7 +61,7 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->can('system-admin')){   //system admin can create user-S
+        if(Yii::$app->user->can('create-user')){   //access to create user-S
 
             $model = new User();
 
@@ -80,7 +80,7 @@ class UserController extends Controller
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -92,20 +92,23 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('update-user')){   //access to update user-S
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
-        }
-
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }    
     }
 
 
-    public function actionEdit()
+    public function actionEdit()        //should this check whether the correct user??? -S
     {
         $model = $this->findModel(Yii::$app->getUser()->id);
 
@@ -126,12 +129,12 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
+        if(Yii::$app->user->can('delete-user')){   //access to delete user-S    
             $this->findModel($id)->delete();
 
             return $this->redirect(['index']);
         }else{
-            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+            throw new ForbiddenHttpException;   //-S
         }
     }
 

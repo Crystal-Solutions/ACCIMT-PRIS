@@ -8,6 +8,7 @@ use backend\models\ReportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\ForbiddenHttpException;
 
 /**
  * ReportController implements the CRUD actions for Report model.
@@ -60,14 +61,18 @@ class ReportController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Report();
+        if(Yii::$app->user->can('create-report')){   //access to create report-S
+            $model = new Report();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -79,14 +84,19 @@ class ReportController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if('approved_user_id'==NULL && Yii::$app->user->can('update-report')){   /*access to update report,sectional head 
+                                                                                    and sectional user only until approval-S*/
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -98,9 +108,14 @@ class ReportController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if('approved_user_id'==NULL && Yii::$app->user->can('delete-report')){   /*access to delete report,sectional head 
+                                                                                    and sectional user only until approval-S*/
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
     }
 
     /**

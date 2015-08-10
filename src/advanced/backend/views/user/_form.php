@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use backend\models\Division;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -15,6 +17,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'epf_no')->textInput(['maxlength' => true]) ?>
+
+     <?/*= $form->field($model, 'division_id')->dropdownList(      //-S
+         ArrayHelper::map(Division::find()->all(),'id','name'),
+          ['prompt'=>'Select Division']
+    )*/ ?> 
 
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
