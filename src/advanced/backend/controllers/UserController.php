@@ -5,6 +5,8 @@ namespace backend\controllers;
 use Yii;
 use common\models\User;
 use backend\models\UserSearch;
+use backend\models\UserForm;
+
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -63,14 +65,13 @@ class UserController extends Controller
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can create user-S
 
-            $model = new User();
+            $model = new UserForm();
 
             if ($model->load(Yii::$app->request->post())) {
-                //Generate Authkey and set the password
-                $model->generateAuthKey();
-                $model->setPassword($model->password_hash);
 
-                if($model->save())
+                $model = $model->save();
+
+                if($model)
                 {
                 return $this->redirect(['view', 'id' => $model->id]);
                 }
