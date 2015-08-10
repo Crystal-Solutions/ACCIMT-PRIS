@@ -7,6 +7,10 @@ use yii\web\Controller;
 use common\models\LoginForm;
 use yii\filters\VerbFilter;
 
+//for editProfile action
+use common\models\User;
+use backend\models\UserSearch;
+
 /**
  * Site controller
  */
@@ -80,4 +84,5 @@ class SiteController extends Controller
 
         return $this->goHome();
     }
+
 }

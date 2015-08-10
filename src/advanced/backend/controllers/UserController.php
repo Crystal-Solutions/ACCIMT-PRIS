@@ -101,8 +101,23 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
+
     }
 
+
+    public function actionEdit()
+    {
+        $model = $this->findModel(Yii::$app->getUser()->id);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+            ]);
+        }
+
+    }
     /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -135,4 +150,6 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
 }

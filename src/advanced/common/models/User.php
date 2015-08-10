@@ -56,10 +56,10 @@ class User extends ActiveRecord implements IdentityInterface
             //Extra rules
             [['username', 'auth_key', 'password_hash', 'email'], 'required'],
             [['username', 'email', 'name'], 'string', 'max' => 255],
-            [['edf_no'], 'string', 'max' => 45],
+            [['epf_no'], 'string', 'max' => 45],
             [['username'], 'unique'],
             [['email'], 'unique'],
-            [['edf_no'], 'unique'],
+            [['epf_no'], 'unique'],
         ];
     }
 
@@ -89,7 +89,7 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $user =  static::findOne(['email' => $username, 'status' => self::STATUS_ACTIVE]);
         if(!$user) $user = static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
-        if(!$user) $user = static::findOne(['edf_no' => $username, 'status' => self::STATUS_ACTIVE]);
+        if(!$user) $user = static::findOne(['epf_no' => $username, 'status' => self::STATUS_ACTIVE]);
         return $user;
     }
 
@@ -218,7 +218,7 @@ class User extends ActiveRecord implements IdentityInterface
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
             'name' => 'Name',
-            'edf_no' => 'Edf No',
+            'epf_no' => 'EPF No',
         ];
     }
 
