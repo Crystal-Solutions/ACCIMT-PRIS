@@ -67,7 +67,10 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->can('system-admin')){   //system admin can create user-S
+
+        if(Yii::$app->user->can('create-user'))
+        {   //access to create user-S
+
 
             $model = new UserForm();
 
@@ -87,9 +90,9 @@ class UserController extends Controller
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+            throw new ForbiddenHttpException;   
         }
-        throw new NotAcceptableHttpException;   //are we going to keep this as forbidden exeption-S
+        throw new NotAcceptableHttpException;   
      
     }
 
