@@ -18,11 +18,6 @@ use backend\models\Division;
 
     <?= $form->field($model, 'epf_no')->textInput(['maxlength' => true]) ?>
 
-     <?/*= $form->field($model, 'division_id')->dropdownList(      //-S
-         ArrayHelper::map(Division::find()->all(),'id','name'),
-          ['prompt'=>'Select Division']
-    )*/ ?> 
-
     <?= $form->field($model, 'username')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'password')->passwordInput(['maxlength' => true]) ?>
