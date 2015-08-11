@@ -148,7 +148,7 @@ class UserForm extends Model
         $auths = $user->getAuthAssignments()->all();
         foreach($auths as $auth)
         {
-            array_push($this->divisions, $auth->id);
+            array_push($this->auths, $auth->item_name);
         }
     }
 }
