@@ -61,7 +61,7 @@ class DivisionController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->can('create-divisiom')){   //access create division-S
+        if(Yii::$app->user->can('create-division')){   //access create division-S
             $model = new Division();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
