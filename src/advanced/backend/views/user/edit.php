@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+
 use yii\widgets\ActiveForm;
 use backend\models\Division;
 
@@ -10,6 +11,22 @@ use yii\helpers\ArrayHelper;
 /* @var $model common\models\User */
 /* @var $form yii\widgets\ActiveForm */
 ?>
+
+
+/* @var $this yii\web\View */
+/* @var $model common\models\User */
+
+$this->title = 'Update User: ' . ' ' . $model->name;
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = 'Update';
+?>
+<div class="user-update">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+<?php
+
 
 <div class="user-form">
 
@@ -43,5 +60,8 @@ use yii\helpers\ArrayHelper;
 
 
     <?php ActiveForm::end(); ?>
+
+</div>
+
 
 </div>

@@ -5,12 +5,14 @@ use common\models\User;
 use backend\models\DivisionHasUser;
 use yii\base\Model;
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * User form
  */
 class UserForm extends Model
 {
+    public $id;
     public $username;
     public $email;
     public $password;
@@ -29,8 +31,10 @@ class UserForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             [['username', 'name' , 'epf_no'], 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['epf_no', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This epf_no has already been taken.'],
+            ['id', 'unique', 'on' => 'create','targetClass' => '\common\models\User', 'message' => 'This ID has already been taken.'],
+          
+            ['username', 'unique', 'on' => 'create','targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
+            ['epf_no', 'unique', 'on' => 'create', 'targetClass' => '\common\models\User', 'message' => 'This epf_no has already been taken.'],
 
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -38,9 +42,9 @@ class UserForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'string', 'max' => 255],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'on' => 'create','targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
 
-            ['password', 'required'],
+            ['password', 'required','on' => 'create'],
             ['password', 'string', 'min' => 6],
 
 
@@ -55,23 +59,37 @@ class UserForm extends Model
     public function save()
     {
         if ($this->validate()) {
-            $user = new User();
+
+            $user = User::findOne($this->id);
+            if(!$user) 
+                $user = new User();
+
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->setPassword($this->password);
-            $user->generateAuthKey();
 
-            //Added
+            if($this->isNewRecord)
+            {
+                $user->setPassword($this->password);
+                $user->generateAuthKey();
+            }
+
+            //set username and epf
             $user->name = $this->name;
             $user->epf_no = $this->epf_no;
 
-
-
             if ($user->save()) {
 
+                //Save all division user connections
                  $divisions = $_POST['UserForm']['divisions'];
+
+                 //Remove existing relations by DivisionHasUser
+                 $relations = $user->getDivisionHasUsers()->all();
+                 foreach($relations as $relation) $relation->delete();
+
+                 //add new relations by DivisionHasUser
                  foreach($divisions as $value)
                  {
+
                     $div = new DivisionHasUser();
                     $div->division_id = $value;
                     $div->user_id = $user->id;
@@ -83,5 +101,25 @@ class UserForm extends Model
         }
 
         return null;
+    }
+
+    public function setUser($user)
+    {
+        $this->id = $user->id;  
+        $this->username = $user->username;
+        $this->email = $user->email;
+
+        //
+        $this->name =  $user->name;
+        $this->epf_no =  $user->epf_no;
+        $this->isNewRecord = false;
+
+        $this->divisions = [];
+        //Get a list of id of divisions
+        $divisions = $user->getDivisions()->all();
+        foreach($divisions as $div)
+        {
+            array_push($this->divisions, $div->id);
+        }
     }
 }

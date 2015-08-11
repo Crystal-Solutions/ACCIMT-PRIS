@@ -3,10 +3,14 @@
 namespace backend\controllers;
 
 use Yii;
+
+use yii\helpers\ArrayHelper;
+
 use common\models\User;
 use backend\models\UserSearch;
 use backend\models\UserForm;
 use backend\models\DivisionHasUser;
+use backend\models\Division;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -68,14 +72,16 @@ class UserController extends Controller
             $model = new UserForm();
 
             $model->isNewRecord = true;
-
-            if ($model->load(Yii::$app->request->post()) ) {
+            $model->divisions = [];     
+            $model->setScenario('create');
+            if ($model->load(Yii::$app->request->post()) && $model->validate() ) {
                 //Generate Authkey and set the password
                 $user = $model->save();
                 if($user)
                     return $this->redirect(['view', 'id' => $user->id]);
             } else {
 
+                //$model->divisions = ArrayHelper::map(Division::find()->all(),'id','name');
                 return $this->render('create', [
                     'model' => $model,
                 ]);
@@ -95,15 +101,17 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
-        $divisionHasUser = new DivisionHasUser();
+        $user = $this->findModel($id);
+
+        $model = new UserForm();
+        $model->setUser($user);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            return $this->redirect(['view', 'id' => $user->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'divisionHasUser'=>$divisionHasUser,
             ]);
         }
     }
@@ -131,7 +139,15 @@ class UserController extends Controller
     public function actionDelete($id)
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
-            $this->findModel($id)->delete();
+           
+            //Find division has users relations and delete
+            $user = $this->findModel($id);
+            $divisionRelations = $user->getDivisionHasUsers()->all();
+            foreach($divisionRelations as $relation)
+                $relation->delete();
+
+            //delete user
+            $user->delete();
 
             return $this->redirect(['index']);
         }else{
