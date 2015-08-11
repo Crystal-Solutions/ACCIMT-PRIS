@@ -22,6 +22,7 @@ class UserForm extends Model
     public $epf_no;
     public $isNewRecord;
     public $divisions;
+    public $auths;
 
     /**
      * @inheritdoc
@@ -79,7 +80,7 @@ class UserForm extends Model
 
             if ($user->save()) {
 
-                //Save all division user connections
+                //Save all division user connections_________________________________
                  $divisions = $_POST['UserForm']['divisions'];
 
                  //Remove existing relations by DivisionHasUser
@@ -92,6 +93,24 @@ class UserForm extends Model
 
                     $div = new DivisionHasUser();
                     $div->division_id = $value;
+                    $div->user_id = $user->id;
+                    $div->save(); 
+                 }
+
+
+                 //Save all auths user connections______________________________
+                 $auths = $_POST['UserForm']['auths'];
+
+                 //remove all auths
+                 $existingAuths = $user->getAuthAssignments()->all();
+                 foreach($existingAuths as $auth) $auth->delete();
+
+                 //Add new ones
+                 foreach($auths as $value)
+                 {
+
+                    $div = new AuthAssignment();
+                    $div->item_name = $value;
                     $div->user_id = $user->id;
                     $div->save(); 
                  }
@@ -114,12 +133,22 @@ class UserForm extends Model
         $this->epf_no =  $user->epf_no;
         $this->isNewRecord = false;
 
-        $this->divisions = [];
+
+
         //Get a list of id of divisions
+        $this->divisions = [];
         $divisions = $user->getDivisions()->all();
         foreach($divisions as $div)
         {
             array_push($this->divisions, $div->id);
+        }
+
+        //get a list of assigned auths
+        $this->auths = [];
+        $auths = $user->getAuthAssignments()->all();
+        foreach($auths as $auth)
+        {
+            array_push($this->divisions, $auth->id);
         }
     }
 }
