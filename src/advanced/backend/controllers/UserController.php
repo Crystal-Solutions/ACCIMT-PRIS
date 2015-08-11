@@ -63,7 +63,8 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
-        if(Yii::$app->user->can('create-user')){   //access to create user-S
+        if(Yii::$app->user->can('create-user'))
+        {   //access to create user-S
 
             $model = new UserForm();
 
