@@ -64,7 +64,8 @@ class AuthAssignmentController extends Controller
         if(Yii::$app->user->can('create-auth-assignment')){   //access to create auth assignment-S
             $model = new AuthAssignment();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) ) {
+                $modal->created_at = date('Y-m-d');
                 return $this->redirect(['view', 'id' => $model->item_name]);
             } else {
                 return $this->render('create', [

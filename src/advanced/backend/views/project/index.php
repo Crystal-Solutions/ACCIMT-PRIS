@@ -28,7 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
           
 
-            //'id',
+           // 'id',
+
+            'name',
+
             'code',
             'name',
             

@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
+use yii\web\NotAcceptableHttpException;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -64,8 +65,13 @@ class ProjectController extends Controller
         if(Yii::$app->user->can('create-project')){   //access to create project-S
             $model = new Project();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post())) {
+                $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
+
+
+                if($model->save())                      //only if saved the redirection happens
+                    return $this->redirect(['view', 'id' => $model->id]);
+
             } else {
                 return $this->render('create', [
                     'model' => $model,
@@ -74,6 +80,8 @@ class ProjectController extends Controller
         }else{
             throw new ForbiddenHttpException;   //-S
         }
+        throw new NotAcceptableHttpException;
+
     }
 
     /**
