@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\models\ProjectSearch */
+/* @var $searchModel backend\models\ProjectTypeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Projects';
+$this->title = 'Project Types';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="project-index">
+<div class="project-type-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Project Type', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -25,17 +25,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            //'id',
+            'id',
             'name',
-            'code',
-            'client',
-            'state',
-            // 'description',
-            // 'parent_project_id',
-            // 'requested_user_id',
-            // 'approved_ddg_user_id',
-            // 'approved_dh_user_id',
-            // 'project_type_id',
+            'description',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
