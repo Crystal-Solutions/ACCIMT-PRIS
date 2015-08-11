@@ -6,12 +6,12 @@ use Yii;
 use common\models\User;
 use backend\models\UserSearch;
 use backend\models\UserForm;
-
+use backend\models\DivisionHasUser;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException; 
-
+use yii\web\NotAcceptableHttpException; 
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -63,27 +63,31 @@ class UserController extends Controller
      */
     public function actionCreate()
     {
+
         if(Yii::$app->user->can('create-user'))
         {   //access to create user-S
 
+
             $model = new UserForm();
 
-            if ($model->load(Yii::$app->request->post())) {
+            $model->isNewRecord = true;
 
-                $model = $model->save();
-
-                if($model)
-                {
-                return $this->redirect(['view', 'id' => $model->id]);
-                }
+            if ($model->load(Yii::$app->request->post()) ) {
+                //Generate Authkey and set the password
+                $user = $model->save();
+                if($user)
+                    return $this->redirect(['view', 'id' => $user->id]);
             } else {
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException;   
         }
+        throw new NotAcceptableHttpException;   
+     
     }
 
     /**
@@ -94,23 +98,21 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(Yii::$app->user->can('update-user')){   //access to update user-S
-            $model = $this->findModel($id);
+        $model = $this->findModel($id);
+        $divisionHasUser = new DivisionHasUser();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('update', [
-                    'model' => $model,
-                ]);
-            }
-        }else{
-            throw new ForbiddenHttpException;   //-S
-        }    
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        } else {
+            return $this->render('update', [
+                'model' => $model,
+                'divisionHasUser'=>$divisionHasUser,
+            ]);
+        }
     }
 
 
-    public function actionEdit()        //should this check whether the correct user??? -S
+    public function actionEdit()
     {
         $model = $this->findModel(Yii::$app->getUser()->id);
 
@@ -131,12 +133,12 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
-        if(Yii::$app->user->can('delete-user')){   //access to delete user-S    
+        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
             $this->findModel($id)->delete();
 
             return $this->redirect(['index']);
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
     }
 
