@@ -6,12 +6,12 @@ use Yii;
 use common\models\User;
 use backend\models\UserSearch;
 use backend\models\UserForm;
-
+use backend\models\DivisionHasUser;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException; 
-
+use yii\web\NotAcceptableHttpException; 
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -67,15 +67,15 @@ class UserController extends Controller
 
             $model = new UserForm();
 
-            if ($model->load(Yii::$app->request->post())) {
+            $model->isNewRecord = true;
 
-                $model = $model->save();
-
-                if($model)
-                {
-                return $this->redirect(['view', 'id' => $model->id]);
-                }
+            if ($model->load(Yii::$app->request->post()) ) {
+                //Generate Authkey and set the password
+                $user = $model->save();
+                if($user)
+                    return $this->redirect(['view', 'id' => $user->id]);
             } else {
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
@@ -83,6 +83,8 @@ class UserController extends Controller
         }else{
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
+        throw new NotAcceptableHttpException;   //are we going to keep this as forbidden exeption-S
+     
     }
 
     /**
@@ -94,15 +96,16 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $divisionHasUser = new DivisionHasUser();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'divisionHasUser'=>$divisionHasUser,
             ]);
         }
-
     }
 
 
