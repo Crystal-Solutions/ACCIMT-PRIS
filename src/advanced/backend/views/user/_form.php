@@ -1,9 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
 use backend\models\Division;
+
+use yii\helpers\ArrayHelper;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -27,15 +28,13 @@ use backend\models\Division;
 
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
-    <?php 
-     $allDivisions = ArrayHelper::map(Division::find()->all(),'id','name');
+    <?php
+    $allDivisions = ArrayHelper::map(Division::find()->all(),'id','name') 
     ?>
-
-
     <?=
         $form->field($model, 'divisions')->checkboxList($allDivisions);
     ?>
-    
+
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
