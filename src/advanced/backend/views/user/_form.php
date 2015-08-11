@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\Division;
+use backend\models\AuthAssignment;
 
 use yii\helpers\ArrayHelper;
 
@@ -29,10 +30,20 @@ use yii\helpers\ArrayHelper;
     <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
     <?php
-    $allDivisions = ArrayHelper::map(Division::find()->all(),'id','name') 
+    if(isSet($showDivisions) && $showDivisions)
+        {
+        $allDivisions = ArrayHelper::map(Division::find()->all(),'id','name') ;
+        echo  $form->field($model, 'divisions')->checkboxList($allDivisions);
+        }
     ?>
-    <?=
-        $form->field($model, 'divisions')->checkboxList($allDivisions);
+
+
+    <?php
+    if(isSet($showDivisions) && $showDivisions)
+        {
+        $allAuths = ArrayHelper::map(AuthAssignment::find()->all(),'item_name','item_name') ;
+        echo  $form->field($model, 'auths')->checkboxList($allAuths);
+        }
     ?>
 
     <div class="form-group">
