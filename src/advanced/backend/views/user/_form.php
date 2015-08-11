@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\models\Division;
-use backend\models\AuthAssignment;
+use backend\models\AuthItem;
 
 use yii\helpers\ArrayHelper;
 
@@ -41,7 +41,7 @@ use yii\helpers\ArrayHelper;
     <?php
     if(isSet($showDivisions) && $showDivisions)
         {
-        $allAuths = ArrayHelper::map(AuthAssignment::find()->all(),'item_name','item_name') ;
+        $allAuths = ArrayHelper::map(AuthItem::find()->where(['type'=>'2'])->all(),'name','name') ;
         echo  $form->field($model, 'auths')->checkboxList($allAuths);
         }
     ?>
