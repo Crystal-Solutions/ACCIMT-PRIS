@@ -59,15 +59,15 @@ class Project extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'code' => 'Code',
-            'client' => 'Client',
-            'state' => 'State',
-            'description' => 'Description',
-            'parent_project_id' => 'Parent Project ID',
+            'code' => 'Project Code',
+            'client' => 'Client Name',
+            'state' => 'Project State',
+            'description' => 'Project Description',
+            'parent_project_id' => 'Parent Project',
             'requested_user_id' => 'Requested User ID',
             'approved_ddg_user_id' => 'Approved Ddg User ID',
             'approved_dh_user_id' => 'Approved Dh User ID',
-            'project_type_id' => 'Project Type ID',
+            'project_type_id' => 'Project Type',
         ];
     }
 
