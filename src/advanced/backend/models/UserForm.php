@@ -85,9 +85,11 @@ class UserForm extends Model
 
                  //Remove existing relations by DivisionHasUser
                  $relations = $user->getDivisionHasUsers()->all();
+                 if($relations)
                  foreach($relations as $relation) $relation->delete();
 
                  //add new relations by DivisionHasUser
+                if($divisions)
                  foreach($divisions as $value)
                  {
 
@@ -103,9 +105,11 @@ class UserForm extends Model
 
                  //remove all auths
                  $existingAuths = $user->getAuthAssignments()->all();
+                 if($existingAuths)
                  foreach($existingAuths as $auth) $auth->delete();
 
                  //Add new ones
+                if($auths)
                  foreach($auths as $value)
                  {
 
@@ -138,6 +142,7 @@ class UserForm extends Model
         //Get a list of id of divisions
         $this->divisions = [];
         $divisions = $user->getDivisions()->all();
+        if($divisions)
         foreach($divisions as $div)
         {
             array_push($this->divisions, $div->id);
@@ -146,6 +151,7 @@ class UserForm extends Model
         //get a list of assigned auths
         $this->auths = [];
         $auths = $user->getAuthAssignments()->all();
+        if($auths)
         foreach($auths as $auth)
         {
             array_push($this->auths, $auth->item_name);

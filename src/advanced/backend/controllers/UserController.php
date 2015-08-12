@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 
 use yii\helpers\ArrayHelper;
+use yii\data\ActiveDataProvider;
 
 use common\models\User;
 use backend\models\UserSearch;
@@ -55,8 +56,14 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $query = User::FindOne($id)->getDivisions();
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider,
         ]);
     }
 
@@ -109,7 +116,7 @@ class UserController extends Controller
         $model = new UserForm();
         $model->setUser($user);
 
-        
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
