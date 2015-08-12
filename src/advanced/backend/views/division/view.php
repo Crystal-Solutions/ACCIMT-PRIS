@@ -40,7 +40,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'itemView' => function ($model, $key, $index, $widget) {
                 return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
         },
-        'summary'=>"This user is in following divisions.",
+        'summary'=>"This division is involved in following projects.",
 ]) ?>
 
 </div>
