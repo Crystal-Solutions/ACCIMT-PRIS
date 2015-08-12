@@ -46,4 +46,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'summary'=>"This user is in following divisions.",
 ]) ?>
 
+<br>
+<?= ListView::widget([
+        'dataProvider' => $dataProviderAuths,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+                return Html::a(Html::encode($model->item_name));
+        },
+        'summary'=>"This user has following privilages.",
+]) ?>
+
 </div>
