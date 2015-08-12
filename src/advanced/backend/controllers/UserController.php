@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 
+use yii\filters\AccessControl;
 use yii\helpers\ArrayHelper;
 use yii\data\ActiveDataProvider;
 
@@ -29,6 +30,20 @@ class UserController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => ['index', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['create', 'update',],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
