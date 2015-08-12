@@ -15,9 +15,10 @@ use Yii;
  * @property integer $division_id
  * @property integer $requested_user_id
  * @property integer $approved_user_id
+ * @property string $file
  *
- * @property Project $project
  * @property Division $division
+ * @property Project $project
  * @property User $requestedUser
  * @property User $approvedUser
  */
@@ -41,7 +42,8 @@ class Report extends \yii\db\ActiveRecord
             [['project_id', 'division_id', 'requested_user_id'], 'required'],
             [['project_id', 'division_id', 'requested_user_id', 'approved_user_id'], 'integer'],
             [['title'], 'string', 'max' => 255],
-            [['content'], 'string', 'max' => 10000]
+            [['content'], 'string', 'max' => 10000],
+            [['file'], 'string', 'max' => 45]
         ];
     }
 
@@ -54,20 +56,13 @@ class Report extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'content' => 'Content',
-            'submit_date' => 'Submission Date',
-            'project_id' => 'Project',
-            'division_id' => 'Division',
+            'submit_date' => 'Submit Date',
+            'project_id' => 'Project ID',
+            'division_id' => 'Division ID',
             'requested_user_id' => 'Requested User ID',
             'approved_user_id' => 'Approved User ID',
+            'file' => 'File',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getProject()
-    {
-        return $this->hasOne(Project::className(), ['id' => 'project_id']);
     }
 
     /**
@@ -76,6 +71,14 @@ class Report extends \yii\db\ActiveRecord
     public function getDivision()
     {
         return $this->hasOne(Division::className(), ['id' => 'division_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getProject()
+    {
+        return $this->hasOne(Project::className(), ['id' => 'project_id']);
     }
 
     /**

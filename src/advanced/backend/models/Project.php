@@ -4,8 +4,6 @@ namespace backend\models;
 
 use Yii;
 
-use common\models\User;
-
 /**
  * This is the model class for table "project".
  *
@@ -20,7 +18,9 @@ use common\models\User;
  * @property integer $approved_ddg_user_id
  * @property integer $approved_dh_user_id
  * @property integer $project_type_id
+ * @property integer $division_id
  *
+ * @property Division $division
  * @property Project $parentProject
  * @property Project[] $projects
  * @property ProjectType $projectType
@@ -47,7 +47,7 @@ class Project extends \yii\db\ActiveRecord
         return [
             [['name', 'requested_user_id', 'project_type_id'], 'required'],
             [['state'], 'string'],
-            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
+            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id', 'division_id'], 'integer'],
             [['name', 'code', 'client'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 6000]
         ];
@@ -61,16 +61,25 @@ class Project extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
-            'code' => 'Project Code',
-            'client' => 'Client Name',
-            'state' => 'Project State',
-            'description' => 'Project Description',
-            'parent_project_id' => 'Parent Project',
-            'requested_user_id' => 'Requested User',
+            'code' => 'Code',
+            'client' => 'Client',
+            'state' => 'State',
+            'description' => 'Description',
+            'parent_project_id' => 'Parent Project ID',
+            'requested_user_id' => 'Requested User ID',
             'approved_ddg_user_id' => 'Approved Ddg User ID',
             'approved_dh_user_id' => 'Approved Dh User ID',
-            'project_type_id' => 'Project Type',
+            'project_type_id' => 'Project Type ID',
+            'division_id' => 'Division ID',
         ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getDivision()
+    {
+        return $this->hasOne(Division::className(), ['id' => 'division_id']);
     }
 
     /**
