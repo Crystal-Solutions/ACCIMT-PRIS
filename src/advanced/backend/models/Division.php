@@ -73,4 +73,5 @@ class Division extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Report::className(), ['division_id' => 'id']);
     }
+
 }

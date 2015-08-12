@@ -33,6 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'name',   
             'client',
             'state',
+
             // 'description',
             [
               'attribute'=>'parent_project_id',
@@ -46,6 +47,10 @@ $this->params['breadcrumbs'][] = $this->title;
               'value'=>'requestedUser.name',
             ],
             
+              [
+              'attribute'=>'division_id',
+              'value'=>'division.name',
+            ],
             
 
             // 'parent_project_id',

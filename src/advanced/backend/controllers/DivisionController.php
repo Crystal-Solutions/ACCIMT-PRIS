@@ -11,6 +11,15 @@ use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\filters\AccessControl;
 
+use yii\data\ActiveDataProvider;
+
+use backend\models\Project;
+use backend\models\ProjectSearch;
+use backend\models\ProjectType;
+use backend\models\ProjectTypeSearch;
+
+
+
 /**
  * DivisionController implements the CRUD actions for Division model.
  */
@@ -64,8 +73,14 @@ class DivisionController extends Controller
      */
     public function actionView($id)
     {
+        $query = Project::find()->where(['division_id'=>$id]);      //find()->all()
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'dataProvider' => $dataProvider,
         ]);
     }
 

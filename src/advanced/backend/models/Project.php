@@ -69,6 +69,7 @@ class Project extends \yii\db\ActiveRecord
             'description' => 'Description',
             'parent_project_id' => 'Parent Project',
             'requested_user_id' => 'Requested User',
+
             'approved_ddg_user_id' => 'Approved Ddg User',
             'approved_dh_user_id' => 'Approved Dh User',
             'project_type_id' => 'Project Type',

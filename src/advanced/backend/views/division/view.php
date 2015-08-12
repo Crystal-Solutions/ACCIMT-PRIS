@@ -2,7 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-
+use yii\widgets\ListView;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Division */
 
@@ -33,5 +33,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'description',
         ],
     ]) ?>
+
+    <?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+                return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+        },
+        'summary'=>"This division is involved in following projects.",
+]) ?>
 
 </div>
