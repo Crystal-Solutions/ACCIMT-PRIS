@@ -18,8 +18,8 @@ class ReportSearch extends Report
     public function rules()
     {
         return [
-            [['id',  'division_id', 'requested_user_id', 'approved_user_id'], 'integer'],
-            [['title','project_id', 'content', 'submit_date'], 'safe'],
+            [['id',   'requested_user_id', 'approved_user_id'], 'integer'],
+            [['title','division_id','project_id', 'content', 'submit_date'], 'safe'],
         ];
     }
 
@@ -56,6 +56,7 @@ class ReportSearch extends Report
         }
 
         $query->joinWith('project');
+        $query->joinWith('division');
 
         $query->andFilterWhere([
             'id' => $this->id,
@@ -68,7 +69,8 @@ class ReportSearch extends Report
 
         $query->andFilterWhere(['like', 'title', $this->title])
             ->andFilterWhere(['like', 'content', $this->content])
-            ->andFilterWhere(['like', 'project.name', $this->project_id]);
+            ->andFilterWhere(['like', 'project.name', $this->project_id])
+            ->andFilterWhere(['like', 'division.name', $this->division_id]);
 
         return $dataProvider;
     }

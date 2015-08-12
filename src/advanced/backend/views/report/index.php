@@ -34,11 +34,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>'project.name',    
             ],
 
+            [
+                'attribute'=>'division_id',
+                'value'=>'division.name',    
+            ],
 
-            'division_id',
+
+
+            
             'title',
             'submit_date',
-
             // 'requested_user_id',
             // 'approved_user_id',
 
