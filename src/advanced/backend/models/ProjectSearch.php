@@ -55,7 +55,7 @@ class ProjectSearch extends Project
             return $dataProvider;
         }
 
-       // $query->joinWith('parentProject');
+        $query->joinWith('division');
 
         $query->andFilterWhere([
             'id' => $this->id,
@@ -66,12 +66,23 @@ class ProjectSearch extends Project
             'project_type_id' => $this->project_type_id,
         ]);
 
+        if($this->parent_project_id!=null)
+        {
+                $q = Project::find();
+                $q->andFilterWhere(['like', 'name',$this->parent_project_id ]);
+
+                $parents = $q->all();
+
+                foreach ($parents as $value) {
+                    $query->orFilterWhere(['like', 'parent_project_id', $value->id]);
+                }
+        }
+        
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'client', $this->client])
             ->andFilterWhere(['like', 'state', $this->state])
-            ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'project.name', $this->parent_project_id]);
+            ->andFilterWhere(['like', 'description', $this->description]);
 
         return $dataProvider;
     }
