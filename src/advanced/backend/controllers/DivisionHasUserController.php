@@ -8,6 +8,7 @@ use backend\models\DivisionHasUserSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * DivisionHasUserController implements the CRUD actions for DivisionHasUser model.
@@ -17,6 +18,20 @@ class DivisionHasUserController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => [''],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [

@@ -34,16 +34,30 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        
     ];
+
     if (Yii::$app->user->isGuest) {
-        $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
         $menuItems[] = [
-        ['label' => 'Users', 'url' => ['/user/index']],
-        
+            'label' => 'Login', 'url' => ['/site/login']
+        ];
+    } else {//cant we add these menu items in one assignment??-S
+        if(Yii::$app->user->can('system-admin'))//only system admin can see users
+        $menuItems[] = [
+            'label' => 'Users', 'url' => ['/user/index'],
+        ];
+
+
+        $menuItems[] = [
+            'label' => 'Projects', 'url' => ['/project/index'],
+        ];
+        $menuItems[] = [
+            'label' => 'Divisions', 'url' => ['/division/index'],
+        ];
+
+        $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
             'linkOptions' => ['data-method' => 'post']

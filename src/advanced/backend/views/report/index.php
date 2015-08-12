@@ -28,11 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
 
             //'content',
-            'project_id',
-            'division_id',
+            
+            [
+                'attribute'=>'project_id',
+                'value'=>'project.name',    
+            ],
+
+            [
+                'attribute'=>'division_id',
+                'value'=>'division.name',    
+            ],
+
+
+
+            
             'title',
             'submit_date',
-
             // 'requested_user_id',
             // 'approved_user_id',
 

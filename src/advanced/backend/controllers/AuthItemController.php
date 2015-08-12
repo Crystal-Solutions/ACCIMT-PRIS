@@ -8,6 +8,8 @@ use backend\models\AuthItemSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
 
 /**
  * AuthItemController implements the CRUD actions for AuthItem model.
@@ -17,7 +19,22 @@ class AuthItemController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index','create', 'update','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
+
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
@@ -32,6 +49,8 @@ class AuthItemController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
+
         $searchModel = new AuthItemSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
