@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotAcceptableHttpException;
+use yii\filters\AccessControl;
 
 /**
  * ProjectController implements the CRUD actions for Project model.
@@ -19,6 +20,20 @@ class ProjectController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index','create', 'update','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -94,8 +109,9 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(Yii::$app->user->can('update-project')){   //access to update project-S
+        if(Yii::$app->user->can('update-project') || ($this->findModel($id)->requested_user_id==Yii::$app->user()->id)){   //access to update project-S
             $model = $this->findModel($id);
+
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);

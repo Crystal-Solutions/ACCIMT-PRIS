@@ -8,6 +8,7 @@ use backend\models\AuthItemChildSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * AuthItemChildController implements the CRUD actions for AuthItemChild model.
@@ -17,6 +18,20 @@ class AuthItemChildController extends Controller
     public function behaviors()
     {
         return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index','create', 'update','view'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -32,6 +47,8 @@ class AuthItemChildController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
+
         $searchModel = new AuthItemChildSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

@@ -36,11 +36,11 @@ class UserController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index', 'error'],
+                        'actions' => [ 'error'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['create', 'update','view'],
+                        'actions' => ['index','create','edit', 'update','view'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -55,6 +55,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 

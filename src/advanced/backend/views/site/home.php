@@ -7,7 +7,7 @@ $this->title = 'ACCIMT-PRIS';
     <div class="jumbotron">
         <h1>Project Registration & Information System</h1>
 
-        <p class="lead">Login to use the system.</p>
+
     </div>
 
     <!--
