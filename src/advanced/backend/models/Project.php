@@ -4,7 +4,7 @@ namespace backend\models;
 
 
 use Yii;
-use common\models\User;
+use common\models\User
 
 /**
  * This is the model class for table "project".
@@ -67,12 +67,12 @@ class Project extends \yii\db\ActiveRecord
             'client' => 'Client',
             'state' => 'State',
             'description' => 'Description',
-            'parent_project_id' => 'Parent Project ID',
-            'requested_user_id' => 'Requested User ID',
-            'approved_ddg_user_id' => 'Approved Ddg User ID',
-            'approved_dh_user_id' => 'Approved Dh User ID',
-            'project_type_id' => 'Project Type ID',
-            'division_id' => 'Division ID',
+            'parent_project_id' => 'Parent Project',
+            'requested_user_id' => 'Requested User',
+            'approved_ddg_user_id' => 'Approved Ddg User',
+            'approved_dh_user_id' => 'Approved Dh User',
+            'project_type_id' => 'Project Type',
+            'division_id' => 'Division',
         ];
     }
 
