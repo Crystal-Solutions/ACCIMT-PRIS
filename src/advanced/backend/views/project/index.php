@@ -38,11 +38,10 @@ $this->params['breadcrumbs'][] = $this->title;
               'attribute'=>'parent_project_id',
               'value'=>'parentProject.name',
             ],
-<<<<<<< HEAD
+
              [
-=======
-                        [
->>>>>>> f5b18ae6da3b8707a3909e384370a295619d6f55
+
+              [
               'attribute'=>'requested_user_id',
               'value'=>'requestedUser.name',
             ],
