@@ -38,7 +38,7 @@ class Report extends \yii\db\ActiveRecord
     {
         return [
             [['submit_date'], 'safe'],
-            [['project_id', 'division_id', 'requested_user_id', 'approved_user_id'], 'required'],
+            [['project_id', 'division_id', 'requested_user_id'], 'required'],
             [['project_id', 'division_id', 'requested_user_id', 'approved_user_id'], 'integer'],
             [['title'], 'string', 'max' => 255],
             [['content'], 'string', 'max' => 10000]
@@ -54,9 +54,9 @@ class Report extends \yii\db\ActiveRecord
             'id' => 'ID',
             'title' => 'Title',
             'content' => 'Content',
-            'submit_date' => 'Submit Date',
-            'project_id' => 'Project ID',
-            'division_id' => 'Division ID',
+            'submit_date' => 'Submission Date',
+            'project_id' => 'Project',
+            'division_id' => 'Division',
             'requested_user_id' => 'Requested User ID',
             'approved_user_id' => 'Approved User ID',
         ];

@@ -64,8 +64,12 @@ class ReportController extends Controller
         if(Yii::$app->user->can('create-report')){   //access to create report-S
             $model = new Report();
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) ) {
+                $model->submit_date = date('Y-m-d h:m:s');
+                $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
+                $model->approved_user_id = null;
+                if($model->save())                      //only if saved the redirection happens
+                    return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
                     'model' => $model,

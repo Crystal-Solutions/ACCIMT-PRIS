@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\grid\GridView;
 
+
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProjectSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -25,14 +26,28 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'name',
+          
+
+           // 'id',
             'code',
+            'name',   
             'client',
             'state',
             // 'description',
+            [
+              'attribute'=>'parent_project_id',
+              'value'=>'parentProject.Name',
+            ],
+                        [
+              'attribute'=>'requested_user_id',
+              'value'=>'requestedUser.Name',
+            ],
+            
+            
+
             // 'parent_project_id',
-            // 'requested_user_id',
+             //'requested_user_id',
+             //'requestedUser.name',
             // 'approved_ddg_user_id',
             // 'approved_dh_user_id',
             // 'project_type_id',
