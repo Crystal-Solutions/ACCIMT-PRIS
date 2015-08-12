@@ -28,7 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
 
             //'content',
-            'project_id',
+            
+            [
+                'attribute'=>'project_id',
+                'value'=>'project.name',    
+            ],
+
+
             'division_id',
             'title',
             'submit_date',
