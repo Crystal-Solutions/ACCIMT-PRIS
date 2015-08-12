@@ -18,8 +18,8 @@ class ProjectSearch extends Project
     public function rules()
     {
         return [
-            [['id',  'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
-            [['name','parent_project_id', 'code', 'client', 'state', 'description'], 'safe'],
+            [['id',   'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
+            [['name','requested_user_id','parent_project_id', 'code', 'client', 'state', 'description'], 'safe'],
         ];
     }
 
@@ -56,16 +56,19 @@ class ProjectSearch extends Project
         }
 
         $query->joinWith('division');
+        $query->joinWith('requestedUser');
+
 
         $query->andFilterWhere([
             'id' => $this->id,
             //'parent_project_id' => $this->parent_project_id,
-            'requested_user_id' => $this->requested_user_id,
+            //'requested_user_id' => $this->requested_user_id,
             'approved_ddg_user_id' => $this->approved_ddg_user_id,
             'approved_dh_user_id' => $this->approved_dh_user_id,
             'project_type_id' => $this->project_type_id,
         ]);
 
+// janaka's  code for search by parent project
         if($this->parent_project_id!=null)
         {
                 $q = Project::find();
@@ -77,12 +80,13 @@ class ProjectSearch extends Project
                     $query->orFilterWhere(['like', 'parent_project_id', $value->id]);
                 }
         }
-        
+
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'client', $this->client])
             ->andFilterWhere(['like', 'state', $this->state])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'user.username', $this->requested_user_id]);
 
         return $dataProvider;
     }
