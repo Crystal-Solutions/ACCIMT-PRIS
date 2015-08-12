@@ -18,8 +18,8 @@ class ProjectSearch extends Project
     public function rules()
     {
         return [
-            [['id', 'parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
-            [['name', 'code', 'client', 'state', 'description'], 'safe'],
+            [['id',  'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id'], 'integer'],
+            [['name','parent_project_id', 'code', 'client', 'state', 'description'], 'safe'],
         ];
     }
 
@@ -55,9 +55,11 @@ class ProjectSearch extends Project
             return $dataProvider;
         }
 
+       // $query->joinWith('parentProject');
+
         $query->andFilterWhere([
             'id' => $this->id,
-            'parent_project_id' => $this->parent_project_id,
+            //'parent_project_id' => $this->parent_project_id,
             'requested_user_id' => $this->requested_user_id,
             'approved_ddg_user_id' => $this->approved_ddg_user_id,
             'approved_dh_user_id' => $this->approved_dh_user_id,
@@ -68,7 +70,8 @@ class ProjectSearch extends Project
             ->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'client', $this->client])
             ->andFilterWhere(['like', 'state', $this->state])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'project.name', $this->parent_project_id]);
 
         return $dataProvider;
     }
