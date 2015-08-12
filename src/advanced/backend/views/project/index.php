@@ -34,14 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'client',
             'state',
             // 'description',
-            // [
-            //   'attribute'=>'parent_project_id',
-            //   'value'=>'parentProject.Name',
-            // ],
-            //  [
-            //   'attribute'=>'requested_user_id',
-            //   'value'=>'requestedUser.Name',
-            // ],
+            [
+              'attribute'=>'parent_project_id',
+              'value'=>'parentProject.name',
+            ],
+             [
+              'attribute'=>'requested_user_id',
+              'value'=>'requestedUser.name',
+            ],
             
             
 
