@@ -55,7 +55,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 return Html::a(Html::encode($model->item_name));
         },
         'summary'=>"This user has following access levels.",
-        'emptyText'=>"This user has no assigned access level.",
+        'emptyText'=>"This user is not assigned to any access level.",
 ]) ?>
 
 </div>
