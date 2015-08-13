@@ -40,7 +40,7 @@ class UserController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create','edit', 'update','view'],
+                        'actions' => ['index','create','edit', 'update','view', 'delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -177,8 +177,15 @@ class UserController extends Controller
             //Find division has users relations and delete
             $user = $this->findModel($id);
             $divisionRelations = $user->getDivisionHasUsers()->all();
+            if($divisionRelations)
             foreach($divisionRelations as $relation)
                 $relation->delete();
+
+            //Delete auth assigntments
+            $authAssignments = $user->getAuthAssignments()->all();
+            if($authAssignments)
+            foreach($authAssignments as $assignment)
+                $assignment->delete();
 
             //delete user
             $user->delete();

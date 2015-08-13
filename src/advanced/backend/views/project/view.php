@@ -38,7 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'requested_user_id',
             'approved_dh_user_id',
             'project_type_id',
-            'approvedDdgUser.name',
+           // ['label' =>'my name','value'=>$model-getApprovedDdgUser()->name],
+            
             'division.name',
         ],
     ]) ?>
