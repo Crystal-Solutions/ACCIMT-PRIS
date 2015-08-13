@@ -44,6 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
         },
         'summary'=>"This user is in following divisions.",
+        'emptyText'=>"This user is not in any division."
 ]) ?>
 
 <br>
@@ -53,7 +54,8 @@ $this->params['breadcrumbs'][] = $this->title;
         'itemView' => function ($model, $key, $index, $widget) {
                 return Html::a(Html::encode($model->item_name));
         },
-        'summary'=>"This user has following privilages.",
+        'summary'=>"This user has following access levels.",
+        'emptyText'=>"This user is not assigned to any access level.",
 ]) ?>
 
 </div>
