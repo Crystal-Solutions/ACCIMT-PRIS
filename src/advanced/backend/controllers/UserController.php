@@ -77,9 +77,15 @@ class UserController extends Controller
             'query' => $query,
         ]);
 
+        $authsQ = User::FindOne($id)->getAuthAssignments();
+        $auths = new ActiveDataProvider([
+            'query' => $authsQ,
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
             'dataProvider' => $dataProvider,
+            'dataProviderAuths' => $auths,
         ]);
     }
 

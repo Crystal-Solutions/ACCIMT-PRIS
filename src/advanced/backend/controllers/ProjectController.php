@@ -109,7 +109,7 @@ class ProjectController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(Yii::$app->user->can('update-project') || ($this->findModel($id)->requested_user_id==Yii::$app->user()->id)){   //access to update project-S
+        if(Yii::$app->user->can('update-project') || ($this->findModel($id)->requested_user_id==Yii::$app->user->id)){   //access to update project-S
             $model = $this->findModel($id);
 
 

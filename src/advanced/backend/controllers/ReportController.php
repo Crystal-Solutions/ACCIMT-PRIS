@@ -152,4 +152,25 @@ class ReportController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionApproveDDG($id)
+    {
+        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
+                                                                                        and only before ddg approval, after ddg approval
+                                                                                        cant delete a project, project state can be changed 
+                                                                                        to cancelled -S*/
+            
+//Janaka -- adding approve actions (Done but have to check with a new project)
+            $model = $this->findModel($id);
+            $model->approved_ddg_user_id = Yii::$app->user->id;
+
+            if($model->approved_dh_user_id!=null && $model->state=='pending') $model->state = 'active';
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
+    }
 }
