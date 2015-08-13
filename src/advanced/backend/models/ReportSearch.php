@@ -62,7 +62,7 @@ class ReportSearch extends Report
             'id' => $this->id,
             'submit_date' => $this->submit_date,
             //'project_id' => $this->project_id,
-            'division_id' => $this->division_id,
+           // 'division_id' => $this->division_id,
             'requested_user_id' => $this->requested_user_id,
             'approved_user_id' => $this->approved_user_id,
         ]);
