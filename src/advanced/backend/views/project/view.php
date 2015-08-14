@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-         <?php if(Yii::$app->user->can('mark-ddg-approval')) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+         <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
    
     </p>
 
@@ -56,6 +56,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             
             [
+              'attribute'=>'approved_ddg_user_id',
+              'value'=>$model->getApprovedDdgUser()->one()==null?"-":$model->getApprovedDdgUser()->one()->name,
+            ],
+
+            [
               'attribute'=>'project_type_id',
               'value'=>$model->getProjectType()->one()==null?"-":$model->getProjectType()->one()->name,
             ],            
@@ -70,4 +75,45 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
+   <div class="panel-group" id="accordion">
+
+    <div>
+    <?php
+      //Generate tab view of reports
+      $reports = $model->getReports()->all();
+      if($reports)
+      {
+       echo "<br/><h2>Attached reports.</h2>";
+
+       foreach ($reports as $key => $report) {
+
+         ?>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $key?>"><?= $report->title?></a>
+                </h4>
+              </div>
+              <div id="collapse<?= $key?>" class="panel-collapse collapse">
+                <div class="panel-body">
+
+                  <?= $this->render('..\report\_detail', [
+        'model' => $report,
+                ]) ?>
+                  <?= $report->content;
+                  ?>
+              </div>
+              </div>
+            </div>
+         <?php
+       }
+
+      }
+      else
+      {
+        echo "No report is attached.";
+      }
+    ?>
+</div>
+  </div>
 </div>

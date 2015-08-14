@@ -28,7 +28,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','approveddg', 'approveddg','delete'],
+                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -151,7 +151,6 @@ class ProjectController extends Controller
     */
     public function actionApproveddg($id)
     {
-         throw new ForbiddenHttpException;  
         if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
@@ -161,7 +160,7 @@ class ProjectController extends Controller
             $model = $this->findModel($id);
             $model->approved_ddg_user_id = Yii::$app->user->id;
 
-            if($model->approved_dh_user_id!=null && $model->state=='pending') $model->state = 'active';
+            if($model->state=='pending') $model->state = 'active';
 
             $model->save();
 
@@ -178,17 +177,16 @@ class ProjectController extends Controller
     */
     public function actionApprovedh($id)
     {
-         throw new ForbiddenHttpException;  
-        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
+        if($this->findModel($id)->approved_dh_user_id==NULL && Yii::$app->user->can('mark-dh-approval')){   /*access to delete a project:: only dh can 
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
                                                                                         to cancelled -S*/
             
 //Janaka -- adding approve actions (Done but have to check with a new project)
             $model = $this->findModel($id);
-            $model->approved_ddg_user_id = Yii::$app->user->id;
+            $model->approved_dh_user_id = Yii::$app->user->id;
 
-            if($model->approved_dh_user_id!=null && $model->state=='pending') $model->state = 'active';
+            if($model->approved_ddg_user_id!=null && $model->state=='pending') $model->state = 'active';
 
             $model->save();
 

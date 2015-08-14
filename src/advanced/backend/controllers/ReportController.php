@@ -27,7 +27,7 @@ class ReportController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','createforproject','printview'],
+                        'actions' => ['index','create', 'update','view','createforproject','printview', 'approve'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -169,6 +169,32 @@ class ReportController extends Controller
             return $this->redirect(['index']);
         }else{
             throw new ForbiddenHttpException;   //-S
+        }
+    }
+
+
+
+
+  /**
+    *DH approve method
+    *
+    */
+    public function actionApprove($id)
+    {
+        if($this->findModel($id)->approved_user_id==NULL && Yii::$app->user->can('mark-report-approval')){   /*access to delete a project:: only dh can 
+                                                                                        and only before ddg approval, after ddg approval
+                                                                                        cant delete a project, project state can be changed 
+                                                                                        to cancelled -S*/
+            
+//Janaka -- adding approve actions (Done but have to check with a new project)
+            $model = $this->findModel($id);
+            $model->approved_user_id = Yii::$app->user->id;
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException("You can't approve this report.");   //-S
         }
     }
 
