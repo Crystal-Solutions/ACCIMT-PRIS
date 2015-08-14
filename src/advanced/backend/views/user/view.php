@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
@@ -24,6 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+
+        <?php $isActive = ($model->status==User::STATUS_ACTIVE); ?>
+        <?= Html::a( $isActive?'Deactivate':'Activate', [$isActive?'deactivate':'activate', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => $isActive?'Are you sure you want to deactivate this user?':'Are you sure you want to activate this user?',
+                'method' => 'post',
+            ],
+        ]) ?>
+
     </p>
 
     <?= DetailView::widget([

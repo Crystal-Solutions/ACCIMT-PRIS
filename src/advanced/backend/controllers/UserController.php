@@ -40,7 +40,7 @@ class UserController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create','edit', 'update','view', 'delete'],
+                        'actions' => ['index','create','edit', 'update','view', 'delete','deactivate','activate',],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -206,7 +206,7 @@ class UserController extends Controller
         }
     }
     /**
-     * Deletes an existing User model.
+     * Deactivate an User model.
      */
 
     public function actionDeactivate($id)
@@ -222,7 +222,26 @@ class UserController extends Controller
             $user->status = User::STATUS_DELETED;
             $user->save();
 
-            return $this->redirect(['index']);
+            return $this->redirect(['view', 'id' => $id]);
+        }else{
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+        }
+    }
+
+    /**
+     * activate an User model.
+     */
+    public function actionActivate($id)
+    {
+        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
+
+  
+            $user = $this->findModel($id);
+            
+            $user->status = User::STATUS_ACTIVE;
+            $user->save();
+
+            return $this->redirect(['view', 'id' => $id]);
         }else{
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
