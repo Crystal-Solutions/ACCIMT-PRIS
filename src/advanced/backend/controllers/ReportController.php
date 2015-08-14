@@ -27,7 +27,7 @@ class ReportController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view'],
+                        'actions' => ['index','create', 'update','view','createforproject'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -95,6 +95,29 @@ class ReportController extends Controller
         }
     }
 
+    public function actionCreateforproject($id)
+    {
+        if(Yii::$app->user->can('create-report')){   //access to create report-S
+            $model = new Report();
+
+            if ($model->load(Yii::$app->request->post()) ) {
+                $model->submit_date = date('Y-m-d h:m:s');
+                $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
+                $model->approved_user_id = null;
+                if($model->save())                      //only if saved the redirection happens
+                    return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                
+                $model->project_id = $id;
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
+    }
+
     /**
      * Updates an existing Report model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -103,9 +126,10 @@ class ReportController extends Controller
      */
     public function actionUpdate($id)
     {
-        if('approved_user_id'==NULL && Yii::$app->user->can('update-report')){   /*access to update report,sectional head 
+         $model = $this->findModel($id);
+        if($model->approved_user_id==NULL && Yii::$app->user->can('update-report')){   /*access to update report,sectional head 
                                                                                     and sectional user only until approval-S*/
-            $model = $this->findModel($id);
+           
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
@@ -115,7 +139,7 @@ class ReportController extends Controller
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You cannot update this report. It's already approved.");   //-S
         }
     }
 

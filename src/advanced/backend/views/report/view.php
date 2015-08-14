@@ -28,15 +28,27 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'id',
             'title',
-            'content',
             'submit_date',
-            'project_id',
-            'division_id',
-            'requested_user_id',
-            'approved_user_id',
+             [
+              'label'=>'Relevent Project',
+              'value'=>$model->getProject()->one()==null?"-":$model->getProject()->one()->name,
+            ], 
+            [
+              'label'=>'Division',
+              'value'=>$model->getDivision()->one()==null?"-":$model->getDivision()->one()->name,
+            ],
+            [
+              'label'=>'Submitted by',
+              'value'=>$model->getRequestedUser()->one()==null?"-":$model->getRequestedUser()->one()->name,
+            ],
+            [
+              'label'=>'Approved by',
+              'value'=>$model->getApprovedUser()->one()==null?"-":$model->getApprovedUser()->one()->name,
+            ],
         ],
     ]) ?>
+
+    <?= $model->content ?>
 
 </div>

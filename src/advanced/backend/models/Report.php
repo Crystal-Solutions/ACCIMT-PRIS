@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use common\models\User;
 
 /**
  * This is the model class for table "report".
@@ -57,7 +58,7 @@ class Report extends \yii\db\ActiveRecord
             'title' => 'Title',
             'content' => 'Content',
             'submit_date' => 'Submit Date',
-            'project_id' => 'Project Name',
+            'project_id' => 'Relevent Project',
             'division_id' => 'Division Name',
             'requested_user_id' => 'Requested User ID',
             'approved_user_id' => 'Approved User ID',

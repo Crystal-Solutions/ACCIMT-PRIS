@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Project;
 use backend\models\Division;
+use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Report */
@@ -15,15 +16,14 @@ use backend\models\Division;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'division_id')->dropDownList(
-        ArrayHelper::map(Division::find()->all(),'id','name'),
-        ['prompt' => 'Select Division']
-    )?>
-
 
     <?= $form->field($model, 'project_id')->dropDownList(
         ArrayHelper::map(Project::find()->all(),'id','name'),
         ['prompt' => 'Select Project']
+    )?>
+    <?= $form->field($model, 'division_id')->dropDownList(
+        ArrayHelper::map(User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
+        ['prompt' => 'Select Division']
     )?>
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
