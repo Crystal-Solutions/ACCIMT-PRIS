@@ -2,7 +2,6 @@
 
 namespace backend\models;
 
-
 use Yii;
 use common\models\User;
 
@@ -21,6 +20,12 @@ use common\models\User;
  * @property integer $approved_dh_user_id
  * @property integer $project_type_id
  * @property integer $division_id
+ * @property string $created_at
+ * @property string $approval_date
+ * @property string $quarterly_targets
+ * @property integer $team_leader
+ * @property string $starting_date
+ * @property string $end_date
  *
  * @property Division $division
  * @property Project $parentProject
@@ -29,7 +34,10 @@ use common\models\User;
  * @property User $requestedUser
  * @property User $approvedDdgUser
  * @property User $approvedDhUser
+ * @property User $teamLeader
  * @property Report[] $reports
+ * @property TeamMember[] $teamMembers
+ * @property User[] $users
  */
 class Project extends \yii\db\ActiveRecord
 {
@@ -49,9 +57,11 @@ class Project extends \yii\db\ActiveRecord
         return [
             [['name', 'requested_user_id', 'project_type_id'], 'required'],
             [['state'], 'string'],
-            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id', 'division_id'], 'integer'],
+            [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id', 'division_id', 'team_leader'], 'integer'],
+            [['created_at', 'approval_date', 'starting_date', 'end_date'], 'safe'],
             [['name', 'code', 'client'], 'string', 'max' => 255],
-            [['description'], 'string', 'max' => 6000]
+            [['description'], 'string', 'max' => 6000],
+            [['quarterly_targets'], 'string', 'max' => 4000]
         ];
     }
 
@@ -67,13 +77,18 @@ class Project extends \yii\db\ActiveRecord
             'client' => 'Client',
             'state' => 'State',
             'description' => 'Description',
-            'parent_project_id' => 'Parent Project',
-            'requested_user_id' => 'Requested User',
-
-            'approved_ddg_user_id' => 'Approved Ddg User',
-            'approved_dh_user_id' => 'Approved Dh User',
-            'project_type_id' => 'Project Type',
-            'division_id' => 'Division',
+            'parent_project_id' => 'Parent Project ID',
+            'requested_user_id' => 'Requested User ID',
+            'approved_ddg_user_id' => 'Approved Ddg User ID',
+            'approved_dh_user_id' => 'Approved Dh User ID',
+            'project_type_id' => 'Project Type ID',
+            'division_id' => 'Division ID',
+            'created_at' => 'Created At',
+            'approval_date' => 'Approval Date',
+            'quarterly_targets' => 'Quarterly Targets',
+            'team_leader' => 'Team Leader',
+            'starting_date' => 'Starting Date',
+            'end_date' => 'End Date',
         ];
     }
 
@@ -136,8 +151,32 @@ class Project extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
+    public function getTeamLeader()
+    {
+        return $this->hasOne(User::className(), ['id' => 'team_leader']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
     public function getReports()
     {
         return $this->hasMany(Report::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTeamMembers()
+    {
+        return $this->hasMany(TeamMember::className(), ['project_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsers()
+    {
+        return $this->hasMany(User::className(), ['id' => 'user_id'])->viaTable('team_member', ['project_id' => 'id']);
     }
 }

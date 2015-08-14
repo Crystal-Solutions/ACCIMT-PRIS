@@ -22,7 +22,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
-     <script src="<?php echo Yii::$app->request->baseUrl; ?>/assets/ckeditor/ckeditor.js"></script>
+     <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>

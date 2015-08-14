@@ -24,7 +24,7 @@ use common\models\User;
     <?= $form->field($model, 'division_id')->dropDownList(
         ArrayHelper::map(User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
         ['prompt' => 'Select Division']
-    )?>
+    )?> 
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 

@@ -235,7 +235,6 @@ class UserController extends Controller
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
 
-  
             $user = $this->findModel($id);
             
             $user->status = User::STATUS_ACTIVE;
