@@ -56,6 +56,7 @@ class UserController extends Controller
     public function actionIndex()
     {
         if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
+
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -121,7 +122,7 @@ class UserController extends Controller
         }else{
             throw new ForbiddenHttpException;   
         }
-        throw new NotAcceptableHttpException;   
+        //throw new NotAcceptableHttpException;
      
     }
 
@@ -133,6 +134,8 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->can('update-user'))
+        {                                           //access to update user-S
         $user = $this->findModel($id);
 
         $model = new UserForm();
@@ -148,6 +151,10 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
+        }else{
+            throw new ForbiddenHttpException;
+        }
+        //throw new NotAcceptableHttpException;
     }
 
 
@@ -173,7 +180,10 @@ class UserController extends Controller
     public function actionDelete($id)
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
-           
+
+            //You can't delete your own
+           if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't delete your own account!");
+  
             //Find division has users relations and delete
             $user = $this->findModel($id);
             $divisionRelations = $user->getDivisionHasUsers()->all();
@@ -189,6 +199,28 @@ class UserController extends Controller
 
             //delete user
             $user->delete();
+
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+        }
+    }
+    /**
+     * Deletes an existing User model.
+     */
+
+    public function actionDeactivate($id)
+    {
+        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
+
+            //You can't deactivate your own
+           if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't deactivate your own account!");
+  
+            //Find division has users relations and delete
+            $user = $this->findModel($id);
+            
+            $user->status = User::STATUS_DELETED;
+            $user->save();
 
             return $this->redirect(['index']);
         }else{
@@ -211,6 +243,8 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
 
 
 }
