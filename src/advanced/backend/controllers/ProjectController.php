@@ -28,7 +28,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view'],
+                        'actions' => ['index','create', 'update','view','approveddg'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -145,29 +145,13 @@ class ProjectController extends Controller
         }
     }
 
-    /**
-     * Finds the Project model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Project the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Project::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
-    }
-
-
-    /**
+  /**
     *DDG approve method
     *
     */
-    public function actionApproveDDG($id)
+    public function actionApproveddg($id)
     {
+         throw new ForbiddenHttpException;  
         if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
@@ -186,4 +170,23 @@ class ProjectController extends Controller
             throw new ForbiddenHttpException;   //-S
         }
     }
+
+    /**
+     * Finds the Project model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return Project the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = Project::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+
+  
 }

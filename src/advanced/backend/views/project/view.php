@@ -23,6 +23,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
+         <?php if(Yii::$app->user->can('mark-ddg-approval')) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+   
     </p>
 
     <?= DetailView::widget([
@@ -40,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'project_type_id',
            // ['label' =>'my name','value'=>$model-getApprovedDdgUser()->name],
             
-            'division.name',
+            'division_id',
         ],
     ]) ?>
 
