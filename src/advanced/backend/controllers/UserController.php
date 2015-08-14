@@ -198,6 +198,28 @@ class UserController extends Controller
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
     }
+    /**
+     * Deletes an existing User model.
+     */
+
+    public function actionDeactivate($id)
+    {
+        if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
+
+            //You can't deactivate your own
+           if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't deactivate your own account!");
+  
+            //Find division has users relations and delete
+            $user = $this->findModel($id);
+            
+            $user->status = User::STATUS_DELETED;
+            $user->save();
+
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
+        }
+    }
 
     /**
      * Finds the User model based on its primary key value.
@@ -214,6 +236,8 @@ class UserController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
 
 
 }
