@@ -1,0 +1,27 @@
+html,
+body {
+    height: 100%;    
+    
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    line-height: 1;
+}
+
+.btn {
+   
+    border: none;
+    text-decoration: underline;
+}
+.table-striped > tbody > tr:nth-of-type(odd)
+{
+	background-color: #fff;
+}
+.container 
+{
+	width:800px;
+}
+.report-view
+{
+	border: 2px solid #000000;padding:10px;
+}

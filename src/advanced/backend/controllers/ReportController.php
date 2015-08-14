@@ -27,7 +27,7 @@ class ReportController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','createforproject'],
+                        'actions' => ['index','create', 'update','view','createforproject','printview'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -62,12 +62,23 @@ class ReportController extends Controller
      * @param integer $id
      * @return mixed
      */
+
     public function actionView($id)
     {
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
     }
+
+    //Print View
+    public function actionPrintview($id)
+    {
+        $this->layout = 'print';
+        return $this->render('printview', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
 
     /**
      * Creates a new Report model.
@@ -107,7 +118,7 @@ class ReportController extends Controller
                 if($model->save())                      //only if saved the redirection happens
                     return $this->redirect(['view', 'id' => $model->id]);
             } else {
-                
+
                 $model->project_id = $id;
                 return $this->render('create', [
                     'model' => $model,

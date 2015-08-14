@@ -28,7 +28,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','approveddg','delete'],
+                        'actions' => ['index','create', 'update','view','approveddg', 'approveddg','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -171,6 +171,32 @@ class ProjectController extends Controller
         }
     }
 
+
+  /**
+    *DH approve method
+    *
+    */
+    public function actionApprovedh($id)
+    {
+         throw new ForbiddenHttpException;  
+        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
+                                                                                        and only before ddg approval, after ddg approval
+                                                                                        cant delete a project, project state can be changed 
+                                                                                        to cancelled -S*/
+            
+//Janaka -- adding approve actions (Done but have to check with a new project)
+            $model = $this->findModel($id);
+            $model->approved_ddg_user_id = Yii::$app->user->id;
+
+            if($model->approved_dh_user_id!=null && $model->state=='pending') $model->state = 'active';
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
+    }
     /**
      * Finds the Project model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.

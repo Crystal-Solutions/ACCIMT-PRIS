@@ -22,6 +22,7 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 
+    <link rel="stylesheet" type="text/css" href="<?= Yii::$app->request->baseUrl ?>/css/print.css">
      <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
 </head>
 <body>
