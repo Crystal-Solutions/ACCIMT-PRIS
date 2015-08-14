@@ -173,7 +173,10 @@ class UserController extends Controller
     public function actionDelete($id)
     {
         if(Yii::$app->user->can('system-admin')){   //system admin can delete user-S    
-           
+
+            //You can't delete your own
+           if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't delete your own account!");
+  
             //Find division has users relations and delete
             $user = $this->findModel($id);
             $divisionRelations = $user->getDivisionHasUsers()->all();

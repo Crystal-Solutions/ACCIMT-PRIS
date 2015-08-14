@@ -6,6 +6,7 @@ use backend\models\DivisionHasUser;
 use yii\base\Model;
 use Yii;
 use yii\helpers\ArrayHelper;
+use yii\web\ForbiddenHttpException; 
 
 /**
  * User form
@@ -80,6 +81,8 @@ class UserForm extends Model
 
             if ($user->save()) {
 
+
+
                 //Save all division user connections_________________________________
                  $divisions = $_POST['UserForm']['divisions'];
 
@@ -102,6 +105,9 @@ class UserForm extends Model
 
                  //Save all auths user connections______________________________
                  $auths = $_POST['UserForm']['auths'];
+
+                 if(!(in_array('system-admin', $auths)) && (Yii::$app->user->id==$user->id)) throw new ForbiddenHttpException("You can't remove your own 'system-admin' privilge as a system admin. If you want to remove it ask any other system admin to do that!");
+  
 
                  //remove all auths
                  $existingAuths = $user->getAuthAssignments()->all();
