@@ -41,6 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
         },
         'summary'=>"This division is involved in following projects.",
+        'emptyText'=>"This division currently has no projects"
 ]) ?>
 
 </div>
