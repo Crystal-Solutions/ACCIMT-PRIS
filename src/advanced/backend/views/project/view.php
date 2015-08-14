@@ -36,13 +36,34 @@ $this->params['breadcrumbs'][] = $this->title;
             'client',
             'state',
             'description',
-            'parent_project_id',
-            'requested_user_id',
-            'approved_dh_user_id',
-            'project_type_id',
-           // ['label' =>'my name','value'=>$model-getApprovedDdgUser()->name],
+           // 'parent_project_id',
+             [
+              'attribute'=>'parent_project_id',
+              'value'=>$model->getParentProject()->one()==null?"-":$model->getParentProject()->one()->name,
+            ],
+
+            [
+              'attribute'=>'requested_user_id',
+              'value'=>$model->getRequestedUser()->one()==null?"-":$model->getRequestedUser()->one()->name,
+            ],
+
+            [
+              'attribute'=>'approved_dh_user_id',
+              'value'=>$model->getApprovedDhUser()->one()==null?"-":$model->getApprovedDhUser()->one()->name,
+            ],
             
-            'division_id',
+            [
+              'attribute'=>'project_type_id',
+              'value'=>$model->getProjectType()->one()==null?"-":$model->getProjectType()->one()->name,
+            ],            
+            
+            [
+              'attribute'=>'division_id',
+              'value'=>$model->getDivision()->one()==null?"-":$model->getDivision()->one()->name,
+            ], 
+          
+            
+            
         ],
     ]) ?>
 
