@@ -21,10 +21,13 @@ use common\models\User;
     <?= $form->field($model, 'code')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'client')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'state')->dropDownList([ 'pending' => 'Pending', 'active' => 'Active', 'suspended' => 'Suspended', 'finished' => 'Finished', ], ['prompt' => 'Select State']) ?>
-
+    
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
+
+
+    <?= $form->field($model, 'starting_date')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'end_date')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'parent_project_id')->dropDownList(
         ArrayHelper::map(Project::find()->all(),'id','name'),

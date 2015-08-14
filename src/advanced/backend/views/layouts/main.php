@@ -21,7 +21,7 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
-
+    <link rel="stylesheet" type="text/css" href="<?= Yii::$app->request->baseUrl ?>/css/style.css">
      <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
 </head>
 <body>
@@ -80,12 +80,6 @@ AppAsset::register($this);
         <?= $content ?>
     </div>
 </div>
-
- <script>
-                // Replace the <textarea id="editor1"> with a CKEditor
-                // instance, using default configuration.
-                CKEDITOR.replace( 'report-content' );
-</script>
 
 <footer class="footer">
     <div class="container">

@@ -39,6 +39,13 @@ use common\models\User;
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
+    
+
+ <script>
+                // Replace the <textarea id="editor1"> with a CKEditor
+                // instance, using default configuration.
+                CKEDITOR.replace( 'report-content' );
+</script>
 
     <?php ActiveForm::end(); ?>
 
