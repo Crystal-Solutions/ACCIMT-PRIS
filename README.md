@@ -17,4 +17,10 @@ Update User Account &lt;br&gt;
 
 #####Appearances Ravi - 
 study Bootstrap and modify the pages to look not like yii default theme. We need an completely different appearance 
+
+
+####TO do next-
+Add http://ckeditor.com/demo plugin for report content field.
+Genenrate html for other reports. Code finance report page, stock report as views. no modles. generate a html using them.
+add members page. 
   
