@@ -36,7 +36,13 @@ $this->params['breadcrumbs'][] = $this->title;
             'client',
             'state',
             'description',
-            'parent_project_id',
+           // 'parent_project_id',
+             [
+              'attribute'=>'parent_project_id',
+              'value'=>$model->getParentProject()->one()==null?"-":$model->getParentProject()->one()->name,
+            ],
+            //'parentProject.name',
+
             'requested_user_id',
             'approved_dh_user_id',
             'project_type_id',
