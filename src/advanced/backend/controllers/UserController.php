@@ -56,6 +56,7 @@ class UserController extends Controller
     public function actionIndex()
     {
         if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
+
         $searchModel = new UserSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
@@ -121,7 +122,7 @@ class UserController extends Controller
         }else{
             throw new ForbiddenHttpException;   
         }
-        throw new NotAcceptableHttpException;   
+        //throw new NotAcceptableHttpException;
      
     }
 
@@ -133,6 +134,8 @@ class UserController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Yii::$app->user->can('update-user'))
+        {                                           //access to update user-S
         $user = $this->findModel($id);
 
         $model = new UserForm();
@@ -148,6 +151,10 @@ class UserController extends Controller
                 'model' => $model,
             ]);
         }
+        }else{
+            throw new ForbiddenHttpException;
+        }
+        //throw new NotAcceptableHttpException;
     }
 
 
