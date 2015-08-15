@@ -185,6 +185,8 @@ class ProjectController extends Controller
 
             $model->save();
 
+            //here should we generate an email to ddg?
+
             return $this->redirect(['view', 'id' => $model->id]);
         }else{
             throw new ForbiddenHttpException;   //-S
