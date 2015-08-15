@@ -23,13 +23,37 @@ body {
 .container 
 {
 	width:800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 .report-view
 {
-	border: 1px solid #000000;padding:10px;
+    border: 1px solid #000000;padding:10px;
 }
 
+.project-view
+{
+    border: 1px solid #000000;padding:10px;
+}
 
 .table-bordered {
     border: 1px solid #000;
     }
+
+.report-content{
+    margin-bottom: 40px;
+   border-bottom: 2px solid #000;
+}
+
+.report-content-content{
+    margin-bottom: 40px;
+    padding: 15px;
+   border: 1px solid #000;
+}
+
+.report-content-title
+{
+    padding: 4px;
+   border: 1px solid #000;
+   
+}
