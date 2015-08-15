@@ -28,52 +28,13 @@ $this->params['breadcrumbs'][] = $this->title;
    
     </p>
 
-    <?= DetailView::widget([
+
+
+    <?= $this->render('_detail', [
         'model' => $model,
-        'attributes' => [
-            'name',
-            'code',
-            'client',
-            'state',
-            'description',
-            'starting_date',
-
-            'end_date',
-           // 'parent_project_id',
-             [
-              'attribute'=>'parent_project_id',
-              'value'=>$model->getParentProject()->one()==null?"-":$model->getParentProject()->one()->name,
-            ],
-
-            [
-              'attribute'=>'requested_user_id',
-              'value'=>$model->getRequestedUser()->one()==null?"-":$model->getRequestedUser()->one()->name,
-            ],
-
-            [
-              'attribute'=>'approved_dh_user_id',
-              'value'=>$model->getApprovedDhUser()->one()==null?"-":$model->getApprovedDhUser()->one()->name,
-            ],
-            
-            [
-              'attribute'=>'approved_ddg_user_id',
-              'value'=>$model->getApprovedDdgUser()->one()==null?"-":$model->getApprovedDdgUser()->one()->name,
-            ],
-
-            [
-              'attribute'=>'project_type_id',
-              'value'=>$model->getProjectType()->one()==null?"-":$model->getProjectType()->one()->name,
-            ],            
-            
-            [
-              'attribute'=>'division_id',
-              'value'=>$model->getDivision()->one()==null?"-":$model->getDivision()->one()->name,
-            ], 
-          
-            
-            
-        ],
     ]) ?>
+
+
 
    <div class="panel-group" id="accordion">
 
@@ -83,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
       $reports = $model->getReports()->all();
       if($reports)
       {
-       echo "<br/><h2>Attached reports.</h2>";
+       echo "<br/><h3>Attached reports.</h3>";
 
        foreach ($reports as $key => $report) {
 
