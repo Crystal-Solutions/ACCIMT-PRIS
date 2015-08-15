@@ -23,7 +23,7 @@ body {
 .container 
 {
 	width:800px;
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 40px;
 }
 .report-view
@@ -46,7 +46,7 @@ body {
 }
 
 .report-content-content{
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     padding: 15px;
    border: 1px solid #000;
 }
@@ -56,4 +56,12 @@ body {
     padding: 4px;
    border: 1px solid #000;
    
+}
+.non-printable {
+    text-align: right;
+}
+
+ @media print
+{
+        .non-printable { display: none; }
 }

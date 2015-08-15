@@ -28,7 +28,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete','printview'],
+                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -78,7 +78,7 @@ class ProjectController extends Controller
         $this->layout = 'print';
         return $this->render('printview', [
             'model' => $this->findModel($id),
-            'all'=>true,
+            'all'=>false,
         ]);
     }
 
