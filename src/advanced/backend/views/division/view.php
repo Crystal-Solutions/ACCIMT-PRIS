@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
+
 /* @var $this yii\web\View */
 /* @var $model backend\models\Division */
 
@@ -34,8 +35,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 
-    <?= ListView::widget([
-        'dataProvider' => $dataProvider,
+    <?= ListView::widget([      //how is it showing the projects?
+        'dataProvider' => $dataProvider,    //what is data provider
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
                 return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);

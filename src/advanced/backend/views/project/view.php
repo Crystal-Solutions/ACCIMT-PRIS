@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ListView;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
@@ -35,9 +36,17 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
     ]) ?>
 
+    <!--?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+            return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+        },
+        'summary'=>"Added Team members",
+        'emptyText'=>"No team members added"
+    ]) ?-->
 
-
-   <div class="panel-group" id="accordion">
+  <div class="panel-group" id="accordion">
 
     <div>
     <?php
@@ -45,11 +54,11 @@ $this->params['breadcrumbs'][] = $this->title;
       $reports = $model->getReports()->all();
       if($reports)
       {
-       echo "<br/><h3>Attached reports.</h3>";
+        echo "<br/><h3>Attached reports.</h3>";
 
-       foreach ($reports as $key => $report) {
+        foreach ($reports as $key => $report) {
 
-         ?>
+    ?>
             <div class="panel panel-default">
               <div class="panel-heading">
                 <h4 class="panel-title">
@@ -60,27 +69,27 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="panel-body">
 
                   <?= $this->render('..\report\_detail', [
-        'model' => $report,
-                ]) ?>
-  <div class="report-content">
-                    <div class="report-content-title">Content</div>
-                
-                <div class="report-content-content">
-        <?= $report->content ?>
-      </div>
-    </div>
-              </div>
-              </div>
-            </div>
-         <?php
-       }
+                    'model' => $report,
+                  ]) ?>
 
+                  <div class="report-content">
+                    <div class="report-content-title">Content</div>
+
+                    <div class="report-content-content">
+                            <?= $report->content ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div
+    <?php
+        }
       }
       else
       {
         echo "No report is attached.";
       }
     ?>
-</div>
+    </div>
   </div>
 </div>

@@ -23,8 +23,8 @@ use common\models\User;
             'starting_date',
 
             'end_date',
-           // 'parent_project_id',
-             [
+            // 'parent_project_id',
+            [
               'attribute'=>'parent_project_id',
               'value'=>$model->getParentProject()->one()==null?"-":$model->getParentProject()->one()->name,
             ],
@@ -52,9 +52,19 @@ use common\models\User;
             [
               'attribute'=>'division_id',
               'value'=>$model->getDivision()->one()==null?"-":$model->getDivision()->one()->name,
-            ], 
-          
-            
-            
+            ],
+
+            [
+                'attribute'=>'team_leader',
+                'value'=>$model->getTeamLeader()->one()==null?"-":$model->getTeamLeader()->one()->name,
+            ],
+
+            [
+                'attribute'=>'team_members',
+                'value'=>$model->getUsers()->one()==null?"-":$model->getUsers()->all()->name,
+            ],
+
+            'quarterly_targets',
+
         ],
     ]) ?>

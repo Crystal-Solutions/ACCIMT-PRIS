@@ -7,10 +7,13 @@ use backend\models\ProjectType;
 use backend\models\Project;
 use common\models\User;
 use kartik\select2\Select2;
+use yii\widgets\ListView;
+use backend\models\TeamMember;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
 /* @var $form yii\widgets\ActiveForm */
+
 ?>
 
 <div class="project-form">
@@ -52,6 +55,7 @@ use kartik\select2\Select2;
         ['prompt' => 'Select Project Type']
     )?>
 
+    <!--adding team leader added-Shanika-->
     <?= $form->field($model, 'team_leader')->widget(Select2::classname(), [
         'data' => ArrayHelper::map(User::find()->all(),'id','name'),
         'language' => 'en',
@@ -60,6 +64,33 @@ use kartik\select2\Select2;
             'allowClear' => true
         ],
     ]); ?>
+
+    <!--adding team members added-Shanika-->
+    <?= $form->field($model,'member')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(User::find()->all(),'id','name'),
+        'language' => 'en',
+        'options' => ['placeholder' => 'Select a member'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]); ?>
+    ArrayHelper::map(User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
+    <!--displaying the team members added-Shanika-->
+
+
+
+
+    <!--?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+            return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+        },
+        'summary'=>"Added Team members",
+        'emptyText'=>"No team members added"
+    ]) ?-->
+
+    <?= $form->field($model, 'quarterly_targets')->textarea(['maxlength' => true]) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
