@@ -181,10 +181,7 @@ class ReportController extends Controller
     */
     public function actionApprove($id)
     {
-        if($this->findModel($id)->approved_user_id==NULL && Yii::$app->user->can('mark-report-approval')){   /*access to delete a project:: only dh can 
-                                                                                        and only before ddg approval, after ddg approval
-                                                                                        cant delete a project, project state can be changed 
-                                                                                        to cancelled -S*/
+        if($this->findModel($id)->approved_user_id==NULL && Yii::$app->user->can('mark-report-approval')){
             
 //Janaka -- adding approve actions (Done but have to check with a new project)
             $model = $this->findModel($id);

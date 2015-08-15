@@ -151,10 +151,7 @@ class ProjectController extends Controller
     */
     public function actionApproveddg($id)
     {
-        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){   /*access to delete a project:: only dh can 
-                                                                                        and only before ddg approval, after ddg approval
-                                                                                        cant delete a project, project state can be changed 
-                                                                                        to cancelled -S*/
+        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
             
 //Janaka -- adding approve actions (Done but have to check with a new project)
             $model = $this->findModel($id);
@@ -177,18 +174,18 @@ class ProjectController extends Controller
     */
     public function actionApprovedh($id)
     {
-        if($this->findModel($id)->approved_dh_user_id==NULL && Yii::$app->user->can('mark-dh-approval')){   /*access to delete a project:: only dh can 
-                                                                                        and only before ddg approval, after ddg approval
-                                                                                        cant delete a project, project state can be changed 
-                                                                                        to cancelled -S*/
+        if($this->findModel($id)->approved_dh_user_id==NULL && Yii::$app->user->can('mark-dh-approval')){
             
 //Janaka -- adding approve actions (Done but have to check with a new project)
             $model = $this->findModel($id);
             $model->approved_dh_user_id = Yii::$app->user->id;
 
-            if($model->approved_ddg_user_id!=null && $model->state=='pending') $model->state = 'active';
+            //dh approval should not make it active isn't it?
+            //if($model->approved_ddg_user_id!=null && $model->state=='pending') $model->state = 'active';
 
             $model->save();
+
+            //here should we generate an email to ddg?
 
             return $this->redirect(['view', 'id' => $model->id]);
         }else{

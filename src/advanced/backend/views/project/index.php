@@ -30,7 +30,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
            // 'id',
             'code',
-            'name',   
+            'name',
+            [
+                'attribute'=>'project_type_id',
+                'value'=>'projectType.name',    //what is projectType ?
+            ],
+
             'client',
             'state',
 
@@ -42,7 +47,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
              
 
-              [
+
+            [
               'attribute'=>'requested_user_id',
               'value'=>'requestedUser.name',
             ],
@@ -58,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
              //'requestedUser.name',
             // 'approved_ddg_user_id',
             // 'approved_dh_user_id',
-            // 'project_type_id',
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
