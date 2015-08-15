@@ -6,6 +6,7 @@ use yii\helpers\ArrayHelper;
 use backend\models\ProjectType;
 use backend\models\Project;
 use common\models\User;
+use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
@@ -50,6 +51,15 @@ use common\models\User;
         ArrayHelper::map(ProjectType::find()->all(),'id','name'),
         ['prompt' => 'Select Project Type']
     )?>
+
+    <?= $form->field($model, 'team_leader')->widget(Select2::classname(), [
+        'data' => ArrayHelper::map(User::find()->all(),'id','name'),
+        'language' => 'en',
+        'options' => ['placeholder' => 'Select the team leader'],
+        'pluginOptions' => [
+            'allowClear' => true
+        ],
+    ]); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
