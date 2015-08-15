@@ -100,8 +100,13 @@ $this->params['breadcrumbs'][] = $this->title;
                   <?= $this->render('..\report\_detail', [
         'model' => $report,
                 ]) ?>
-                  <?= $report->content;
-                  ?>
+  <div class="report-content">
+                    <div class="report-content-title">Content</div>
+                
+                <div class="report-content-content">
+        <?= $report->content ?>
+      </div>
+    </div>
               </div>
               </div>
             </div>

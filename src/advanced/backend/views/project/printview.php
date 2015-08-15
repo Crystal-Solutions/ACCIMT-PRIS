@@ -1,19 +1,17 @@
- <?php
+<?php
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
-use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use backend\models\Project;
-use backend\models\Division;
-use common\models\User;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Report */
-/* @var $form yii\widgets\ActiveForm */
+
+$this->title = $model->title;
 ?>
 
- <?= DetailView::widget([
+<div class="report-view">
+
+    <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'title',
@@ -36,3 +34,7 @@ use common\models\User;
             ],
         ],
     ]) ?>
+
+    <?= $model->content ?>
+
+</div>

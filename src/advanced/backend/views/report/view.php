@@ -32,6 +32,11 @@ $this->title = $model->title;
         'model' => $model,
     ]) ?>
 
-    <?= $model->content ?>
+
+
+    <div class="report-content-title">Content</div>
+         <div class="report-content-content">
+        <?= $model->content ?>
+    </div>
 
 </div>
