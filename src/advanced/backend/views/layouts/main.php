@@ -32,7 +32,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'Arthur C Clerk Institute for Modern Technologies',
+        'brandLabel' => 'Arthur C Clarke Institute for Modern Technologies',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
