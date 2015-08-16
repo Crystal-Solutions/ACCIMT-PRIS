@@ -11,7 +11,15 @@ use common\models\User;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Report */
 /* @var $form yii\widgets\ActiveForm */
+  $members = "";
+  if($model->getUsers()->all())
+    foreach ($model->getUsers()->all() as $member) 
+      $members=$members.$member->name.", ";
+   else
+    $members = "-";
 ?>
+
+
 <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
@@ -61,7 +69,7 @@ use common\models\User;
 
             [
                 'attribute'=>'team_members',
-                'value'=>$model->getUsers()->one()==null?"-":$model->getUsers()->all()->name,
+                'value'=>$members,
             ],
 
             'quarterly_targets',
