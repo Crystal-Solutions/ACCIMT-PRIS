@@ -10,6 +10,7 @@ use kartik\select2\Select2;
 use yii\widgets\ListView;
 use backend\models\TeamMember;
 use unclead\widgets\MultipleInput;
+use dosamigos\datepicker\DatePicker;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
@@ -29,9 +30,41 @@ use unclead\widgets\MultipleInput;
     
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'starting_date')->textInput(['maxlength' => true]) ?>
+    <!--?= $form->field($model, 'starting_date')->textInput(['maxlength' => true]) ?-->
 
-    <?= $form->field($model, 'end_date')->textInput(['maxlength' => true]) ?>
+    <?php 
+        // with an ActiveForm instance 
+        ?>
+        <?= $form->field($model, 'starting_date')->widget(
+            DatePicker::className(), [
+                // inline too, not bad
+                 'inline' => false, 
+                 // modify template for custom rendering
+                //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+                'clientOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-m-dd'
+                ]
+        ]);?>
+
+
+    <!--?= $form->field($model, 'end_date')->textInput(['maxlength' => true]) ?-->
+
+    <?php 
+        // with an ActiveForm instance 
+        ?>
+        <?= $form->field($model, 'end_date')->widget(
+            DatePicker::className(), [
+                // inline too, not bad
+                 'inline' => false, 
+                 // modify template for custom rendering
+                //'template' => '<div class="well well-sm" style="background-color: #fff; width:250px">{input}</div>',
+                'clientOptions' => [
+                    'autoclose' => true,
+                    'format' => 'yyyy-m-dd'
+                ]
+        ]);?>
+
 
     <?= $form->field($model, 'parent_project_id')->dropDownList(
         ArrayHelper::map(Project::find()->all(),'id','name'),
