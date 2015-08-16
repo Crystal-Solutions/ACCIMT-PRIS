@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ListView;
 
 
 /* @var $this yii\web\View */
@@ -18,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
     ]) ?>
 
-    <?= ListView::widget([
+    <!--?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
@@ -26,6 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
         },
         'summary'=>"Added Team members",
         'emptyText'=>"No team members added"
-    ]) ?>
+    ]) ?-->
 
 </div>

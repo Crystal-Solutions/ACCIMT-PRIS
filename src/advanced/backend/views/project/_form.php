@@ -9,6 +9,7 @@ use common\models\User;
 use kartik\select2\Select2;
 use yii\widgets\ListView;
 use backend\models\TeamMember;
+use unclead\widgets\MultipleInput;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
@@ -66,15 +67,31 @@ use backend\models\TeamMember;
     ]); ?>
 
     <!--adding team members added-Shanika-->
-    <?= $form->field($model,'member')->widget(Select2::classname(), [
+    <!--?= $form->field($model,'users')->widget(Select2::classname(), [    //is users correct?
         'data' => ArrayHelper::map(User::find()->all(),'id','name'),
         'language' => 'en',
         'options' => ['placeholder' => 'Select a member'],
         'pluginOptions' => [
             'allowClear' => true
         ],
+    ]); ?-->
+
+    <?= $form->field($model, 'users')->widget(MultipleInput::className(), [
+        'limit' => 10,
+        'columns' => [
+            [
+                'name'  => 'team_members',
+                'type'  => 'dropDownList',
+                'title' => '',
+                //'defaultValue' => 1,
+                'items' => [
+                    1 => 'User 1',
+                    2 => 'User 2'
+                ]
+            ],
+        ]
     ]); ?>
-    ArrayHelper::map(User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
+
     <!--displaying the team members added-Shanika-->
 
 
