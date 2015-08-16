@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p> 
-        <?= Html::a('Add a report', ['report/createforproject', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Add a report', ['report/create', 'projectid' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -60,7 +60,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     ?>
             <div class="panel panel-default">
-              <div class="panel-heading">
+              <div class="panel  panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $key?>"><?= $report->title?></a>
                 </h4>
@@ -82,6 +82,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
               </div>
             </div
+          </div>
     <?php
         }
       }

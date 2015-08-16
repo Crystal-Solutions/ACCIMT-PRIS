@@ -55,6 +55,7 @@ AppAsset::register($this);
         $menuItems[] = [
             'label' => 'Projects', 'url' => ['/project/index'],
         ];
+        
         $menuItems[] = [
             'label' => 'Divisions', 'url' => ['/division/index'],
         ];
