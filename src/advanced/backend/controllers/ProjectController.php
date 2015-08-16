@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException;
 use yii\web\NotAcceptableHttpException;
 use yii\filters\AccessControl;
+use backend\models\TeamMember;
 
 use yii\data\ActiveDataProvider;
 
@@ -109,6 +110,7 @@ class ProjectController extends Controller
     public function actionCreate()
     {
         if(Yii::$app->user->can('create-project')){   //access to create project-S
+            
             $model = new Project();
 
             if ($model->load(Yii::$app->request->post())) {
@@ -116,6 +118,24 @@ class ProjectController extends Controller
 
 
                 if($model->save())                      //only if saved the redirection happens
+
+                    //////////////////////////////////////////////////////////////////
+
+                    //Save all project user connections_________________________________
+                    $users = $_POST['Project']['users'];
+
+                    //add new relations by DivisionHasUser
+                    if($users){
+                        foreach($users as $user)
+                        {
+
+                            $team = new TeamMember();
+                            $team->user_id = $user;
+                            $team->project_id = $model->id;
+                            $team->save(); 
+                        }
+                    }
+                    ////////////////////////////////////////////////////////////////////
                     return $this->redirect(['view', 'id' => $model->id]);
 
             } else {
