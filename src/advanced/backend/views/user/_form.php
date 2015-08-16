@@ -40,8 +40,8 @@ use yii\helpers\ArrayHelper;
 
 
     <?php
-    //if(isSet($showAuths) && $showAuths)
-    if(isSet($showDivisions) && $showDivisions)
+    if(isSet($showAuths) && $showAuths)
+    //if(isSet($showDivisions) && $showDivisions)
         {
         $allAuths = ArrayHelper::map(AuthItem::find()->where(['type'=>'2'])->all(),'name','name') ;
         echo  $form->field($model, 'auths')->checkboxList($allAuths,$options = [

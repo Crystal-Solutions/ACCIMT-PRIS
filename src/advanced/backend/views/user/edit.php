@@ -6,6 +6,10 @@ use yii\helpers\Html;
 /* @var $model common\models\User */
 
 $this->title = 'Edit Your Profile';
+
+//-S
+$this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-update">
 
@@ -14,6 +18,7 @@ $this->title = 'Edit Your Profile';
     <?= $this->render('_form', [
         'model' => $model,
         'showDivisions' => false,
+        //'showAuths' => true,
     ]) ?>
 
 </div>
