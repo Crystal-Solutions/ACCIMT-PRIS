@@ -136,22 +136,23 @@ class UserController extends Controller
     {
         if(Yii::$app->user->can('update-user'))
         {                                           //access to update user-S
-        $user = $this->findModel($id);
+            $user = $this->findModel($id);
 
-        $model = new UserForm();
-        $model->setUser($user);
+            $model = new UserForm();
+            $model->setUser($user);
 
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            return $this->redirect(['view', 'id' => $user->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+                return $this->redirect(['view', 'id' => $user->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
         }
-        }else{
+        else{
             throw new ForbiddenHttpException;
         }
         //throw new NotAcceptableHttpException;
