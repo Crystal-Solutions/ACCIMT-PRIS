@@ -53,16 +53,19 @@ $this->params['breadcrumbs'][] = $this->title;
               'value'=>'requestedUser.name',
             ],
             
-              [
+            [
               'attribute'=>'division_id',
               'value'=>'division.name',
             ],
             
 
+            'starting_date',
+            'end_date',
+
             // 'parent_project_id',
              //'requested_user_id',
              //'requestedUser.name',
-            // 'approved_ddg_user_id',
+            //'approved_ddg_user_id',
             // 'approved_dh_user_id',
 
 

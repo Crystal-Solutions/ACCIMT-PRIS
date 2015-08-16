@@ -25,7 +25,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'state') ?>
 
-    <?php // echo $form->field($model, 'description') ?>
+    <?= $form->field($model, 'starting_date') ?>
+
+    <?= $form->field($model, 'end_date') ?>
+
+    <?php echo $form->field($model, 'description') ?>
 
     <?php // echo $form->field($model, 'parent_project_id') ?>
 
