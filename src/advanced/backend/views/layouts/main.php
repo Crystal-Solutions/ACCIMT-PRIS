@@ -46,16 +46,20 @@ AppAsset::register($this);
             'label' => 'Login', 'url' => ['/site/login']
         ];
     } else {//cant we add these menu items in one assignment??-S
-        if(Yii::$app->user->can('system-admin'))//only system admin can see users
-        $menuItems[] = [
-            'label' => 'Users', 'url' => ['/user/index'],
-        ];
-
+        if(Yii::$app->user->can('system-admin'))
+        {//only system admin can see users
+            $menuItems[] = [
+                'label' => 'Users', 'url' => ['/user/index'],
+            ];
+            $menuItems[] = [
+                'label' => 'Report Templates', 'url' => ['/report-template/index'],
+            ];
+        }
 
         $menuItems[] = [
             'label' => 'Projects', 'url' => ['/project/index'],
         ];
-        
+
         $menuItems[] = [
             'label' => 'Divisions', 'url' => ['/division/index'],
         ];
