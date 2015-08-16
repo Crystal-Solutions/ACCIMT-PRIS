@@ -24,7 +24,6 @@ use common\models\User;
     
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-
     <?= $form->field($model, 'starting_date')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'end_date')->textInput(['maxlength' => true]) ?>
@@ -36,8 +35,8 @@ use common\models\User;
 
     <?= $form->field($model, 'division_id')->dropDownList(
         ArrayHelper::map( User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
-        ['prompt' => 'Select Division
-        ']
+        ['prompt' => 'Select Division'
+        ]
     )?>
 
     <!--?= $form->field($model, 'requested_user_id')->textInput() ?-->

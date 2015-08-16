@@ -19,7 +19,7 @@ class ProjectSearch extends Project
     {
         return [
             [['id',   'approved_ddg_user_id', 'approved_dh_user_id'], 'integer'],
-            [['name','division_id','requested_user_id','parent_project_id', 'code', 'client', 'state', 'description', 'project_type_id'], 'safe'],
+            [['name','division_id','requested_user_id','parent_project_id', 'code', 'client', 'state', 'description', 'project_type_id', 'starting_date', 'end_date'], 'safe'],
         ];
     }
 
@@ -100,7 +100,13 @@ class ProjectSearch extends Project
             ->andFilterWhere(['like', 'state', $this->state])
             ->andFilterWhere(['like', 'description', $this->description])
             ->andFilterWhere(['like', 'user.username', $this->requested_user_id])
-            ->andFilterWhere(['like', 'division.name', $this->division_id]);
+            ->andFilterWhere(['like', 'division.name', $this->division_id])
+            ->andFilterWhere(['like', 'starting_date', $this->starting_date])
+            ->andFilterWhere(['like', 'end_date', $this->end_date]);
+
+
+
+
 
         return $dataProvider;
     }
