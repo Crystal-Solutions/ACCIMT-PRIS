@@ -73,20 +73,20 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        $query = User::FindOne($id)->getDivisions();
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
+        $query1 = User::FindOne($id)->getDivisions();
+        $dataProviderDivisions = new ActiveDataProvider([
+            'query' => $query1,
         ]);
 
-        $authsQ = User::FindOne($id)->getAuthAssignments();
-        $auths = new ActiveDataProvider([
-            'query' => $authsQ,
+        $query2 = User::FindOne($id)->getAuthAssignments();
+        $dataProviderAuths = new ActiveDataProvider([
+            'query' => $query2,
         ]);
 
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'dataProvider' => $dataProvider,
-            'dataProviderAuths' => $auths,
+            'dataProvider' => $dataProviderDivisions,
+            'dataProviderAuths' => $dataProviderAuths,
         ]);
     }
 

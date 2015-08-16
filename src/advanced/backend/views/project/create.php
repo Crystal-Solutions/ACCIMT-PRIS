@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\widgets\ListView;
 
 
 /* @var $this yii\web\View */
@@ -17,5 +18,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
+
+    <!--?= ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => function ($model, $key, $index, $widget) {
+            return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+        },
+        'summary'=>"Added Team members",
+        'emptyText'=>"No team members added"
+    ]) ?-->
 
 </div>

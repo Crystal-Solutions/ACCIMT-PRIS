@@ -22,11 +22,9 @@ $this->title = $model->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?php if(Yii::$app->user->can('mark-report-approval') && $model->getApprovedUser()->one()==null) echo Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
-
-      <?php if(Yii::$app->user->can('mark-report-approval') &&
-       $model->getApprovedUser()->one()==null) 
-        echo Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php if(Yii::$app->user->can('mark-report-approval') && $model->getApprovedUser()->one()==null)
+            echo Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']);
+        ?>
     </p>
 
     <?= $this->render('_detail', [

@@ -12,6 +12,8 @@ use yii\web\ForbiddenHttpException;
 use yii\web\NotAcceptableHttpException;
 use yii\filters\AccessControl;
 
+use yii\data\ActiveDataProvider;
+
 /**
  * ProjectController implements the CRUD actions for Project model.
  */
@@ -67,8 +69,15 @@ class ProjectController extends Controller
      */
     public function actionView($id)
     {
+        //modified to get team members -not working -S
+//        $query1 = Project::FindOne($id)->getUsers();
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => $query1,
+//        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            //'dataProvider' => $dataProvider,
         ]);
     }
 
