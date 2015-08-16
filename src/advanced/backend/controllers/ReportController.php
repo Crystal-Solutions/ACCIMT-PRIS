@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Report;
+use backend\models\ReportTemplate;
 use backend\models\ReportSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -85,28 +86,7 @@ class ReportController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
-    {
-        if(Yii::$app->user->can('create-report')){   //access to create report-S
-            $model = new Report();
-
-            if ($model->load(Yii::$app->request->post()) ) {
-                $model->submit_date = date('Y-m-d h:m:s');
-                $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
-                $model->approved_user_id = null;
-                if($model->save())                      //only if saved the redirection happens
-                    return $this->redirect(['view', 'id' => $model->id]);
-            } else {
-                return $this->render('create', [
-                    'model' => $model,
-                ]);
-            }
-        }else{
-            throw new ForbiddenHttpException;   //-S
-        }
-    }
-
-    public function actionCreateforproject($id)
+    public function actionCreate($template=null,$projectid=null)
     {
         if(Yii::$app->user->can('create-report')){   //access to create report-S
             $model = new Report();
@@ -119,7 +99,18 @@ class ReportController extends Controller
                     return $this->redirect(['view', 'id' => $model->id]);
             } else {
 
-                $model->project_id = $id;
+                $model->project_id = 100;$projectid;
+                if($template)
+                {
+                    $templateModel =  ReportTemplate::findOne($template);
+                    if($templateModel)
+                    {
+                        $model->title =$templateModel->name;
+                        $model->content = $templateModel->content;
+                    }
+
+                }
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
@@ -128,6 +119,9 @@ class ReportController extends Controller
             throw new ForbiddenHttpException;   //-S
         }
     }
+
+
+
 
     /**
      * Updates an existing Report model.
