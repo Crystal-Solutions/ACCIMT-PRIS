@@ -41,6 +41,7 @@ use common\models\User;
  */
 class Project extends \yii\db\ActiveRecord
 {
+    public $users;
     /**
      * @inheritdoc
      */
