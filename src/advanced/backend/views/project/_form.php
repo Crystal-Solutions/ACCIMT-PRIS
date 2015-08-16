@@ -67,6 +67,7 @@ use unclead\widgets\MultipleInput;
     ]); ?>
 
     <!--adding team members added-Shanika-->
+
     <!--?= $form->field($model,'users')->widget(Select2::classname(), [    //is users correct?
         'data' => ArrayHelper::map(User::find()->all(),'id','name'),
         'language' => 'en',
@@ -83,11 +84,10 @@ use unclead\widgets\MultipleInput;
                 'name'  => 'team_members',
                 'type'  => 'dropDownList',
                 'title' => '',
-                //'defaultValue' => 1,
-                'items' => [
-                    1 => 'User 1',
-                    2 => 'User 2'
-                ]
+                //'options' => ['placeholder' => 'Select'],
+                'defaultValue' => 5,        //default value not working when arrayhelper used
+                'items' => ArrayHelper::map(User::find()->all(),'id','name'),       //how to get users only from same division?
+                //ArrayHelper::map( User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
             ],
         ]
     ]); ?>
