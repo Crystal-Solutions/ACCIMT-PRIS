@@ -9,8 +9,16 @@ body {
 }
 
 .btn {
-   
+   color: blue;
     border: none;
+    text-decoration: none;
+    background-color: white;
+}
+.btn:hover{
+
+  background-color:white;
+  color: blue;
+
     text-decoration: underline;
 }
 .table-striped > tbody > tr:nth-of-type(odd)
@@ -35,3 +43,9 @@ body {
    border: 1px solid #ddd;
    
 }
+
+.dropdown
+{
+  float: left;
+}
+
