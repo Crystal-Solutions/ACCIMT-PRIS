@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\widgets\ListView;
+use backend\models\ReportTemplate;
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Project */
@@ -16,7 +17,32 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p> 
-        <?= Html::a('Add a report', ['report/createforproject', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Add a report', ['report/create', 'projectid' => $model->id], ['class' => 'btn btn-primary']) ?>
+        
+        <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          Add a report
+          <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <?php 
+            $reportTemplates =ReportTemplate::find()->all();
+            if($reportTemplates)
+              foreach ($reportTemplates as $value) {
+                # code...
+                ?>
+                <li>
+
+                  <?= Html::a($value->name, ['report/create', 'projectid' => $model->id, 'template'=>$value->id], ['class' => 'btn btn-primary']) ?>
+                </li>
+                <?php
+              }
+?>
+          
+        </ul>
+      </div>
+
+
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
@@ -60,7 +86,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     ?>
             <div class="panel panel-default">
-              <div class="panel-heading">
+              <div class="panel  panel-heading">
                 <h4 class="panel-title">
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $key?>"><?= $report->title?></a>
                 </h4>
@@ -82,6 +108,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </div>
               </div>
             </div
+          </div>
     <?php
         }
       }
