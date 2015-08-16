@@ -65,6 +65,10 @@ AppAsset::register($this);
         ];
 
         $menuItems[] = [
+            'label' => 'Edit Profile', 'url' => ['/user/edit'],
+        ];
+
+        $menuItems[] = [
             'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
             'url' => ['/site/logout'],
             'linkOptions' => ['data-method' => 'post']

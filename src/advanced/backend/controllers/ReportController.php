@@ -99,7 +99,7 @@ class ReportController extends Controller
                     return $this->redirect(['view', 'id' => $model->id]);
             } else {
 
-                $model->project_id = 100;$projectid;
+                $model->project_id = $projectid;
                 if($template)
                 {
                     $templateModel =  ReportTemplate::findOne($template);
