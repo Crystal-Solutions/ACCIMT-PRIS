@@ -8,19 +8,7 @@ body {
     padding: 4px;
 }
 
-.btn {
-   color: blue;
-    border: none;
-    text-decoration: none;
-    background-color: white;
-}
-.btn:hover{
 
-  background-color:white;
-  color: blue;
-
-    text-decoration: underline;
-}
 .table-striped > tbody > tr:nth-of-type(odd)
 {
 	background-color: #B4E0EC;
@@ -49,3 +37,40 @@ body {
   float: left;
 }
 
+
+/* go to print page link everywhere*/
+.print_link
+{
+  color:green;
+  margin-left: 0px;
+  text-indent: 50px;
+}
+/* go to print page link everywhere*/
+.view_link
+{
+  color:blue;
+  margin-left: 0px;
+  text-indent: 50px;
+}
+
+/*report titles in the project page*/
+.panel{
+}
+
+.panel-title
+{
+  display:inline;
+  padding: 5px;
+
+}
+.panel-title > a
+{
+}
+
+
+/* btn  */
+.btn{
+
+  line-height: 1.2;
+  border-radius: 0px;
+}
