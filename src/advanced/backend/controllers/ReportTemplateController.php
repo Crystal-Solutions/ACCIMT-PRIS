@@ -8,6 +8,8 @@ use backend\models\ReportTemplateSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\web\ForbiddenHttpException;
 
 /**
  * ReportTemplateController implements the CRUD actions for ReportTemplate model.
@@ -21,6 +23,20 @@ class ReportTemplateController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'actions' => [ 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['index','create', 'update','view', 'delete'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];
@@ -60,14 +76,18 @@ class ReportTemplateController extends Controller
      */
     public function actionCreate()
     {
-        $model = new ReportTemplate();
+        if(Yii::$app->user->can('sectional-head')){   //access to create report template-S  //change auth
+            $model = new ReportTemplate();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('create', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -79,14 +99,18 @@ class ReportTemplateController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        if(Yii::$app->user->can('sectional-head')){   //access to create report template-S  //change auth
+            $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                return $this->redirect(['view', 'id' => $model->id]);
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                ]);
+            }
+        }else{
+            throw new ForbiddenHttpException;   //-S
         }
     }
 
@@ -98,9 +122,13 @@ class ReportTemplateController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Yii::$app->user->can('sectional-head')){   //access to create report template-S  //change auth
+            $this->findModel($id)->delete();
 
-        return $this->redirect(['index']);
+            return $this->redirect(['index']);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
     }
 
     /**

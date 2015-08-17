@@ -73,21 +73,25 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        $query1 = User::FindOne($id)->getDivisions();
-        $dataProviderDivisions = new ActiveDataProvider([
-            'query' => $query1,
-        ]);
+        if(Yii::$app->user->can('system-admin')){   //system admin can view user-S   //change to proper auth
+            $query1 = User::FindOne($id)->getDivisions();
+            $dataProviderDivisions = new ActiveDataProvider([
+                'query' => $query1,
+            ]);
 
-        $query2 = User::FindOne($id)->getAuthAssignments();
-        $dataProviderAuths = new ActiveDataProvider([
-            'query' => $query2,
-        ]);
+            $query2 = User::FindOne($id)->getAuthAssignments();
+            $dataProviderAuths = new ActiveDataProvider([
+                'query' => $query2,
+            ]);
 
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-            'dataProvider' => $dataProviderDivisions,
-            'dataProviderAuths' => $dataProviderAuths,
-        ]);
+            return $this->render('view', [
+                'model' => $this->findModel($id),
+                'dataProvider' => $dataProviderDivisions,
+                'dataProviderAuths' => $dataProviderAuths,
+            ]);
+        }else{
+            throw new ForbiddenHttpException;   
+        }
     }
 
     /**

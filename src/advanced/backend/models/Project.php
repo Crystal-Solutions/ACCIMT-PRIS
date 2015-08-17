@@ -90,6 +90,7 @@ class Project extends \yii\db\ActiveRecord
             'team_leader' => 'Team Leader',
             'starting_date' => 'Start Date',
             'end_date' => 'End Date',
+            'users'=>'Team Members'
         ];
     }
 
