@@ -30,6 +30,7 @@ AppAsset::register($this);
     <div class="container">
     <div class="non-printable">
         <a href="<?php echo Yii::$app->request->baseUrl; ?>">Home </a> - 
+        <a href="javascript:history.back()"> Back </a> - 
         <a href="javascript:window.print()"> <span class="glyphicon glyphicon-print" > </span> Print</a>
     </div>
         <?= Breadcrumbs::widget([
