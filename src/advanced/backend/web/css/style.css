@@ -6,6 +6,7 @@ body {
 .table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     line-height: 1;
     padding: 4px;
+    border-color: #B4E0EC;
 }
 
 
@@ -21,14 +22,14 @@ body {
 .report-content-content{
 
 	padding: 15px;
-   border: 1px solid #ddd;
+   border: 1px solid #B4E0EC;
 }
 
 .report-content-title
 {
 	background-color: #B4E0EC;
 	padding: 4px;
-   border: 1px solid #ddd;
+   border: 1px solid #B4E0EC;
    
 }
 
@@ -38,20 +39,8 @@ body {
 }
 
 
-/* go to print page link everywhere*/
-.print_link
-{
-  color:green;
-  margin-left: 0px;
-  text-indent: 50px;
-}
-/* go to print page link everywhere*/
-.view_link
-{
-  color:blue;
-  margin-left: 0px;
-  text-indent: 50px;
-}
+
+
 
 /*report titles in the project page*/
 .panel{
@@ -71,6 +60,34 @@ body {
 /* btn  */
 .btn{
 
-  line-height: 1.2;
+  line-height: 1;
   border-radius: 0px;
+  border-width: 0px;
+}
+
+/* button print */
+.btn-print
+{
+    color: white;
+    background-color: green;
+}
+.btn-print:hover
+{
+    color: white;
+    background-color: #02BD02;
+}
+
+/* go to view page link everywhere*/
+.btn-view
+{
+  color:white;
+
+  background-color: #0098C1;
+}
+
+.btn-view:hover
+{
+  color:white;
+
+  background-color: #00C9FF;
 }

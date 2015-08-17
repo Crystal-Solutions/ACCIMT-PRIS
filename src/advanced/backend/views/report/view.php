@@ -25,7 +25,7 @@ $this->title = $model->title;
         <?php if(Yii::$app->user->can('mark-report-approval') && $model->getApprovedUser()->one()==null)
             echo Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']);
         ?>
-         <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn print_link']) ?>
+         <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn btn-print']) ?>
 
     </p>
 

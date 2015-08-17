@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
           
         </ul>
       </div>
-
+ |
 
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
@@ -51,8 +51,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
         <?php if(Yii::$app->user->can('mark-dh-approval') && $model->getApprovedDhUser()->one()==null) echo Html::a('Approve by DH', ['approvedh', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
         <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
-     <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'print_link']) ?> |
-      <?= Html::a('Print with Reports', ['printviewall', 'id' => $model->id], ['class' => 'print_link']) ?>
+     <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn btn-print']) ?> |
+      <?= Html::a('Print with Reports', ['printviewall', 'id' => $model->id], ['class' => 'btn btn-print']) ?>
 
     </p>
 
@@ -91,9 +91,9 @@ $this->params['breadcrumbs'][] = $this->title;
                   <a data-toggle="collapse" data-parent="#accordion" href="#collapse<?= $key?>"><?= $report->title?></a>
                 
                 </h4>
-                 <?= Html::a('View', ['report/view', 'id' => $report->id], ['class' => 'view_link']) ?>
+                 <?= Html::a('View', ['report/view', 'id' => $report->id], ['class' => 'btn btn-view']) ?>
 
-                 <?= Html::a('Print', ['report/printview', 'id' => $report->id], ['class' => 'print_link']) ?>
+                 <?= Html::a('Print', ['report/printview', 'id' => $report->id], ['class' => 'btn btn-print']) ?>
 
               </div>
               <div id="collapse<?= $key?>" class="panel-collapse collapse">
