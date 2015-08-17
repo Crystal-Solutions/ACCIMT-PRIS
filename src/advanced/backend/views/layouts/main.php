@@ -28,6 +28,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
+   
     <?php
     NavBar::begin([
         'brandLabel' => 'Arthur C Clarke Institute for Modern Technologies',
