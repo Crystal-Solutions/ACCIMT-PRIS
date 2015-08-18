@@ -14,7 +14,7 @@ $this->title = 'ACCIMT-PRIS';
     </div>
     
 
-    <div class="body-content">
+    <!-- <div class="body-content">
 
         <div class="row">
             <div class="col-lg-4">
@@ -49,6 +49,6 @@ $this->title = 'ACCIMT-PRIS';
             </div>
         </div>
 
-    </div>
-    <
+    </div> -->
+    
 </div>

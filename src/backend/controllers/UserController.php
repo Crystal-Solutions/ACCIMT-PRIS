@@ -55,6 +55,7 @@ class UserController extends Controller
      */
     public function actionIndex()
     {
+        $this->layout = 'prisMainLayout';
         if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
 
         $searchModel = new UserSearch();

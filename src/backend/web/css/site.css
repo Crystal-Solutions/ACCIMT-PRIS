@@ -4,7 +4,7 @@ body {
 }
 .headerImg{
     position: fixed;
-    height: 290px;
+    height: 190px;
     width:100%;
     margin: 0 auto -60px;
     padding: 0 0 60px;
@@ -20,6 +20,7 @@ body {
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+    background-color: #aaa5f5;
 }
 
 .wrapper > .container {
@@ -29,7 +30,17 @@ body {
 .site-index{
     position: fixed;
     top:190px;
-        background-image: url("img/bg.jpg");
+    background-image: url("img/bg.jpg");
+}
+.user-index{
+    position: fixed;
+    top:190px;
+    background-image: url("img/bg.jpg");
+}
+.site-login{
+    position: fixed;
+    top:190px;
+    width:100%;
 }
 
 .breadcrumbs{
@@ -39,9 +50,10 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
+    background-color: #000066;
     border-top: 1px solid #ddd;
     padding-top: 20px;
+    color: white;
 }
 
 .jumbotron {
