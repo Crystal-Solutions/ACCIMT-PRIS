@@ -18,11 +18,11 @@ class PrisHomeAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
+        'css/bootstrap.css',
         'css/site.css',
-        'bootstrap3/css/bootstrap.min.css',
     ];
     public $js = [
-        'bootstrap3/js/bootstrap.min.js',
+        'js/bootstrap.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -2,15 +2,25 @@ html,
 body {
     height: 100%;
 }
+.headerImg{
+    height: 90px;
+    width:100%;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
 
-.wrap {
+.navbar{
+    top:95px;
+}
+.wrapper {
+    top:90px;
     min-height: 100%;
     height: auto;
     margin: 0 auto -60px;
     padding: 0 0 60px;
 }
 
-.wrap > .container {
+.wrapper > .container {
     padding: 70px 15px 20px;
 }
 
@@ -22,6 +32,7 @@ body {
 }
 
 .jumbotron {
+    height:350px;
     text-align: center;
     background-color: transparent;
 }
