@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,    //what is data provider
         'itemOptions' => ['class' => 'item'],
         'itemView' => function ($model, $key, $index, $widget) {
-                return Html::a(Html::encode($model->name), ['view', 'id' => $model->id]);
+                return Html::a(Html::encode($model->name), ['project/view', 'id' => $model->id]);
         },
         'summary'=>"This division is involved in following projects.",
         'emptyText'=>"This division currently has no projects"

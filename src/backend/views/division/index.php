@@ -1,7 +1,8 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\DivisionSearch */
@@ -26,10 +27,30 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'name',
+            //'name',
+            //krajee gridview widget with links-Shanika 
+            [
+                'attribute'=>'name', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->name,  
+                        'index.php?r=division%2Fview&id='.$model->id,
+                        ['title'=>'View division detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
+            ],
+            ////////////////////////////////////////////////
             'description',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

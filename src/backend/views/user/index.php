@@ -32,17 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'epf_no',
             //'name',
-
-            //////////////////////////////////////////////////krajee gridview widget with links 
-
+            //krajee gridview widget with links-Shanika 
             [
                 'attribute'=>'name', 
                 'vAlign'=>'middle',
                 'width'=>'180px',
                 'value'=>function ($model, $key, $index, $widget) { 
                     return Html::a($model->name,  
-                        //'index.php?r=user%2Fview&id="User::findOne(Yii::$app->user->id"', 
-                        'index.php?r=user%2Fview&id=6',
+                        'index.php?r=user%2Fview&id='.$model->id,
                         ['title'=>'View user detail',]);
                         //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
                 },
@@ -54,7 +51,6 @@ $this->params['breadcrumbs'][] = $this->title;
                 // 'filterInputOptions'=>['placeholder'=>'Any user'],
                 'format'=>'raw'
             ],
-
             ////////////////////////////////////////////////
 
             'username',
@@ -69,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

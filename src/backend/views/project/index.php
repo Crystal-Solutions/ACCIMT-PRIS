@@ -1,8 +1,10 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
+use backend\models\Project;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\ProjectSearch */
@@ -32,7 +34,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
            // 'id',
             'code',
-            'name',
+            //'name',
+            //krajee gridview widget with links-Shanika 
+            [
+                'attribute'=>'name', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->name,  
+                        'index.php?r=project%2Fview&id='.$model->id,
+                        ['title'=>'View project detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
+            ],
+            ////////////////////////////////////////////////
             [
                 'attribute'=>'project_type_id',
                 'value'=>'projectType.name',    //what is projectType ?
@@ -40,26 +62,64 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'client',
             'state',
-
-            // 'description',
+            //krajee gridview widget with links-Shanika 
             [
-              'attribute'=>'parent_project_id',
-              'value'=>'parentProject.name',
+                'attribute'=>'parent_project_id', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->getParentProject()->one()==null?"":$model->getParentProject()->one()->name,  
+                        $model->getParentProject()->one()==null?"#":'index.php?r=project%2Fview&id='.$model->getParentProject()->one()->id,
+                        ['title'=>'View parent project detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
             ],
-
-             
-
-
+            //krajee gridview widget with links-Shanika 
             [
-              'attribute'=>'requested_user_id',
-              'value'=>'requestedUser.name',
+                'attribute'=>'requested_user_id', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->getRequestedUser()->one()==null?"":$model->getRequestedUser()->one()->name,  
+                        $model->getRequestedUser()->one()==null?"#":'index.php?r=user%2Fview&id='.$model->getRequestedUser()->one()->id,
+                        ['title'=>'View requested user detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
             ],
-            
+            ////////////////////////////////////////////////
             [
-              'attribute'=>'division_id',
-              'value'=>'division.name',
+                'attribute'=>'division_id', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->getDivision()->one()==null?"":$model->getDivision()->one()->name,  
+                        $model->getDivision()->one()==null?"#":'index.php?r=division%2Fview&id='.$model->getDivision()->one()->id,
+                        ['title'=>'View project division detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
             ],
-            
+            ////////////////////////////////////////////////
 
             'starting_date',
             'end_date',
@@ -71,7 +131,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'approved_dh_user_id',
 
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
