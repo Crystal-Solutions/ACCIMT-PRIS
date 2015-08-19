@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             //'id',
             'epf_no',
-            'name',
+            //'name',
 
             //////////////////////////////////////////////////krajee gridview widget with links 
 
@@ -42,15 +42,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 'width'=>'180px',
                 'value'=>function ($model, $key, $index, $widget) { 
                     return Html::a($model->name,  
-                        '#', 
-                        ['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                        //'index.php?r=user%2Fview&id="User::findOne(Yii::$app->user->id"', 
+                        'index.php?r=user%2Fview&id=6',
+                        ['title'=>'View user detail',]);
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
                 },
-                'filterType'=>GridView::FILTER_SELECT2,
-                'filter'=>ArrayHelper::map(User::find()->orderBy('name')->asArray()->all(), 'id', 'name'), 
-                'filterWidgetOptions'=>[
-                    'pluginOptions'=>['allowClear'=>true],
-                ],
-                'filterInputOptions'=>['placeholder'=>'Any user'],
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
                 'format'=>'raw'
             ],
 
@@ -68,7 +70,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            //['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>
