@@ -59,7 +59,6 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        $this->layout = 'prisHomeLayout';
         if (!\Yii::$app->user->isGuest) {
             return $this->render('home');
         }
@@ -68,7 +67,6 @@ class SiteController extends Controller
 
     public function actionLogin()
     {
-        $this->layout = 'prisLoginLayout';
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
