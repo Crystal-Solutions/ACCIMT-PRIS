@@ -35,7 +35,6 @@ use yii\grid\GridView;
             // 'created_at',
             // 'updated_at',
 
-          ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
 

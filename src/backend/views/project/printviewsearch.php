@@ -17,7 +17,7 @@ use yii\grid\GridView;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'filterPosition' => GridView::FILTER_POS_FOOTER,
-        
+        //'showHeader' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 

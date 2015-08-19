@@ -1,0 +1,1925 @@
+2015-08-06 22:07:50 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1049] Unknown database 'yii2advanced'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:579
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#21 [internal function]: frontend\controllers\SiteController->actionIndex()
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#26 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#28 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1049] Unknown database 'yii2advanced'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:534
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#19 [internal function]: frontend\controllers\SiteController->actionIndex()
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#26 {main}
+Additional Information:
+
+2015-08-06 22:07:47 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    '_csrf' => '9b7649757013993b7c30d9b8e49e5abd5e255cd822e8cc5a9e55f0228e0758e7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N-kbParJHs0UjTnhm-nEah5APcqz94ZR\";}'
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=9b7649757013993b7c30d9b8e49e5abd5e255cd822e8cc5a9e55f0228e0758e7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N-kbParJHs0UjTnhm-nEah5APcqz94ZR%22%3B%7D; PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11685'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891666.506
+    'REQUEST_TIME' => 1438891666
+]
+2015-08-06 22:07:53 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#6 {main}
+2015-08-06 22:07:47 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    '_csrf' => '9b7649757013993b7c30d9b8e49e5abd5e255cd822e8cc5a9e55f0228e0758e7a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"N-kbParJHs0UjTnhm-nEah5APcqz94ZR\";}'
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=9b7649757013993b7c30d9b8e49e5abd5e255cd822e8cc5a9e55f0228e0758e7a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22N-kbParJHs0UjTnhm-nEah5APcqz94ZR%22%3B%7D; PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11685'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891666.506
+    'REQUEST_TIME' => 1438891666
+]
+2015-08-06 22:10:15 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1049] Unknown database 'priss'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:579
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#21 [internal function]: frontend\controllers\SiteController->actionIndex()
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#26 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#28 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1049] Unknown database 'priss'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:534
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#19 [internal function]: frontend\controllers\SiteController->actionIndex()
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#26 {main}
+Additional Information:
+
+2015-08-06 22:10:15 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => 'PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D; _csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11698'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891815.016
+    'REQUEST_TIME' => 1438891815
+]
+2015-08-06 22:10:15 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#6 {main}
+2015-08-06 22:10:15 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => 'PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D; _csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11698'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891815.016
+    'REQUEST_TIME' => 1438891815
+]
+2015-08-06 22:10:35 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php:837
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(837): PDOStatement->execute()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'
+The SQL being executed was: SELECT * FROM `user` WHERE (`id`=1) AND (`status`=10)' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'status' in 'where clause'
+)
+
+2015-08-06 22:10:35 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => 'PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D; _csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11714'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891835.287
+    'REQUEST_TIME' => 1438891835
+]
+2015-08-06 22:10:35 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'PDOException' with message 'You cannot serialize or unserialize PDO instances' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 [internal function]: PDO->__sleep()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#6 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#7 {main}
+2015-08-06 22:10:35 [::1][-][nijhqh2sglrlb7l8k5r4pq8b44][info][application] $_COOKIE = [
+    'PHPSESSID' => 'nijhqh2sglrlb7l8k5r4pq8b44'
+    '_identity' => '310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a:2:{i:0;s:9:\"_identity\";i:1;s:20:\"[1,\"afadfa\",2592000]\";}'
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+    '__captcha/site/captcha' => 'tasava'
+    '__captcha/site/captchacount' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => 'PHPSESSID=nijhqh2sglrlb7l8k5r4pq8b44; _identity=310405885c678af5106ed1c1ad558279f94d40f6bedb9b36523323b8cd0db2a7a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A20%3A%22%5B1%2C%22afadfa%22%2C2592000%5D%22%3B%7D; _csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '11714'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438891835.287
+    'REQUEST_TIME' => 1438891835
+]
+2015-08-06 22:51:39 [::1][-][iadooh5293c7j0obcrjqnbedc6][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php:837
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(837): PDOStatement->execute()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'
+The SQL being executed was: SELECT * FROM `user` WHERE (`id`=1) AND (`status`=10)' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+Additional Information:
+Array
+(
+    [0] => 42S22
+    [1] => 1054
+    [2] => Unknown column 'status' in 'where clause'
+)
+
+2015-08-06 22:51:38 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12002'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894298.649
+    'REQUEST_TIME' => 1438894298
+]
+2015-08-06 22:51:39 [::1][-][iadooh5293c7j0obcrjqnbedc6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'PDOException' with message 'You cannot serialize or unserialize PDO instances' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 [internal function]: PDO->__sleep()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#6 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#7 {main}
+2015-08-06 22:51:38 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12002'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894298.649
+    'REQUEST_TIME' => 1438894298
+]
+2015-08-06 22:53:43 [::1][-][iadooh5293c7j0obcrjqnbedc6][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1049] Unknown database 'pris_advanced'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:579
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(579): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(529): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#21 [internal function]: frontend\controllers\SiteController->actionIndex()
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#26 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#27 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#28 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1049] Unknown database 'pris_advanced'' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php:534
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(836): yii\db\Connection->open()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Connection.php(823): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(216): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(831): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#16 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#19 [internal function]: frontend\controllers\SiteController->actionIndex()
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#23 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#24 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#26 {main}
+Additional Information:
+
+2015-08-06 22:53:42 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12084'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894422.871
+    'REQUEST_TIME' => 1438894422
+]
+2015-08-06 22:53:43 [::1][-][iadooh5293c7j0obcrjqnbedc6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'Exception' with message 'Serialization of 'Closure' is not allowed' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#5 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#6 {main}
+2015-08-06 22:53:42 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12084'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894422.871
+    'REQUEST_TIME' => 1438894422
+]
+2015-08-06 23:01:48 [::1][-][iadooh5293c7j0obcrjqnbedc6][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pris_advanced.user' doesn't exist' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php:837
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(837): PDOStatement->execute()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[42S02]: Base table or view not found: 1146 Table 'pris_advanced.user' doesn't exist
+The SQL being executed was: SELECT * FROM `user` WHERE (`id`=1) AND (`status`=10)' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Schema.php:628
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(852): yii\db\Schema->convertException(Object(PDOException), 'SELECT * FROM `...')
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Command.php(373): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\Query.php(243): yii\db\Command->queryOne()
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\ActiveQuery.php(300): yii\db\Query->one('<span class="ke...')
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\db\BaseActiveRecord.php(102): yii\db\ActiveQuery->one()
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(63): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(614): common\models\User::findIdentity('<span class="nu...')
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(176): yii\web\User->renewAuthStatus()
+#8 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\User.php(346): yii\web\User->getIdentity()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Component.php(130): yii\web\User->getIsGuest()
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php(42): yii\base\Component->__get('<span class="st...')
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(325): require('C:\\xampp\\htdocs...')
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\View.php(247): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(386): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(frontend\controllers\SiteController))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(372): yii\base\Controller->renderContent('<span class="st...')
+#15 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(75): yii\base\Controller->render('<span class="st...')
+#16 [internal function]: frontend\controllers\SiteController->actionIndex()
+#17 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array('[<span class="t...', '[]')
+#18 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams('[]')
+#19 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('<span class="st...', '[]')
+#20 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('<span class="st...', '[]')
+#21 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#23 {main}
+Additional Information:
+Array
+(
+    [0] => 42S02
+    [1] => 1146
+    [2] => Table 'pris_advanced.user' doesn't exist
+)
+
+2015-08-06 23:01:48 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12212'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894908.644
+    'REQUEST_TIME' => 1438894908
+]
+2015-08-06 23:01:49 [::1][-][iadooh5293c7j0obcrjqnbedc6][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'PDOException' with message 'You cannot serialize or unserialize PDO instances' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 [internal function]: PDO->__sleep()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#6 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\db\Exception))
+#7 {main}
+2015-08-06 23:01:48 [::1][-][iadooh5293c7j0obcrjqnbedc6][info][application] $_COOKIE = [
+    '_csrf' => 'ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"6X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs\";}'
+    'PHPSESSID' => 'iadooh5293c7j0obcrjqnbedc6'
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.125 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=ab3617d47ff82136ca156d90f2610009dc1c47e1b3593f79a5e5ee119faaca6da%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%226X7BHh94MYLrgPUtV8z-lWmIrbaZGLXs%22%3B%7D; PHPSESSID=iadooh5293c7j0obcrjqnbedc6; _identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '12212'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1438894908.644
+    'REQUEST_TIME' => 1438894908
+]
+2015-08-09 10:16:33 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\views\layouts\main.php:42
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:75
+2015-08-09 10:16:27 [::1][-][-][info][application] $_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    '_csrf' => 'ef67ca5bb7bde0b5be212855b8ba6c872c0aa544d897f86fffc87bb1cf219f0ca:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"77wvhC0Ra2RR2XHYnKw8K7OmOlQV1N6C\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; _csrf=ef67ca5bb7bde0b5be212855b8ba6c872c0aa544d897f86fffc87bb1cf219f0ca%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%2277wvhC0Ra2RR2XHYnKw8K7OmOlQV1N6C%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3339'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108186.439
+    'REQUEST_TIME' => 1439108186
+]
+2015-08-09 10:16:38 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+2015-08-09 10:16:38 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/signup'
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3341'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Fsignup'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Fsignup'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108198.364
+    'REQUEST_TIME' => 1439108198
+]
+2015-08-09 10:16:47 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 10:16:46 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Fsignup'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3347'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108206.939
+    'REQUEST_TIME' => 1439108206
+]
+2015-08-09 10:16:50 [::1][-][r04sqalt7407drafmebfg8rj56][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 10:16:50 [::1][-][r04sqalt7407drafmebfg8rj56][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'Hash is invalid.' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Security.php:592
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\User.php(152): yii\base\Security->validatePassword('1234', '123')
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\LoginForm.php(45): common\models\User->validatePassword('1234')
+#2 [internal function]: common\models\LoginForm->validatePassword('password', NULL)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\validators\InlineValidator.php(69): call_user_func(Array, 'password', NULL)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\validators\Validator.php(240): yii\validators\InlineValidator->validateAttribute(Object(common\models\LoginForm), 'password')
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Model.php(352): yii\validators\Validator->validateAttributes(Object(common\models\LoginForm), Array)
+#6 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\common\models\LoginForm.php(58): yii\base\Model->validate()
+#7 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php(90): common\models\LoginForm->login()
+#8 [internal function]: frontend\controllers\SiteController->actionLogin()
+#9 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#10 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Controller.php(151): yii\base\InlineAction->runWithParams(Array)
+#11 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php(455): yii\base\Controller->runAction('login', Array)
+#12 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('site/login', Array)
+#13 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#14 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#15 {main}
+2015-08-09 10:16:50 [::1][-][r04sqalt7407drafmebfg8rj56][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'a2NNUU1uaWUJJHgjFRZYXRkUNDwMGjM2RiojBDcHDlYzWgg8e1lQVA=='
+    'LoginForm' => [
+        'username' => 'janakact'
+        'password' => '1234'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '198'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3347'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108210.586
+    'REQUEST_TIME' => 1439108210
+]
+2015-08-09 10:16:51 [::1][-][r04sqalt7407drafmebfg8rj56][warning][yii\log\Dispatcher::dispatch] Unable to send log via yii\debug\LogTarget: Exception 'PDOException' with message 'You cannot serialize or unserialize PDO instances' 
+
+in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php:58
+
+Stack trace:
+#0 [internal function]: PDO->__sleep()
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(58): serialize(Array)
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2-debug\LogTarget.php(112): yii\debug\LogTarget->export(Array)
+#3 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Dispatcher.php(183): yii\debug\LogTarget->collect(Array, true)
+#4 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\log\Logger.php(173): yii\log\Dispatcher->dispatch(Array, true)
+#5 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\ErrorHandler.php(111): yii\log\Logger->flush(true)
+#6 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\base\InvalidParamException))
+#7 {main}
+2015-08-09 10:16:50 [::1][-][r04sqalt7407drafmebfg8rj56][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'a2NNUU1uaWUJJHgjFRZYXRkUNDwMGjM2RiojBDcHDlYzWgg8e1lQVA=='
+    'LoginForm' => [
+        'username' => 'janakact'
+        'password' => '1234'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '198'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3347'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108210.586
+    'REQUEST_TIME' => 1439108210
+]
+2015-08-09 10:17:01 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 10:17:01 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Fsignup'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '3350'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439108221.107
+    'REQUEST_TIME' => 1439108221
+]
+2015-08-09 15:09:16 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 15:09:16 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Fsignup'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '4040'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439125756.318
+    'REQUEST_TIME' => 1439125756
+]
+2015-08-09 15:09:45 [::1][-][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 15:09:44 [::1][-][-][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'LVZUUHRkSkdPEWEiLBx7f18hLT01EBAUAB86BQ4NLXR1bxE9QlNzdg=='
+    'LoginForm' => [
+        'username' => 'janaka'
+        'password' => '123456'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '198'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '4055'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439125784.757
+    'REQUEST_TIME' => 1439125784
+]
+2015-08-09 15:09:58 [::1][1][-][warning][yii\web\User::loginByCookie] Invalid auth key attempted for user '1': ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw
+    in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\controllers\SiteController.php:85
+2015-08-09 15:09:57 [::1][1][-][info][application] $_GET = [
+    'r' => 'site/login'
+]
+
+$_POST = [
+    '_csrf' => 'UDhjMjZXTF8yf1ZAbi99ZyJPGl93IxYMfXENZ0w.K2wIASZfAGB1bg=='
+    'LoginForm' => [
+        'username' => 'janakact'
+        'password' => '123456'
+        'rememberMe' => '1'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    '_identity' => '1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[1,\"ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw\",2592000]\";}'
+    'PHPSESSID' => 'r04sqalt7407drafmebfg8rj56'
+    '_csrf' => 'b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"bG5rXx18rwymAtZS-InUzig3X9Em6791\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/ACCIMT-PRIS/src/advanced/backend/web/index.php?r=site%2Findex'
+    '__id' => 1
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '200'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_REFERER' => 'http://localhost/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_identity=1085414fc4cec234df645de1dbd9acec1b28319c8255cdbcbfcb6f56a2b8c8a3a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22ZMzDZwqD_vLzRWN8LF5Qpidv01EB3elw%22%2C2592000%5D%22%3B%7D; PHPSESSID=r04sqalt7407drafmebfg8rj56; _csrf=b97b985e16450c258458b4ee9e0ab136f9555db7b6be629004a9e96872ed0227a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22bG5rXx18rwymAtZS-InUzig3X9Em6791%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '4061'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => 'r=site%2Flogin'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=site%2Flogin'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439125797.93
+    'REQUEST_TIME' => 1439125797
+]
+2015-08-11 11:07:56 [::1][3][k2u2s46714iluukudg2jcecv04][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "user/create".' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php:461
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('user/create', Array)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php:96
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+2015-08-11 11:07:56 [::1][3][k2u2s46714iluukudg2jcecv04][info][application] $_GET = [
+    'r' => 'user/create'
+]
+
+$_COOKIE = [
+    '_csrf' => '13742abe10b335814d3c00fe8f617d8d79783f183702eeb0e00d559c07f8e8eda:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"sKl-iKj9mAEQKzyaJaWTiEOGofCMFbHy\";}'
+    'CMSSESSIDfcadaf39' => '61ken8pfhi4fd9g00dpikb4aj0'
+    'CMSSESSIDf2cb243b3c97' => 'hp6b66cuvjddtri9edb1ebikj4'
+    'PHPSESSID' => 'k2u2s46714iluukudg2jcecv04'
+    '_identity' => '9fb47bdfebb8a87373a36a7fa1da791351455d38ae1f98620bd8cb8cdb8febbea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[3,\"X867c1omKqOyPTOg-ziND3e2jMFqW6k8\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 3
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => '_csrf=13742abe10b335814d3c00fe8f617d8d79783f183702eeb0e00d559c07f8e8eda%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22sKl-iKj9mAEQKzyaJaWTiEOGofCMFbHy%22%3B%7D; CMSSESSIDfcadaf39=61ken8pfhi4fd9g00dpikb4aj0; CMSSESSIDf2cb243b3c97=hp6b66cuvjddtri9edb1ebikj4; PHPSESSID=k2u2s46714iluukudg2jcecv04; _identity=9fb47bdfebb8a87373a36a7fa1da791351455d38ae1f98620bd8cb8cdb8febbea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B3%2C%22X867c1omKqOyPTOg-ziND3e2jMFqW6k8%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '7103'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=user%2Fcreate'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=user%2Fcreate'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439284076.747
+    'REQUEST_TIME' => 1439284076
+]
+2015-08-11 11:09:54 [::1][3][k2u2s46714iluukudg2jcecv04][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "user/create".' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Module.php:461
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php(84): yii\base\Module->runAction('user/create', Array)
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\web\Application.php:96
+Stack trace:
+#0 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\vendor\yiisoft\yii2\base\Application.php(375): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\ACCIMT-PRIS\src\advanced\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+2015-08-11 11:09:54 [::1][3][k2u2s46714iluukudg2jcecv04][info][application] $_GET = [
+    'r' => 'user/create'
+]
+
+$_COOKIE = [
+    'CMSSESSIDfcadaf39' => '61ken8pfhi4fd9g00dpikb4aj0'
+    'CMSSESSIDf2cb243b3c97' => 'hp6b66cuvjddtri9edb1ebikj4'
+    'PHPSESSID' => 'k2u2s46714iluukudg2jcecv04'
+    '_identity' => '9fb47bdfebb8a87373a36a7fa1da791351455d38ae1f98620bd8cb8cdb8febbea:2:{i:0;s:9:\"_identity\";i:1;s:46:\"[3,\"X867c1omKqOyPTOg-ziND3e2jMFqW6k8\",2592000]\";}'
+    '_csrf' => '7de0410b53e02e698cd86e189c4b79af00fb648615b733a36a86ffd511d08e3ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"wOtaUqQkDL3fyWFDOsU3gWNDY6s3idK0\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 3
+]
+
+$_SERVER = [
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.130 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, sdch'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8,ms;q=0.6'
+    'HTTP_COOKIE' => 'CMSSESSIDfcadaf39=61ken8pfhi4fd9g00dpikb4aj0; CMSSESSIDf2cb243b3c97=hp6b66cuvjddtri9edb1ebikj4; PHPSESSID=k2u2s46714iluukudg2jcecv04; _identity=9fb47bdfebb8a87373a36a7fa1da791351455d38ae1f98620bd8cb8cdb8febbea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A46%3A%22%5B3%2C%22X867c1omKqOyPTOg-ziND3e2jMFqW6k8%22%2C2592000%5D%22%3B%7D; _csrf=7de0410b53e02e698cd86e189c4b79af00fb648615b733a36a86ffd511d08e3ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22wOtaUqQkDL3fyWFDOsU3gWNDY6s3idK0%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\3.0\\bin\\x64;C:\\Program Files (x86)\\Git\\cmd;C:\\xampp\\php;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SDKs\\TypeScript\\1.0\\;C:\\xampp\\mysql\\bin;C:\\Program Files (x86)\\GtkSharp\\2.12\\bin;C:\\ant\\bin;C:\\Program Files\\nodejs\\;C:\\Program Files\\nodejs;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Users\\Janaka\\AppData\\Local\\Android\\sdk\\tools;C:\\Program Files\\Java\\jdk1.8.0_45\\bin;C:\\Program Files (x86)\\Common Files\\lenovo\\easyplussdk\\bin;C:\\Program Files (x86)\\Wave Engine\\Tools\\AssetsExporter;C:\\Users\\Janaka\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.5.19'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REMOTE_PORT' => '7123'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'r=user%2Fcreate'
+    'REQUEST_URI' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php?r=user%2Fcreate'
+    'SCRIPT_NAME' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'PHP_SELF' => '/ACCIMT-PRIS/src/advanced/frontend/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1439284194.033
+    'REQUEST_TIME' => 1439284194
+]
