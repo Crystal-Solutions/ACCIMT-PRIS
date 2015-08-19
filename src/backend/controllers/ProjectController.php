@@ -31,7 +31,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall'],
+                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall','printviewsearch'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -99,6 +99,21 @@ class ProjectController extends Controller
         return $this->render('printview', [
             'model' => $this->findModel($id),
             'all'=>true,
+        ]);
+    }
+
+    //Search-Print View
+    public function actionPrintviewsearch()
+    {
+        $this->layout = 'print';
+        $searchModel = new ProjectSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('printviewsearch', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'all'=>false,
+            //'search'=>true,
         ]);
     }
 

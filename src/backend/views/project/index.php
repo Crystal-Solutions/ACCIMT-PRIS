@@ -18,6 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Create Project', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Print', ['printviewsearch'], ['class' => 'btn btn-print']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
