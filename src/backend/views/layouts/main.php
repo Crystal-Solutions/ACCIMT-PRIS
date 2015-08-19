@@ -21,6 +21,8 @@ AppAsset::register($this);
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+
+     <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -28,6 +30,11 @@ AppAsset::register($this);
 
 
 <div class="wrap">
+    
+    <div class="headerImg">
+        <img src="img/header1.jpg" class="img-responsive" alt="Responsive image" width="100%">
+    </div>
+
     <?php
     NavBar::begin([
         'brandLabel' => 'Arthur C Clarke Institute for Modern Technologies',
@@ -81,10 +88,6 @@ AppAsset::register($this);
         NavBar::end();
     ?>
 
-
-    <div class="headerImg">
-        <img src="img/header1.jpg" class="img-responsive" alt="Responsive image" width="100%">
-    </div>
 
     
     <div class="container">
