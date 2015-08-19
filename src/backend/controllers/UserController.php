@@ -18,6 +18,9 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\ForbiddenHttpException; 
 use yii\web\NotAcceptableHttpException; 
+
+use backend\models\ChangePasswordForm;
+
 /**
  * UserController implements the CRUD actions for User model.
  */
@@ -40,7 +43,8 @@ class UserController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create','edit', 'update','view', 'delete','deactivate','activate',],
+
+                        'actions' => ['change-password' ,'index','create','edit', 'update','view', 'delete','deactivate','activate','printviewsearch'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -92,6 +96,18 @@ class UserController extends Controller
         }else{
             throw new ForbiddenHttpException;   
         }
+    }
+
+    public function actionPrintviewsearch()
+    {
+        $this->layout = 'print';
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('printviewsearch', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
@@ -267,7 +283,20 @@ class UserController extends Controller
         }
     }
 
-
+    public function actionChangePassword()
+    {
+        $model = new ChangePasswordForm();
+        if ($model->load(Yii::$app->request->post()) && $model->save())
+        {
+            return $this->goBack();
+        }
+        else
+        {
+             return $this->render('changePassword', [
+            'model' => $model,
+            ]);
+        }
+    }
 
 
 }
