@@ -2,19 +2,10 @@ html,
 body {
     height: 100%;
 }
-.headerImg{
-    position: fixed;
-    height: 190px;
-    width:100%;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
-}
 
-.navbar{
-    position: fixed;
-    top:125px;
-}
-.wrapper {
+
+
+.wrap {
     top:90px;
     min-height: 100%;
     height: auto;
@@ -23,29 +14,9 @@ body {
     background-color: #aaa5f5;
 }
 
-.wrapper > .container {
+.wrap > .container {
     top:190;
     padding: 70px 15px 20px;
-}
-.site-index{
-    position: fixed;
-    top:190px;
-    background-image: url("img/bg.jpg");
-}
-.user-index{
-    position: fixed;
-    top:190px;
-    background-image: url("img/bg.jpg");
-}
-.site-login{
-    position: fixed;
-    top:190px;
-    width:100%;
-}
-
-.breadcrumbs{
-    position: fixed;
-    top:290px;
 }
 
 .footer {
@@ -53,7 +24,6 @@ body {
     background-color: #000066;
     border-top: 1px solid #ddd;
     padding-top: 20px;
-    color: white;
 }
 
 .jumbotron {

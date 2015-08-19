@@ -92,13 +92,39 @@ body {
   background-color: #00C9FF;
 }
 
-.navbar
-{
+.navbar-nav > li > a {padding-top:7px !important; padding-bottom:3px !important;}
+.navbar {
   max-height: 10px;
+  min-height:32px !important;
 }
 
-.navbar-nav > li > a {padding-top:7px !important; padding-bottom:3px !important;}
+/*css by Shanika*/
+
+.headerImg{
+    position: fixed;
+    height: 190px;
+    width:100%;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+
 .navbar {min-height:32px !important}
 .navbar-brand{
   padding-top: 7px;
 }
+
+.navbar{
+    position: fixed;
+    top:125px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #000066;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    color: white;
+}
+
+/*end css by Shanika*/
