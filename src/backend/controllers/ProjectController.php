@@ -112,7 +112,7 @@ class ProjectController extends Controller
         return $this->render('printviewsearch', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
-            'all'=>false,
+            //'all'=>false,
             //'search'=>true,
         ]);
     }

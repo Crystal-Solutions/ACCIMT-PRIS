@@ -40,7 +40,7 @@ class UserController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create','edit', 'update','view', 'delete','deactivate','activate',],
+                        'actions' => ['index','create','edit', 'update','view', 'delete','deactivate','activate','printviewsearch'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -92,6 +92,18 @@ class UserController extends Controller
         }else{
             throw new ForbiddenHttpException;   
         }
+    }
+
+    public function actionPrintviewsearch()
+    {
+        $this->layout = 'print';
+        $searchModel = new UserSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+        return $this->render('printviewsearch', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
     }
 
     /**
