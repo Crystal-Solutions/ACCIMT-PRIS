@@ -1,8 +1,11 @@
 <?php
 
 use yii\helpers\Html;
-use yii\grid\GridView;
+//use yii\grid\GridView;
+use kartik\grid\GridView;
 use yii\widgets\Pjax;
+use yii\helpers\ArrayHelper;
+use common\models\User;
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -30,6 +33,29 @@ $this->params['breadcrumbs'][] = $this->title;
             //'id',
             'epf_no',
             'name',
+
+            //////////////////////////////////////////////////krajee gridview widget with links 
+
+            [
+                'attribute'=>'name', 
+                'vAlign'=>'middle',
+                'width'=>'180px',
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return Html::a($model->name,  
+                        '#', 
+                        ['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                'filterType'=>GridView::FILTER_SELECT2,
+                'filter'=>ArrayHelper::map(User::find()->orderBy('name')->asArray()->all(), 'id', 'name'), 
+                'filterWidgetOptions'=>[
+                    'pluginOptions'=>['allowClear'=>true],
+                ],
+                'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
+            ],
+
+            ////////////////////////////////////////////////
+
             'username',
             'status',
             
@@ -42,7 +68,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'created_at',
             // 'updated_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            //['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
     <?php Pjax::end(); ?>

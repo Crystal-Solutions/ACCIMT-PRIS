@@ -96,27 +96,18 @@ body {
 .navbar {
   max-height: 10px;
   min-height:32px !important;
+  position: relative;
 }
 
 /*css by Shanika*/
 
 .headerImg{
-    height: 190px;
     width:100%;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
 }
 
-
-.navbar {min-height:32px !important}
 .navbar-brand{
   padding-top: 7px;
 }
-
-.navbar{
-    top:125px;
-}
-
 .footer {
     height: 60px;
     background-color: #000066;
@@ -125,4 +116,9 @@ body {
     color: white;
 }
 
+
+.wrap > .container {
+    top:190;
+    padding: 0px;
+}
 /*end css by Shanika*/
