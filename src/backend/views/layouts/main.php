@@ -22,13 +22,14 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
     <link rel="stylesheet" type="text/css" href="<?= Yii::$app->request->baseUrl ?>/css/style.css">
-     <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
+    <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
 </head>
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-   
+
+
+<div class="wrapper">
     <?php
     NavBar::begin([
         'brandLabel' => 'Arthur C Clarke Institute for Modern Technologies',
@@ -37,51 +38,57 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-
-    $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-    ];
-
-    if (Yii::$app->user->isGuest) {
-        $menuItems[] = [
-            'label' => 'Login', 'url' => ['/site/login']
+        $menuItems = [
+            ['label' => 'Home', 'url' => ['/site/index']],
         ];
-    } else {//cant we add these menu items in one assignment??-S
-        if(Yii::$app->user->can('system-admin'))
-        {//only system admin can see users
+
+        if (Yii::$app->user->isGuest) {
             $menuItems[] = [
-                'label' => 'Users', 'url' => ['/user/index'],
+                'label' => 'Login', 'url' => ['/site/login']
             ];
+        } else {//cant we add these menu items in one assignment??-S
+            if(Yii::$app->user->can('system-admin'))
+            {//only system admin can see users
+                $menuItems[] = [
+                    'label' => 'Users', 'url' => ['/user/index'],
+                ];
+                $menuItems[] = [
+                    'label' => 'Report Templates', 'url' => ['/report-template/index'],
+                ];
+            }
+
             $menuItems[] = [
-                'label' => 'Report Templates', 'url' => ['/report-template/index'],
+                'label' => 'Projects', 'url' => ['/project/index'],
+            ];
+
+            $menuItems[] = [
+                'label' => 'Divisions', 'url' => ['/division/index'],
+            ];
+
+            $menuItems[] = [
+                'label' => 'Edit Profile', 'url' => ['/user/edit'],
+            ];
+
+            $menuItems[] = [
+                'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                'url' => ['/site/logout'],
+                'linkOptions' => ['data-method' => 'post']
             ];
         }
 
-        $menuItems[] = [
-            'label' => 'Projects', 'url' => ['/project/index'],
-        ];
-
-        $menuItems[] = [
-            'label' => 'Divisions', 'url' => ['/division/index'],
-        ];
-
-        $menuItems[] = [
-            'label' => 'Edit Profile', 'url' => ['/user/edit'],
-        ];
-
-        $menuItems[] = [
-            'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-            'url' => ['/site/logout'],
-            'linkOptions' => ['data-method' => 'post']
-        ];
-    }
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'items' => $menuItems,
+        ]);
+        NavBar::end();
     ?>
 
+
+    <div class="headerImg">
+        <img src="img/header1.jpg" class="img-responsive" alt="Responsive image" width="100%">
+    </div>
+
+    
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -105,3 +112,4 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
+

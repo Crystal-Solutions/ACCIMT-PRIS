@@ -92,9 +92,13 @@ body {
   background-color: #00C9FF;
 }
 
-.navbar-header
-{
-  
+.navbar-nav > li > a {
+  padding-top:5px !important; 
+  padding-bottom:5px !important;
+}
+.navbar {
+  max-height: 10px;
+  min-height:32px !important;
 }
 
 /*css by Shanika*/
@@ -121,3 +125,4 @@ body {
 }
 
 /*end css by Shanika*/
+
