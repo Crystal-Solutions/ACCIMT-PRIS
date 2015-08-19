@@ -1,0 +1,67 @@
+html,
+body {
+    height: 100%;    
+    
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    line-height: 1;
+   border: 1px solid #000;
+}
+
+.btn {
+   
+    border: none;
+    text-decoration: underline;
+}
+.table-striped > tbody > tr:nth-of-type(odd)
+{
+	background-color: #fff;
+
+    border: 1px solid #000;
+}
+.container 
+{
+	width:800px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+.report-view
+{
+    border: 1px solid #000000;padding:10px;
+}
+
+.project-view
+{
+    border: 1px solid #000000;padding:10px;
+}
+
+.table-bordered {
+    border: 1px solid #000;
+    }
+
+.report-content{
+    margin-bottom: 40px;
+   border-bottom: 2px solid #000;
+}
+
+.report-content-content{
+    margin-bottom: 10px;
+    padding: 15px;
+   border: 1px solid #000;
+}
+
+.report-content-title
+{
+    padding: 4px;
+   border: 1px solid #000;
+   
+}
+.non-printable {
+    text-align: right;
+}
+
+ @media print
+{
+        .non-printable { display: none; }
+}

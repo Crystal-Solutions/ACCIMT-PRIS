@@ -1,0 +1,98 @@
+html,
+body {
+    height: 100%;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    line-height: 1;
+    padding: 4px;
+    border-color: #B4E0EC;
+}
+
+
+.table-striped > tbody > tr:nth-of-type(odd)
+{
+	background-color: #B4E0EC;
+}
+
+
+.report-content
+{
+}
+.report-content-content{
+
+	padding: 15px;
+   border: 1px solid #B4E0EC;
+}
+
+.report-content-title
+{
+	background-color: #B4E0EC;
+	padding: 4px;
+   border: 1px solid #B4E0EC;
+   
+}
+
+.dropdown
+{
+  float: left;
+}
+
+
+
+
+
+/*report titles in the project page*/
+.panel{
+}
+
+.panel-title
+{
+  display:inline;
+  padding: 5px;
+
+}
+.panel-title > a
+{
+}
+
+
+/* btn  */
+.btn{
+
+  line-height: 1;
+  border-radius: 0px;
+  border-width: 0px;
+}
+
+/* button print */
+.btn-print
+{
+    color: white;
+    background-color: green;
+}
+.btn-print:hover
+{
+    color: white;
+    background-color: #02BD02;
+}
+
+/* go to view page link everywhere*/
+.btn-view
+{
+  color:white;
+
+  background-color: #0098C1;
+}
+
+.btn-view:hover
+{
+  color:white;
+
+  background-color: #00C9FF;
+}
+
+.navbar-header
+{
+  
+}
