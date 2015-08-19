@@ -20,9 +20,9 @@ class AppAsset extends AssetBundle
     public $css = [
         'css/site.css',
         'css/style.css',
-        'ckeditor/ckeditor.js',
     ];
     public $js = [
+        'ckeditor/ckeditor.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

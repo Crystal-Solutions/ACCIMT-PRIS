@@ -97,5 +97,8 @@ body {
   max-height: 10px;
 }
 
-.navbar-nav > li > a {padding-top:5px !important; padding-bottom:5px !important;}
+.navbar-nav > li > a {padding-top:7px !important; padding-bottom:3px !important;}
 .navbar {min-height:32px !important}
+.navbar-brand{
+  padding-top: 7px;
+}
