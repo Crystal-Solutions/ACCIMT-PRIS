@@ -92,10 +92,7 @@ body {
   background-color: #00C9FF;
 }
 
-.navbar-nav > li > a {
-  padding-top:5px !important; 
-  padding-bottom:5px !important;
-}
+.navbar-nav > li > a {padding-top:7px !important; padding-bottom:3px !important;}
 .navbar {
   max-height: 10px;
   min-height:32px !important;
@@ -108,6 +105,12 @@ body {
     width:100%;
     margin: 0 auto -60px;
     padding: 0 0 60px;
+}
+
+
+.navbar {min-height:32px !important}
+.navbar-brand{
+  padding-top: 7px;
 }
 
 .navbar{
@@ -123,4 +126,3 @@ body {
 }
 
 /*end css by Shanika*/
-
