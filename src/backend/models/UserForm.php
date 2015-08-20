@@ -38,7 +38,7 @@ class UserForm extends Model
             ['username', 'unique', 'on' => 'create','targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
 
             ['epf_no', 'unique', 'on' => 'create', 'targetClass' => '\common\models\User', 'message' => 'This epf_no has already been taken.'],
-            ['epf_no','integer'],
+            ['epf_no','integer','message' => 'This epf no is not valied.'],
 
             ['username', 'string', 'min' => 2, 'max' => 255],
 

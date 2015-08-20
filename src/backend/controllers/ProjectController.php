@@ -131,6 +131,7 @@ class ProjectController extends Controller
             if ($model->load(Yii::$app->request->post())) {
                 $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
 
+                Yii::$app->session->setFlash('success', 'A new project is been created');
 
                 if($model->save())                      //only if saved the redirection happens
 
@@ -154,6 +155,7 @@ class ProjectController extends Controller
                     return $this->redirect(['view', 'id' => $model->id]);
 
             } else {
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
