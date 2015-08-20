@@ -137,7 +137,7 @@ class ProjectController extends Controller
                     //////////////////////////////////////////////////////////////////
 
                     //Save all project user connections_________________________________
-                    $users = $_POST['Project']['users'];
+                    $users = $_POST['Project']['users']['team_members'];
 
                     //add new relations by DivisionHasUser
                     if($users){

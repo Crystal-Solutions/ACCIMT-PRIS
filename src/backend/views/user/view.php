@@ -45,6 +45,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'email:email',
             'name',
             'epf_no',
+            [
+              'attribute'=>'status',
+              'value'=>(($model->status=='10')?'Active':'Inactive'),
+            ],
         ],
     ]) ?>
 
