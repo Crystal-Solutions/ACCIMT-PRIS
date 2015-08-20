@@ -92,12 +92,41 @@ body {
   background-color: #00C9FF;
 }
 
-.navbar-nav > li > a {padding-top:7px !important; padding-bottom:3px !important;}
+.navbar-nav > li > a {margin-top:0px !important; margin-bottom:0px !important;
+
+padding-top:7px !important; padding-bottom:4px !important;
+}
+
+@media (min-width: 1200px)
+{
 .navbar {
   max-height: 10px;
   min-height:32px !important;
 }
+@media (max-width: 768px)
+{
 
+  .navbar {
+        float: left !important;
+  }
+}
+.form-control
+{
+  height: 25px;
+  border-radius: 0px;
+  border-color: #B4E0EC;
+}
+
+.navbar-nav > li > a
+{
+  border-left: 1px solid #3070E0;
+}
+
+.navbar-nav > li > a:hover
+{
+  background-color: #3070E0;
+  border-left: 1px solid #3070E0;
+}
 /*css by Shanika*/
 
 .headerImg{
@@ -113,7 +142,7 @@ body {
 }
 
 .navbar{
-    position: relative;
+    position: relative!important;
 
 }
 
