@@ -18,8 +18,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'created_at', 'updated_at'], 'integer'],
-            [['username', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'name', 'epf_no'], 'safe'],
+            [['id', 'created_at', 'updated_at'], 'integer'],
+            [['username', 'status','auth_key', 'password_hash', 'password_reset_token', 'email', 'name', 'epf_no'], 'safe'],
         ];
     }
 
@@ -55,9 +55,10 @@ class UserSearch extends User
             return $dataProvider;
         }
 
+
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
+            'status' => similar_text("Active", $this->status)>similar_text("Inactive", $this->status)?10:(similar_text("Active", $this->status)<similar_text("Inactive", $this->status)?0:null),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ]);
