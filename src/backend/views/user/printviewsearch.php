@@ -14,7 +14,6 @@ use yii\grid\GridView;
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'filterPosition' => GridView::FILTER_POS_FOOTER,
         
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
@@ -36,8 +35,18 @@ use yii\grid\GridView;
             ],
 
             [
-                'attribute'=>'status',
-                'enableSorting' => false,
+                'attribute'=>'status', 
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return $model->status=='10'?"Active":"Inactive";
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
             ],
             
             
