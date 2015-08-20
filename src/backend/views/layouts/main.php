@@ -57,14 +57,17 @@ AppAsset::register($this);
                 $menuItems[] = [
                     'label' => 'Users', 'url' => ['/user/index'],
                 ];
-                $menuItems[] = [
-                    'label' => 'Report Templates', 'url' => ['/report-template/index'],
-                ];
             }
 
             $menuItems[] = [
                 'label' => 'Projects', 'url' => ['/project/index'],
             ];
+
+            {//only system admin can see users
+                $menuItems[] = [
+                    'label' => 'Report Templates', 'url' => ['/report-template/index'],
+                ];
+            }
 
             $menuItems[] = [
                 'label' => 'Divisions', 'url' => ['/division/index'],
