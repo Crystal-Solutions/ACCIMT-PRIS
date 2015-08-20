@@ -131,7 +131,6 @@ class ProjectController extends Controller
             if ($model->load(Yii::$app->request->post())) {
                 $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
 
-                Yii::$app->session->setFlash('success', 'A new project is been created');
 
                 if($model->save())                      //only if saved the redirection happens
 
@@ -152,6 +151,7 @@ class ProjectController extends Controller
                         }
                     }
                     ////////////////////////////////////////////////////////////////////
+                    Yii::$app->session->setFlash('success', 'A new project is been created');
                     return $this->redirect(['view', 'id' => $model->id]);
 
             } else {
@@ -205,6 +205,7 @@ class ProjectController extends Controller
                         }
                     }
                     ////////////////////////////////////////////////////////////////////
+                            Yii::$app->session->setFlash('success', 'Project details are updated');
                             return $this->redirect(['view', 'id' => $model->id]);
                 }
             } else {
@@ -240,7 +241,10 @@ class ProjectController extends Controller
                                                                                         to cancelled -S*/
             $this->findModel($id)->delete();
 
-            return $this->redirect(['index']);
+            Yii::$app->session->setFlash('success', 'Project is successfully deleted');
+            return [$this->redirect(['index']),
+                    Yii::$app->session->setFlash('error', 'A project has been deleted!'),
+             ];
         }else{
             throw new ForbiddenHttpException;   //-S
         }
