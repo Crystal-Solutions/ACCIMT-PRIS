@@ -55,7 +55,21 @@ $this->params['breadcrumbs'][] = $this->title;
             ////////////////////////////////////////////////
 
             'username',
-            'status',
+                        //krajee gridview widget with links-Shanika 
+            [
+                'attribute'=>'status', 
+                'value'=>function ($model, $key, $index, $widget) { 
+                    return $model->status=='10'?"Active":"Inactive";
+                        //['title'=>'View user detail', 'onclick'=>'alert("This will open the user page.")']);
+                },
+                // 'filterType'=>GridView::FILTER_SELECT2,
+                // 'filter'=>ArrayHelper::map(User::find()->orderBy('id')->asArray()->all(), 'id', 'name'), 
+                // 'filterWidgetOptions'=>[
+                //     'pluginOptions'=>['allowClear'=>true],
+                // ],
+                // 'filterInputOptions'=>['placeholder'=>'Any user'],
+                'format'=>'raw'
+            ],
             
             
             //'auth_key',
