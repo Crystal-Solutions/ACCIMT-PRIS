@@ -58,6 +58,7 @@ class UserSearch extends User
 
         $query->andFilterWhere([
             'id' => $this->id,
+            //status search
             'status' => similar_text("Active", $this->status)>similar_text("Inactive", $this->status)?10:(similar_text("Active", $this->status)<similar_text("Inactive", $this->status)?0:null),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,

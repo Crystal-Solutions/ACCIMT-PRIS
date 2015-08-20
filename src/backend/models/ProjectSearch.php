@@ -81,7 +81,7 @@ class ProjectSearch extends Project
                 }
         }
 
-        //code for search by parent project
+        //code for search by project type
         if($this->project_type_id!=null)
         {
             $q =ProjectType::find();
@@ -94,12 +94,28 @@ class ProjectSearch extends Project
             }
         }
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+
+
+        //code for serch by name
+   /*     if($this->name!=null)
+        {
+                $q = Project::find();
+                $q->andFilterWhere(['like', 'name',$this->name ]);
+
+                $names = $q->all();
+
+                foreach ($names as $value) {
+                    $query->orFilterWhere(['like', 'name', $value->name]);
+                }
+        }*/
+
+        $query
+            ->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'client', $this->client])
             ->andFilterWhere(['like', 'state', $this->state])
             ->andFilterWhere(['like', 'description', $this->description])
-            ->andFilterWhere(['like', 'user.username', $this->requested_user_id])
+            ->andFilterWhere(['like', 'user.name', $this->requested_user_id])
             ->andFilterWhere(['like', 'division.name', $this->division_id])
             ->andFilterWhere(['like', 'starting_date', $this->starting_date])
             ->andFilterWhere(['like', 'end_date', $this->end_date]);
