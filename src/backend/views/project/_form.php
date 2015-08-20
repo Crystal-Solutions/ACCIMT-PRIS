@@ -118,7 +118,7 @@ use dosamigos\datepicker\DatePicker;
                 'type'  => 'dropDownList',
                 'title' => '',
                 //'options' => ['placeholder' => 'Select'],
-                'defaultValue' => 5,        //default value not working when arrayhelper used
+               // 'defaultValue' => 5,        //default value not working when arrayhelper used
                 'items' => ArrayHelper::map(User::find()->all(),'id','name'),       //how to get users only from same division?
                 //ArrayHelper::map( User::findOne(Yii::$app->user->id)->getDivisions()->all(),'id','name'),
             ],
