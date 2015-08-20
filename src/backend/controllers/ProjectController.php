@@ -177,8 +177,29 @@ class ProjectController extends Controller
             $model = $this->findModel($id);
 
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()) ) {
+                if($model->save())
+                    //Save all project user connections_________________________________
+                    $users = $_POST['Project']['users']['team_members'];
+
+                     //Remove existing relations by DivisionHasUser
+                     // $relations = $model->getTeamMembers()->all();
+                     // if($relations)
+                     //    foreach($relations as $relation) 
+                     //        $relation->delete();
+
+                     //add new relations by DivisionHasUser
+                    if($users)
+                     foreach($users as $user)
+                     {
+
+                        $team = new TeamMember();
+                        $team->user_id = $user;
+                        $team->project_id = $model->id;
+                        $team->save(); 
+                     }
+
+                    return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('update', [
                     'model' => $model,
