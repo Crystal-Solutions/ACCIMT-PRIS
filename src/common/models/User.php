@@ -63,6 +63,7 @@ class User extends ActiveRecord implements IdentityInterface
             [['epf_no'], 'string', 'max' => 45],
             [['username'], 'unique'],
             [['email'], 'unique'],
+            [['email'], 'email'],
             [['epf_no'], 'unique'],
         ];
     }

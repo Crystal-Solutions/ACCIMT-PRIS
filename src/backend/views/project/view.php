@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ?>
         <?php if($userDivision && Yii::$app->user->can('mark-dh-approval') && $model->getApprovedDhUser()->one()==null ) echo Html::a('Approve by DH', ['approvedh', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
-        <?php if($userDivision && Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
         <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->state=='active') echo Html::a('Finish the Project', ['finish', 'id' => $model->id], ['class' => 'btn btn-danger']); ?>
      
 
