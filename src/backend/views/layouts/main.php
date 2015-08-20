@@ -63,7 +63,8 @@ AppAsset::register($this);
                 'label' => 'Projects', 'url' => ['/project/index'],
             ];
 
-            {//only system admin can see users
+            if(Yii::$app->user->can('sectional-head'))
+            {//only sectionl head can see users
                 $menuItems[] = [
                     'label' => 'Report Templates', 'url' => ['/report-template/index'],
                 ];
