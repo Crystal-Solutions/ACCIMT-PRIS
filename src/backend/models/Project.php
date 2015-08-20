@@ -63,7 +63,7 @@ class Project extends \yii\db\ActiveRecord
             [['name', 'code', 'client'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 6000],
             [['quarterly_targets'], 'string', 'max' => 4000],
-            ['code', 'match', 'pattern'=>'/[\d]/', 'message'=>'Invalid Project Code.']
+            ['code', 'match', 'pattern'=>'/[\d]{2}[A-Z]{2}[\d]{3}/', 'message'=>'Invalid Project Code.']
 
         ];
     }
