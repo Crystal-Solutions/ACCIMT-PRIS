@@ -31,7 +31,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'epf_no',
+            
+            [
+                'attribute'=>'epf_no',
+                'vAlign'=>'middle',
+                'width'=>'80px',
+                
+            ],
             //'name',
             //krajee gridview widget with links-Shanika 
             [
