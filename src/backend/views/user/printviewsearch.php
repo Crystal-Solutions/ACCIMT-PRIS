@@ -15,7 +15,7 @@ use yii\grid\GridView;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'filterPosition' => GridView::FILTER_POS_FOOTER,
-        
+
         'columns' => [
             //['class' => 'yii\grid\SerialColumn'],
 
@@ -39,20 +39,11 @@ use yii\grid\GridView;
                 'attribute'=>'status',
                 'enableSorting' => false,
             ],
-            
-            
-            //'auth_key',
-            //'password_hash',
-           // 'password_reset_token',
-
+        
             [
                 'attribute'=>'email',
                 'enableSorting' => false,
             ],
-
-            // 'status',
-            // 'created_at',
-            // 'updated_at',
 
         ],
     ]); ?>
