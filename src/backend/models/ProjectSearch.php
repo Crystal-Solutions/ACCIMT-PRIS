@@ -61,7 +61,6 @@ class ProjectSearch extends Project
 
         $query->andFilterWhere([
             'id' => $this->id,
-            'name'=>$this->name,
             //'parent_project_id' => $this->parent_project_id,
             //'requested_user_id' => $this->requested_user_id,
             'approved_ddg_user_id' => $this->approved_ddg_user_id,

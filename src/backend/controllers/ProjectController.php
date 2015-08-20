@@ -31,7 +31,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall','printviewsearch'],
+                        'actions' => ['finish','index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall','printviewsearch'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -236,7 +236,7 @@ class ProjectController extends Controller
      */
     public function actionDelete($id)
     {
-        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('delete-project')){   /*access to delete a project:: only dh can 
+        if( Yii::$app->user->can('delete-project')){   /*access to delete a project:: only dh can 
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
                                                                                         to cancelled -S*/
@@ -248,12 +248,18 @@ class ProjectController extends Controller
             foreach($teamMembers as $relation)
                 $relation->delete();
 
+            //Delete Reports
+            $reports = $project->getReports()->all();
+            if($reports)
+            foreach($reports as $relation)
+                $relation->delete();
+
             $this->findModel($id)->delete();
 
             Yii::$app->session->setFlash('error', 'A project was deleted');
             return $this->redirect(['index']);
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You canno't delete this project.");   //-S
         }
     }
 
@@ -337,6 +343,21 @@ class ProjectController extends Controller
      * @return Project the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
+
+    public function actionFinish($id)
+    {
+        $model = $this->findModel($id);
+        if( Yii::$app->user->can('mark-ddg-approval' )){
+            $model->state = 'finished';
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException;   //-S
+        }
+    }
+
     protected function findModel($id)
     {
         if (($model = Project::findOne($id)) !== null) {
