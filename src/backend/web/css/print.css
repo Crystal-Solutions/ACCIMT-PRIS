@@ -64,4 +64,8 @@ body {
  @media print
 {
         .non-printable { display: none; }
+        .form-control
+        {
+             display: none;
+        }
 }
