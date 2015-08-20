@@ -14,7 +14,6 @@ use backend\models\UserSearch;
 
 use backend\models\PasswordResetRequestForm;
 use backend\models\ResetPasswordForm;
-use backend\models\ChangePasswordForm;
 
 /**
  * Site controller
@@ -31,19 +30,14 @@ class SiteController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
-                        'actions' => ['index','login', 'error','reset-password'],
+                        'actions' => ['index','login', 'error','reset-password','request-password-reset'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'change-password' ],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
-                    [
-                     'actions' => [ 'request-password-reset' ],
-                        'allow' => false,
-                        'roles' => ['@'],
-                    ]
                 ],
             ],
             'verbs' => [
@@ -147,20 +141,7 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionChangePassword()
-    {
-        $model = new ChangePasswordForm();
-        if ($model->load(Yii::$app->request->post()) && $model->save())
-        {
-            return $this->render('index');
-        }
-        else
-        {
-             return $this->render('changePassword', [
-            'model' => $model,
-            ]);
-        }
-    }
+
 
 
 }
