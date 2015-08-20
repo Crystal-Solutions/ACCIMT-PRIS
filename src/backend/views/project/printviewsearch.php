@@ -3,7 +3,6 @@
 use yii\helpers\Html;
 use yii\widgets\DetailView;
 use yii\grid\GridView;
-
 /* @var $this yii\web\View */
 /* @var $model backend\models\Report */
 
@@ -13,45 +12,74 @@ use yii\grid\GridView;
 
 
 
+
+
+
+
+
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        //'filterPosition' => GridView::FILTER_POS_FOOTER,
-        //'showHeader' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
            // 'id',
-            'code',
-            'name',
+            [
+                'attribute'=>'code',
+                'enableSorting' => false,
+            ],
+
+            [
+                'attribute'=>'name',
+                'enableSorting' => false,
+            ],
+
             [
                 'attribute'=>'project_type_id',
                 'value'=>'projectType.name',    //what is projectType ?
+                'enableSorting' => false,
             ],
 
-            'client',
-            'state',
+            [
+                'attribute'=>'client',
+                'enableSorting' => false,
+            ],
+            [
+                'attribute'=>'state',
+                'enableSorting' => false,
+            ],
 
             // 'description',
             [
               'attribute'=>'parent_project_id',
               'value'=>'parentProject.name',
+              'enableSorting' => false,
+
             ],
 
              
             [
               'attribute'=>'requested_user_id',
               'value'=>'requestedUser.name',
+              'enableSorting' => false,
             ],
             
             [
               'attribute'=>'division_id',
               'value'=>'division.name',
+              'enableSorting' => false,
             ],
             
 
-            'starting_date',
-            'end_date',
+            [
+                'attribute'=>'starting_date',
+                'enableSorting' => false,
+            ],
+
+            [
+                'attribute'=>'end_date',
+                'enableSorting' => false,
+            ],
 
             // 'parent_project_id',
              //'requested_user_id',

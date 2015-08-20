@@ -11,32 +11,50 @@ use yii\grid\GridView;
 
 <div class="project-index">
 
-
-
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'filterPosition' => GridView::FILTER_POS_FOOTER,
+        
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             //'id',
-            'epf_no',
-            'name',
-            'username',
-            'status',
+             [
+                'attribute'=>'epf_no',
+                'enableSorting' => false,
+            ],
+
+            [
+                'attribute'=>'name',
+                'enableSorting' => false,
+            ],
+
+            [
+                'attribute'=>'username',
+                'enableSorting' => false,
+            ],
+
+            [
+                'attribute'=>'status',
+                'enableSorting' => false,
+            ],
             
             
             //'auth_key',
             //'password_hash',
            // 'password_reset_token',
-             'email:email',
+
+            [
+                'attribute'=>'email',
+                'enableSorting' => false,
+            ],
+
             // 'status',
             // 'created_at',
             // 'updated_at',
 
         ],
     ]); ?>
-
 
 </div>
