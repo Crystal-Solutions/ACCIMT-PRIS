@@ -151,9 +151,11 @@ class ProjectController extends Controller
                         }
                     }
                     ////////////////////////////////////////////////////////////////////
+                    Yii::$app->session->setFlash('success', 'A new project is been created');
                     return $this->redirect(['view', 'id' => $model->id]);
 
             } else {
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
@@ -177,9 +179,46 @@ class ProjectController extends Controller
             $model = $this->findModel($id);
 
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load(Yii::$app->request->post()))
+            {
+                 if($model->save()) {
+
+                    //////////////////////////////////////////////////////////////////
+
+                    //Save all project user connections_________________________________
+                    $users = $_POST['Project']['users']['team_members'];
+                    //Remove existing relations by DivisionHasUser
+                                 $members = $model->getTeamMembers()->all();
+                                 if($members)
+                                 foreach($members as $member) $member->delete();
+
+
+                    //add new relations by DivisionHasUser
+                    if($users){
+                        foreach($users as $user)
+                        {
+
+                            $team = new TeamMember();
+                            $team->user_id = $user;
+                            $team->project_id = $model->id;
+                            $team->save(); 
+                        }
+                    }
+                    ////////////////////////////////////////////////////////////////////
+                            Yii::$app->session->setFlash('success', 'Project details are updated');
+                            return $this->redirect(['view', 'id' => $model->id]);
+                }
+
             } else {
+
+                $members = $model->getTeamMembers()->all();
+                 if($members)
+                 {
+                    $model->users = [];
+                    foreach ($members as $value) {
+                        array_push($model->users,$value->user_id);
+                    };
+                }
                 return $this->render('update', [
                     'model' => $model,
                 ]);
@@ -201,9 +240,19 @@ class ProjectController extends Controller
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
                                                                                         to cancelled -S*/
-            $this->findModel($id)->delete();
+            
+            //Find division has users relations and delete
+            $project = $this->findModel($id);
+            $teamMembers = $project->getTeamMembers()->all();
+            if($teamMembers)
+            foreach($teamMembers as $relation)
+                $relation->delete();
 
-            return $this->redirect(['index']);
+            //$this->findModel($id)->delete();
+
+            return [$this->redirect(['index']),
+                    Yii::$app->session->setFlash('error', 'A project has been deleted!'),
+             ];
         }else{
             throw new ForbiddenHttpException;   //-S
         }

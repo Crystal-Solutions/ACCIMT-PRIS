@@ -11,12 +11,6 @@ use yii\grid\GridView;
 <div class="project-index">
 
 
-
-
-
-
-
-
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
