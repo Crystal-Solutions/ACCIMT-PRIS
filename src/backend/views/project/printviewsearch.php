@@ -11,18 +11,9 @@ use yii\grid\GridView;
 <div class="project-index">
 
 
-
-
-
-
-
-
  <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
-        'filterPosition' => GridView::FILTER_POS_FOOTER,
-        //'sort' => false,
-        //'showHeader' => false,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
