@@ -101,10 +101,9 @@ body {
 /*css by Shanika*/
 
 .headerImg{
-    height: 190px;
+
     width:100%;
-    margin: 0 auto -60px;
-    padding: 0 0 60px;
+
 }
 
 
@@ -114,8 +113,8 @@ body {
 }
 
 .navbar{
-    
-    top:125px;
+    position: relative;
+
 }
 
 .footer {
