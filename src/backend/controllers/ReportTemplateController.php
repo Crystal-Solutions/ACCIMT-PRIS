@@ -80,6 +80,7 @@ class ReportTemplateController extends Controller
             $model = new ReportTemplate();
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', 'A new report template is created');    
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('create', [
@@ -103,6 +104,7 @@ class ReportTemplateController extends Controller
             $model = $this->findModel($id);
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
+                Yii::$app->session->setFlash('success', 'Report template is updated');
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
                 return $this->render('update', [
@@ -124,7 +126,8 @@ class ReportTemplateController extends Controller
     {
         if(Yii::$app->user->can('sectional-head')){   //access to create report template-S  //change auth
             $this->findModel($id)->delete();
-
+            
+            Yii::$app->session->setFlash('error', 'A report template was deleted');
             return $this->redirect(['index']);
         }else{
             throw new ForbiddenHttpException;   //-S
