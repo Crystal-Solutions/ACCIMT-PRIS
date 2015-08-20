@@ -408,12 +408,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "059009eda810aeecc0451ebdf0eefbb92098d5fc"
+                "reference": "90203f01b4bddf8a30033a604130f6f5c2613b29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/059009eda810aeecc0451ebdf0eefbb92098d5fc",
-                "reference": "059009eda810aeecc0451ebdf0eefbb92098d5fc",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/90203f01b4bddf8a30033a604130f6f5c2613b29",
+                "reference": "90203f01b4bddf8a30033a604130f6f5c2613b29",
                 "shasum": ""
             },
             "require": {
@@ -444,7 +444,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-08-19 17:55:57"
+            "time": "2015-08-20 05:53:45"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -594,12 +594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "585e8797d7982e0c9d09370b98b451a028a59439"
+                "reference": "8792234070aaa759a71879fff4e53c315742b8e4"
             },
             "dist": {
                 "type": "zip",
                 "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/8792234070aaa759a71879fff4e53c315742b8e4",
-                "reference": "585e8797d7982e0c9d09370b98b451a028a59439",
+                "reference": "8792234070aaa759a71879fff4e53c315742b8e4",
                 "shasum": ""
             },
             "require": {
@@ -634,7 +634,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2015-07-01 15:20:59"
+            "time": "2015-08-19 19:03:22"
         },
         {
             "name": "swiftmailer/swiftmailer",

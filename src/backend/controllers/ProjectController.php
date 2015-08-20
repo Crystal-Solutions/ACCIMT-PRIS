@@ -208,6 +208,7 @@ class ProjectController extends Controller
                             Yii::$app->session->setFlash('success', 'Project details are updated');
                             return $this->redirect(['view', 'id' => $model->id]);
                 }
+
             } else {
 
                 $members = $model->getTeamMembers()->all();
