@@ -28,7 +28,7 @@ class ReportController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','createforproject','printview', 'approve'],
+                        'actions' => ['index','create', 'update','view','createforproject','printview', 'approve','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -98,9 +98,10 @@ class ReportController extends Controller
             if ($model->load(Yii::$app->request->post()) ) {
                 $model->submit_date = date('Y-m-d h:m:s');
                 $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
-                $model->approved_user_id = null;
-                if($model->save())                      //only if saved the redirection happens
+                $model->approved_user_id = null;                        //only if saved the redirection happens
+                if($model->save())
                     return $this->redirect(['view', 'id' => $model->id]);
+
             } else {
 
                 $model->project_id = $projectid;
@@ -138,8 +139,6 @@ class ReportController extends Controller
          $model = $this->findModel($id);
         if($model->approved_user_id==NULL && Yii::$app->user->can('update-report')){   /*access to update report,sectional head 
                                                                                     and sectional user only until approval-S*/
-           
-
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
                 return $this->redirect(['view', 'id' => $model->id]);
             } else {
@@ -160,13 +159,16 @@ class ReportController extends Controller
      */
     public function actionDelete($id)
     {
-        if('approved_user_id'==NULL && Yii::$app->user->can('delete-report')){   /*access to delete report,sectional head 
+        $model = $this->findModel($id);
+        if($model->approved_user_id==NULL && Yii::$app->user->can('delete-report')){   /*access to delete report,sectional head 
                                                                                     and sectional user only until approval-S*/
-            $this->findModel($id)->delete();
+            $model->delete();
 
-            return $this->redirect(['index']);
+
+            return $this->goHome();
+
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You cannot delete this report. It's already approved by the Divisional Head.");   //-S
         }
     }
 
@@ -190,7 +192,7 @@ class ReportController extends Controller
                 break;
             }
           }
-          
+
         if($userDivision && $this->findModel($id)->approved_user_id==NULL && Yii::$app->user->can('mark-report-approval')){
             
             $model->approved_user_id = Yii::$app->user->id;
