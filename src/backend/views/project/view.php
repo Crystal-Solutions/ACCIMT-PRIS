@@ -49,8 +49,23 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?php if(Yii::$app->user->can('mark-dh-approval') && $model->getApprovedDhUser()->one()==null) echo Html::a('Approve by DH', ['approvedh', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
-        <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php 
+          $users = $model->getDivision()->one()->getUsers()->all();
+          $userId = Yii::$app->user->id;
+          $userDivision = false;
+          foreach ($users as $user) {
+            if($userId==$user->id)
+            {
+                $userDivision = true;
+                break;
+            }
+          }
+
+
+
+        ?>
+        <?php if($userDivision && Yii::$app->user->can('mark-dh-approval') && $model->getApprovedDhUser()->one()==null ) echo Html::a('Approve by DH', ['approvedh', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php if($userDivision && Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
      <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn btn-print']) ?> 
       <?= Html::a('Print with Reports', ['printviewall', 'id' => $model->id], ['class' => 'btn btn-print']) ?>
 

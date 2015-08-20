@@ -2,8 +2,9 @@
 
 namespace backend\models;
 
-use Yii;
 
+use Yii;
+use common\models\User;
 /**
  * This is the model class for table "division".
  *
