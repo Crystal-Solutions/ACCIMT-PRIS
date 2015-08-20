@@ -100,7 +100,9 @@ class ReportController extends Controller
                 $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
                 $model->approved_user_id = null;
                 if($model->save())                      //only if saved the redirection happens
-                    return $this->redirect(['view', 'id' => $model->id]);
+                    return [$this->redirect(['view', 'id' => $model->id]),
+                    Yii::$app->session->setFlash('success', 'A new report template is created'),
+                    ];
             } else {
 
                 $model->project_id = $projectid;
