@@ -111,7 +111,7 @@ class ProjectSearch extends Project
         }*/
 
         $query
-            ->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'project.name', $this->name])
             ->andFilterWhere(['like', 'code', $this->code])
             ->andFilterWhere(['like', 'client', $this->client])
             ->andFilterWhere(['like', 'state', $this->state])
