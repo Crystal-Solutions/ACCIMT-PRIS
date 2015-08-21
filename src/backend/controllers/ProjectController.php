@@ -236,7 +236,15 @@ class ProjectController extends Controller
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
                                                                                         to cancelled -S*/
-            $this->findModel($id)->delete();
+            
+            //Find division has users relations and delete
+            $project = $this->findModel($id);
+            $teamMembers = $project->getTeamMembers()->all();
+            if($teamMembers)
+            foreach($teamMembers as $relation)
+                $relation->delete();
+
+            //$this->findModel($id)->delete();
 
             return $this->redirect(['index']);
         }else{
