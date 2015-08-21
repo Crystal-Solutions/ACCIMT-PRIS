@@ -31,6 +31,18 @@ class ChangePasswordForm extends Model
     }
 
     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'password' => 'Current Password',
+            'newPassword' => 'New Password',
+            'repeatPassword' => 'Repeate New Password',
+            ];
+    }
+
+    /**
      * Resets password.
      *
      * @return boolean if password was reset.

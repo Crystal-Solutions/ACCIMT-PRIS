@@ -60,12 +60,12 @@ body {
 
 .site-index
 {
-  top:130px;
+/*  top:130px;
       position: fixed;
     left: 0px;
     width: 100%;
-   /* background-image: url("../img/bg.jpg");*/
-    background-repeat:no-repeat;
+    background-image: url("../img/bg.jpg");
+    background-repeat:no-repeat;*/
 }
 
 

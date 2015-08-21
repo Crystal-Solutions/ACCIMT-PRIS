@@ -169,7 +169,7 @@ class UserController extends Controller
 
 
 
-            if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
                 Yii::$app->session->setFlash('success', 'User details are updated');
                 return $this->redirect(['view', 'id' => $user->id]);
             } else {
@@ -189,13 +189,11 @@ class UserController extends Controller
     {
         $model = $this->findModel(Yii::$app->getUser()->id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->save()) {
             Yii::$app->session->setFlash('success', 'User details are updated!');
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->goHome();
         } else {
 
-            
-          
             return $this->render('edit', [
                 'model' => $model,
             ]);
@@ -259,7 +257,7 @@ class UserController extends Controller
             $user->status = User::STATUS_DELETED;
             $user->save();
             Yii::$app->session->setFlash('error', 'User is deactivated!');
-            return $this->redirect(['view', 'id' => $id]);
+            return $this->goHome(['view', 'id' => $id]);
         }else{
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
