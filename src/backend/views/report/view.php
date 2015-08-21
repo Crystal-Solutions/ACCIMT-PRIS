@@ -26,6 +26,7 @@ $this->title = $model->title;
                  $users = $model->getDivision()->one()->getUsers()->all();
                   $userId = Yii::$app->user->id;
                   $userDivision = false;
+                  if($users)
                   foreach ($users as $user) {
                     if($userId==$user->id)
                     {

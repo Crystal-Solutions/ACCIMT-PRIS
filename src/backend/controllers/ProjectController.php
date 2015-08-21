@@ -272,20 +272,7 @@ class ProjectController extends Controller
 
 //Janaka -- adding approve actions (Done but have to check with a new project)
         $model = $this->findModel($id);
-
-            //Check whether it's user's division
-        $users = $model->getDivision()->one()->getUsers()->all();
-          $userId = Yii::$app->user->id;
-          $userDivision = false;
-          foreach ($users as $user) {
-            if($userId==$user->id)
-            {
-                $userDivision = true;
-                break;
-            }
-          }
-
-        if($userDivision &&$this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
+        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
             
             $model->approved_ddg_user_id = Yii::$app->user->id;
 
@@ -310,6 +297,7 @@ class ProjectController extends Controller
          $users = $model->getDivision()->one()->getUsers()->all();
           $userId = Yii::$app->user->id;
           $userDivision = false;
+          if($users)
           foreach ($users as $user) {
             if($userId==$user->id)
             {
