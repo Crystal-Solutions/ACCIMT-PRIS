@@ -128,7 +128,7 @@ class ProjectController extends Controller
             
             $model = new Project();
 
-            if ($model->load(Yii::$app->request->post())) {
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
                 $model->requested_user_id = Yii::$app->user->id;        //current user id is taken and saved
 
 
@@ -179,7 +179,7 @@ class ProjectController extends Controller
             $model = $this->findModel($id);
 
 
-            if ($model->load(Yii::$app->request->post()))
+            if ($model->load(Yii::$app->request->post()) && $model->validate())
             {
                  if($model->save()) {
 
