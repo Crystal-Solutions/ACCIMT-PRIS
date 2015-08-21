@@ -42,13 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?> 
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
+
         <?php 
           $users = $model->getDivision()->one()->getUsers()->all();
           $userId = Yii::$app->user->id;
@@ -66,9 +60,22 @@ $this->params['breadcrumbs'][] = $this->title;
 
         ?>
         <?php if($userDivision && Yii::$app->user->can('mark-dh-approval') && $model->getApprovedDhUser()->one()==null ) echo Html::a('Approve by DH', ['approvedh', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        
+
+
         <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->getApprovedDdgUser()->one()==null) echo Html::a('Approve by DDG', ['approveddg', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+        <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->state!='active' && $model->state!='pending') echo Html::a('Activete', ['activate', 'id' => $model->id], ['class' => 'btn btn-primary']); ?>
+ 
+
         <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->state=='active') echo Html::a('Finish the Project', ['finish', 'id' => $model->id], ['class' => 'btn btn-danger']); ?>
-     
+      <?php if(Yii::$app->user->can('mark-ddg-approval') && $model->state!='suspended') echo Html::a('Suspend', ['suspend', 'id' => $model->id], ['class' => 'btn btn-danger']); ?>
+             <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Are you sure you want to delete this item?',
+                'method' => 'post',
+            ],
+        ]) ?>
 
      <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn btn-print']) ?> 
       <?= Html::a('Print with Reports', ['printviewall', 'id' => $model->id], ['class' => 'btn btn-print']) ?>

@@ -257,7 +257,7 @@ class UserController extends Controller
             $user->status = User::STATUS_DELETED;
             $user->save();
             Yii::$app->session->setFlash('error', 'User is deactivated!');
-            return $this->goHome(['view', 'id' => $id]);
+            return $this->redirect(['view', 'id' => $id]);
         }else{
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }

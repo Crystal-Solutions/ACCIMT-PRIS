@@ -31,7 +31,7 @@ class ProjectController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['finish','index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall','printviewsearch'],
+                        'actions' => ['activate','suspend','finish','index','create', 'update','view','approveddg', 'approvedh','delete','printview','printviewall','printviewsearch'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -236,13 +236,14 @@ class ProjectController extends Controller
      */
     public function actionDelete($id)
     {
-        if( Yii::$app->user->can('delete-project')){   /*access to delete a project:: only dh can 
+
+        //Find division has users relations and delete
+        $project = $this->findModel($id);
+        if( Yii::$app->user->can('delete-project') && $project->approved_ddg_user_id==null){   /*access to delete a project:: only dh can 
                                                                                         and only before ddg approval, after ddg approval
                                                                                         cant delete a project, project state can be changed 
                                                                                         to cancelled -S*/
-            
-            //Find division has users relations and delete
-            $project = $this->findModel($id);
+
             $childProjects = $project->getProjects();
             if($childProjects && count($childProjects) )
 
@@ -262,10 +263,10 @@ class ProjectController extends Controller
 
             $this->findModel($id)->delete();
 
-            Yii::$app->session->setFlash('error', 'A project was deleted');
+            Yii::$app->session->setFlash('error', 'The project is deleted');
             return $this->redirect(['index']);
         }else{
-            throw new ForbiddenHttpException("You canno't delete this project.");   //-S
+            throw new ForbiddenHttpException("You can't delete this project.".($project->approved_ddg_user_id==null?"":" It's already approved by the Deputy Director Genaral."));   //-S
         }
     }
 
@@ -281,11 +282,11 @@ class ProjectController extends Controller
 
 
 
-        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
+        if($model->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
             
             $model->approved_ddg_user_id = Yii::$app->user->id;
 
-            if($model->state=='pending') $model->state = 'active';
+            $model->state = 'active';
 
             $model->save();
 
@@ -351,9 +352,39 @@ class ProjectController extends Controller
 
             return $this->redirect(['view', 'id' => $model->id]);
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You don't have permission.");   //-S
         }
     }
+
+
+    public function actionSuspend($id)
+    {
+        $model = $this->findModel($id);
+        if( Yii::$app->user->can('mark-ddg-approval' )){
+            $model->state = 'suspended';
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException("You don't have permission to perform this acction.");   //-S
+        }
+    }
+
+    public function actionActivate($id)
+    {
+        $model = $this->findModel($id);
+        if( Yii::$app->user->can('mark-ddg-approval' )){
+            $model->state = 'active';
+
+            $model->save();
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }else{
+            throw new ForbiddenHttpException("You don't have permission to perform this action.");   //-S
+        }
+    }
+
 
     protected function findModel($id)
     {
