@@ -23,6 +23,7 @@ AppAsset::register($this);
     <?php $this->head() ?>
 
      <script src="<?php echo Yii::$app->request->baseUrl; ?>/ckeditor/ckeditor.js"></script>
+     <link rel="shortcut icon" href="<?php echo Yii::$app->request->baseUrl; ?>/site.ico">
 </head>
 <body>
 <?php $this->beginBody() ?>
