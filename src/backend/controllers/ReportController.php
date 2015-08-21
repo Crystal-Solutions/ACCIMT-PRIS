@@ -28,7 +28,7 @@ class ReportController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['index','create', 'update','view','createforproject','printview', 'approve'],
+                        'actions' => ['index','create', 'update','view','createforproject','printview', 'approve','delete'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -160,13 +160,14 @@ class ReportController extends Controller
      */
     public function actionDelete($id)
     {
-        if('approved_user_id'==NULL && Yii::$app->user->can('delete-report')){   /*access to delete report,sectional head 
+        $model = $this->findModel($id);
+        if($model->approved_user_id==NULL && Yii::$app->user->can('delete-report')){   /*access to delete report,sectional head 
                                                                                     and sectional user only until approval-S*/
-            $this->findModel($id)->delete();
+            $model->delete();
 
-            return $this->redirect(['index']);
+            return $this->goHome();
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You cannot delete this report. It's already approved by the Divisional Head.");   //-S
         }
     }
 
@@ -190,7 +191,7 @@ class ReportController extends Controller
                 break;
             }
           }
-          
+
         if($userDivision && $this->findModel($id)->approved_user_id==NULL && Yii::$app->user->can('mark-report-approval')){
             
             $model->approved_user_id = Yii::$app->user->id;
