@@ -272,6 +272,9 @@ class ProjectController extends Controller
 
 //Janaka -- adding approve actions (Done but have to check with a new project)
         $model = $this->findModel($id);
+
+
+
         if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
             
             $model->approved_ddg_user_id = Yii::$app->user->id;
