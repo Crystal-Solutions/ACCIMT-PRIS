@@ -151,9 +151,11 @@ class ProjectController extends Controller
                         }
                     }
                     ////////////////////////////////////////////////////////////////////
+                    Yii::$app->session->setFlash('success', 'A new project is been created');
                     return $this->redirect(['view', 'id' => $model->id]);
 
             } else {
+
                 return $this->render('create', [
                     'model' => $model,
                 ]);
@@ -203,8 +205,10 @@ class ProjectController extends Controller
                         }
                     }
                     ////////////////////////////////////////////////////////////////////
+                            Yii::$app->session->setFlash('success', 'Project details are updated');
                             return $this->redirect(['view', 'id' => $model->id]);
                 }
+
             } else {
 
                 $members = $model->getTeamMembers()->all();
@@ -246,7 +250,9 @@ class ProjectController extends Controller
 
             $this->findModel($id)->delete();
 
-            return $this->redirect(['index']);
+            return [$this->redirect(['index']),
+                    Yii::$app->session->setFlash('error', 'A project has been deleted!'),
+             ];
         }else{
             throw new ForbiddenHttpException;   //-S
         }

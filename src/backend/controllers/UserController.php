@@ -170,7 +170,7 @@ class UserController extends Controller
 
 
             if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
+                Yii::$app->session->setFlash('success', 'User details are updated');
                 return $this->redirect(['view', 'id' => $user->id]);
             } else {
                 return $this->render('update', [
@@ -228,7 +228,10 @@ class UserController extends Controller
 
             //delete user
             if(@$user->delete())
-                 return $this->redirect(['index']);
+                 return [$this->redirect(['index']),
+                    Yii::$app->session->setFlash('error', 'A User has been deleted!'),
+             ];
+                
             else
                  throw new ForbiddenHttpException("Integrity");
         }else{

@@ -49,6 +49,10 @@ class ReportController extends Controller
      */
     public function actionIndex()
     {
+        //$this->layout = 'prisMainLayout';
+       // if(!Yii::$app->user->can('system-admin')) throw new ForbiddenHttpException;
+
+
         $searchModel = new ReportSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
