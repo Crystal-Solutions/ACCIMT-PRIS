@@ -256,9 +256,8 @@ class ProjectController extends Controller
 
             $this->findModel($id)->delete();
 
-            return [$this->redirect(['index']),
-                    Yii::$app->session->setFlash('error', 'A project has been deleted!'),
-             ];
+            Yii::$app->session->setFlash('error', 'A project was deleted');
+            return $this->redirect(['index']);
         }else{
             throw new ForbiddenHttpException("You canno't delete this project.");   //-S
         }
