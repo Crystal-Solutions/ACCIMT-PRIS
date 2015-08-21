@@ -264,10 +264,24 @@ class ProjectController extends Controller
     */
     public function actionApproveddg($id)
     {
-        if($this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
-            
+
 //Janaka -- adding approve actions (Done but have to check with a new project)
-            $model = $this->findModel($id);
+        $model = $this->findModel($id);
+
+            //Check whether it's user's division
+        $users = $model->getDivision()->one()->getUsers()->all();
+          $userId = Yii::$app->user->id;
+          $userDivision = false;
+          foreach ($users as $user) {
+            if($userId==$user->id)
+            {
+                $userDivision = true;
+                break;
+            }
+          }
+
+        if($userDivision &&$this->findModel($id)->approved_ddg_user_id==NULL && Yii::$app->user->can('mark-ddg-approval')){
+            
             $model->approved_ddg_user_id = Yii::$app->user->id;
 
             if($model->state=='pending') $model->state = 'active';
@@ -287,10 +301,22 @@ class ProjectController extends Controller
     */
     public function actionApprovedh($id)
     {
-        if($this->findModel($id)->approved_dh_user_id==NULL && Yii::$app->user->can('mark-dh-approval')){
+         $model = $this->findModel($id);
+         $users = $model->getDivision()->one()->getUsers()->all();
+          $userId = Yii::$app->user->id;
+          $userDivision = false;
+          foreach ($users as $user) {
+            if($userId==$user->id)
+            {
+                $userDivision = true;
+                break;
+            }
+          }
+
+        if($userDivision && $this->findModel($id)->approved_dh_user_id==NULL && Yii::$app->user->can('mark-dh-approval')){
             
 //Janaka -- adding approve actions (Done but have to check with a new project)
-            $model = $this->findModel($id);
+           
             $model->approved_dh_user_id = Yii::$app->user->id;
 
             //dh approval should not make it active isn't it?

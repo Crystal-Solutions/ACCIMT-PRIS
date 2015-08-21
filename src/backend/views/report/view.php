@@ -22,7 +22,19 @@ $this->title = $model->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?php if(Yii::$app->user->can('mark-report-approval') && $model->getApprovedUser()->one()==null)
+        <?php
+                 $users = $model->getDivision()->one()->getUsers()->all();
+                  $userId = Yii::$app->user->id;
+                  $userDivision = false;
+                  foreach ($users as $user) {
+                    if($userId==$user->id)
+                    {
+                        $userDivision = true;
+                        break;
+                    }
+                  }
+        ?>
+        <?php if($userDivision && Yii::$app->user->can('mark-report-approval') && $model->getApprovedUser()->one()==null)
             echo Html::a('Approve', ['approve', 'id' => $model->id], ['class' => 'btn btn-primary']);
         ?>
          <?= Html::a('Print', ['printview', 'id' => $model->id], ['class' => 'btn btn-print']) ?>
