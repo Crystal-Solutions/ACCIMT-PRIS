@@ -31,6 +31,17 @@ class LoginForm extends Model
         ];
     }
 
+     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'username' => 'Username / EPF No. / Email',
+            'password' => 'Password',
+            ];
+    }
+
     /**
      * Validates the password.
      * This method serves as the inline validation for password.

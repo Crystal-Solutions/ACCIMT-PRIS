@@ -131,7 +131,13 @@ class UserController extends Controller
                 //Generate Authkey and set the password
                 $user = $model->save();
                 if($user)
+                {
+                    Yii::$app->session->setFlash('success', 'New user is created!');
                     return $this->redirect(['view', 'id' => $user->id]);
+
+                }
+                else
+                    throw new ForbiddenHttpException;  
             } else {
 
                 //$model->divisions = ArrayHelper::map(Division::find()->all(),'id','name');
@@ -205,6 +211,8 @@ class UserController extends Controller
             //You can't delete your own
            if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't delete your own account!");
   
+
+
             //Find division has users relations and delete
             $user = $this->findModel($id);
             $divisionRelations = $user->getDivisionHasUsers()->all();
@@ -219,9 +227,10 @@ class UserController extends Controller
                 $assignment->delete();
 
             //delete user
-            $user->delete();
-
-            return $this->redirect(['index']);
+            if(@$user->delete())
+                 return $this->redirect(['index']);
+            else
+                 throw new ForbiddenHttpException("Integrity");
         }else{
             throw new ForbiddenHttpException;   //are we going to keep this as forbidden exeption-S
         }
