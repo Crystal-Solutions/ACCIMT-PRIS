@@ -62,7 +62,9 @@ class Project extends \yii\db\ActiveRecord
             [['created_at', 'approval_date', 'starting_date', 'end_date'], 'safe'],
             [['name', 'code', 'client'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 6000],
-            [['quarterly_targets'], 'string', 'max' => 4000]
+            [['quarterly_targets'], 'string', 'max' => 4000],
+            ['code', 'match', 'pattern'=>'/d', 'message'=>'Tags can only contain word characters.']
+
         ];
     }
 

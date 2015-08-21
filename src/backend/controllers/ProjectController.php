@@ -244,7 +244,7 @@ class ProjectController extends Controller
             foreach($teamMembers as $relation)
                 $relation->delete();
 
-            //$this->findModel($id)->delete();
+            $this->findModel($id)->delete();
 
             return $this->redirect(['index']);
         }else{
