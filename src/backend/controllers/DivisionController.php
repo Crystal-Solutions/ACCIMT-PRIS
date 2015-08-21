@@ -102,7 +102,7 @@ class DivisionController extends Controller
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You have no privilage to create a division.");   //-S
         }
     }
 

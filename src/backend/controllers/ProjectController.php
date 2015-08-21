@@ -243,6 +243,12 @@ class ProjectController extends Controller
             
             //Find division has users relations and delete
             $project = $this->findModel($id);
+            $childProjects = $project->getProjects();
+            if($childProjects && count($childProjects) )
+
+
+
+
             $teamMembers = $project->getTeamMembers()->all();
             if($teamMembers)
             foreach($teamMembers as $relation)

@@ -65,6 +65,8 @@ class User extends ActiveRecord implements IdentityInterface
             [['email'], 'unique'],
             [['email'], 'email'],
             [['epf_no'], 'unique'],
+            ['epf_no','integer','message' => 'This epf no is not valied.'],
+
         ];
     }
 
