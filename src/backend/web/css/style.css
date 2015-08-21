@@ -22,23 +22,41 @@ body {
 .report-content-content{
 
 	padding: 15px;
-   border: 1px solid #B4E0EC;
+   border: 1px solid #4BA1B9;
 }
 
 .report-content-title
 {
 	background-color: #B4E0EC;
 	padding: 4px;
-   border: 1px solid #B4E0EC;
+   border: 1px solid #4BA1B9;
+   border-bottom-width: 0px;
    
 }
 
 .dropdown
 {
   float: left;
+  margin-right: 5px;
 }
 
+.dropdown-menu
+{
+  border-radius: 0px;
+  padding: 0px;
+  margin: 0px;
 
+}
+
+.dropdown-menu > li > a
+{
+  color: white;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus
+{
+  background-color: #286090;
+  color: white;
+}
 
 
 
