@@ -3,10 +3,10 @@ body {
     height: 100%;
 }
 
-.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+.table-bordered,.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
     line-height: 1;
     padding: 4px;
-    border-color: #B4E0EC;
+    border-color: #4BA1B9;
 }
 
 
@@ -148,7 +148,7 @@ padding-top:7px !important; padding-bottom:4px !important;
 
 .footer {
     height: 60px;
-    background-color: #000066;
+    background-color: #042B6C;
     border-top: 1px solid #ddd;
     padding-top: 20px;
     color: white;
