@@ -50,19 +50,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
         <?php 
-          if($model->getDivision()) 
+          $users = $model->getDivision()->one()->getUsers()->all();
+          $userId = Yii::$app->user->id;
+          $userDivision = false;
+          if($users)
+          foreach ($users as $user) {
+            if($userId==$user->id)
             {
-              $users = $model->getDivision()->one()->getUsers()->all();
-              $userId = Yii::$app->user->id;
-              $userDivision = false;
-              foreach ($users as $user) {
-                if($userId==$user->id)
-                {
-                    $userDivision = true;
-                    break;
-                }
-              }
+                $userDivision = true;
+                break;
             }
+          }
 
 
 
