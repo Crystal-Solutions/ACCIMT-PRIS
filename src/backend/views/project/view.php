@@ -50,7 +50,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
         <?php 
-          if($users = $model->getDivision()) 
+          if($model->getDivision()) 
             {
               $users = $model->getDivision()->one()->getUsers()->all();
               $userId = Yii::$app->user->id;
