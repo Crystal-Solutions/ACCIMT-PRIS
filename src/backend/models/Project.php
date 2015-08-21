@@ -56,14 +56,14 @@ class Project extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'requested_user_id', 'project_type_id'], 'required'],
+            [['name', 'requested_user_id', 'project_type_id','code'], 'required'],
             [['state'], 'string'],
             [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id', 'division_id', 'team_leader'], 'integer'],
             [['created_at', 'approval_date', 'starting_date', 'end_date'], 'safe'],
             [['name', 'code', 'client'], 'string', 'max' => 255],
             [['description'], 'string', 'max' => 6000],
             [['quarterly_targets'], 'string', 'max' => 4000],
-           // ['code', 'match', 'pattern'=>'/d', 'message'=>'Tags can only contain word characters.']
+            ['code', 'match', 'pattern'=>'/[\d]/', 'message'=>'Invalid Project Code.']
 
         ];
     }

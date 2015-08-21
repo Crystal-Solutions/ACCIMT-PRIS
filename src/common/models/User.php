@@ -58,7 +58,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
 
             //Extra rules
-            [['username', 'auth_key', 'password_hash', 'email'], 'required'],
+            [['username', 'auth_key', 'password_hash', 'email','epf_no'], 'required'],
             [['username', 'email', 'name'], 'string', 'max' => 255],
             [['epf_no'], 'string', 'max' => 45],
             [['username'], 'unique'],
