@@ -88,6 +88,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
     ]) ?>
 
+    <?= ListView::widget([
+            'dataProvider' => $dataProviderParentProject,
+            'itemOptions' => ['class' => 'item'],
+            'itemView' => function ($model, $key, $index, $widget) {
+                    return Html::a(Html::encode($model->name), ['project/view', 'id' => $model->id]);
+            },
+            'summary'=>"Parent project of this project",
+            'emptyText'=>"This project has no parent project"
+    ]) ?>
+
+    <?= ListView::widget([
+            'dataProvider' => $dataProviderProjects,
+            'itemOptions' => ['class' => 'item'],
+            'itemView' => function ($model, $key, $index, $widget) {
+                    return Html::a(Html::encode($model->name), ['project/view', 'id' => $model->id]);
+            },
+            'summary'=>"Child projects of this project",
+            'emptyText'=>"This project has no child projects"
+    ]) ?>
+
     <!--?= ListView::widget([
         'dataProvider' => $dataProvider,
         'itemOptions' => ['class' => 'item'],

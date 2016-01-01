@@ -76,9 +76,21 @@ class ProjectController extends Controller
 //            'query' => $query1,
 //        ]);
 
+        $query1 = Project::FindOne($id)->getParentProject();
+        $query2 = Project::FindOne($id)->getProjects();
+
+        $dataProviderParentProject = new ActiveDataProvider([
+            'query' => $query1,
+        ]);
+
+        $dataProviderProjects = new ActiveDataProvider([
+            'query' => $query2,
+        ]);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
-            //'dataProvider' => $dataProvider,
+            'dataProviderParentProject' => $dataProviderParentProject,
+            'dataProviderProjects' => $dataProviderProjects,
         ]);
     }
 
