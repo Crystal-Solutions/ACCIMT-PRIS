@@ -13,6 +13,7 @@ use backend\models\UserSearch;
 use backend\models\UserForm;
 use backend\models\DivisionHasUser;
 use backend\models\Division;
+use backend\models\TeamMember;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -212,11 +213,13 @@ class UserController extends Controller
 
             //You can't delete your own
            if(Yii::$app->user->id==$id) throw new ForbiddenHttpException("You can't delete your own account!");
-  
+
+            $user = $this->findModel($id);
+
+            if(TeamMember::findOne($user->id) || $user->getProjects()->one() ) throw new ForbiddenHttpException("This user can't be deletet. User is related to a project.!");
 
 
             //Find division has users relations and delete
-            $user = $this->findModel($id);
             $divisionRelations = $user->getDivisionHasUsers()->all();
             if($divisionRelations)
             foreach($divisionRelations as $relation)

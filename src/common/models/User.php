@@ -9,6 +9,7 @@ use yii\web\IdentityInterface;
 use backend\models\Division;
 use backend\models\DivisionHasUser;
 use backend\models\AuthAssignment;
+use backend\models\Project;
 
 
 /**

@@ -236,7 +236,7 @@ class ProjectController extends Controller
                 ]);
             }
         }else{
-            throw new ForbiddenHttpException;   //-S
+            throw new ForbiddenHttpException("You don't have permission to update this project.");   //-S
         }
     }
 
