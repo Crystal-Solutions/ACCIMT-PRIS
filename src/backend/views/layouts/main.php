@@ -31,7 +31,7 @@ AppAsset::register($this);
 
 
 <div class="wrap">
-    
+
     <div class="headerImg">
         <img src="img/header1.jpg" class="img-responsive" alt="Responsive image" width="100%">
     </div>
@@ -75,14 +75,23 @@ AppAsset::register($this);
                 'label' => 'Divisions', 'url' => ['/division/index'],
             ];
 
-            $menuItems[] = [
-                'label' => 'Edit Profile', 'url' => ['/user/edit'],
-            ];
+
 
             $menuItems[] = [
-                'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+              'label' => Yii::$app->user->identity->username ,
+              'items' => [
+                //Item1
+                [
+                    'label' => 'Edit Profile', 'url' => ['/user/edit'],
+                ],
+                //Item2
+                [
+                'label' => 'Logout',
                 'url' => ['/site/logout'],
                 'linkOptions' => ['data-method' => 'post']
+                ],
+            ],
+              'options' => ['class' => 'dropdown-black'],
             ];
         }
 
@@ -94,7 +103,7 @@ AppAsset::register($this);
     ?>
 
 
-    
+
     <div class="container">
         <!--?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -118,4 +127,3 @@ AppAsset::register($this);
 </body>
 </html>
 <?php $this->endPage() ?>
-
