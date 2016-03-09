@@ -57,7 +57,7 @@ class Project extends \yii\db\ActiveRecord
     {
         return [
 
-            
+
             [['name', 'project_type_id','code','division_id'], 'required'],
             [['state'], 'string'],
             [['parent_project_id', 'requested_user_id', 'approved_ddg_user_id', 'approved_dh_user_id', 'project_type_id', 'division_id', 'team_leader'], 'integer'],
@@ -67,10 +67,29 @@ class Project extends \yii\db\ActiveRecord
             [['quarterly_targets'], 'string', 'max' => 4000],
             ['code', 'unique', 'targetClass' => '\backend\models\Project', 'message' => 'This code is already been taken.'],
 
-            ['code', 'match', 'pattern'=>'/[\d]{2}[A-Z]{2}[\d]{3}/', 'message'=>'Invalid Project Code.'],
+          //  ['code', 'match', 'pattern'=>'/[\d]{2}[A-Z]{2}[\d]{3}/', 'message'=>'Invalid Project Code.'],
+            ['end_date', 'validateDate']
 
         ];
     }
+
+    // In rules function -------------------------------------------------------
+    // Add below functions to your model
+    public function validateDate()
+    {
+            if ($this->starting_date > $this->end_date)
+            {
+                    $this->addError('end_date', 'End date should be a date after the starting date.');
+            }
+    }
+    public function compareDate($start, $end)
+    {
+            //list($start_hr, $start_min) = str_split(preg_replace('/[:]/', '', $start), 2);
+            //list($end_hr, $end_min) = str_split(preg_replace('/[:]/', '', $end), 2);
+
+            return ;
+    }//-------------------------------------------------------------------------
+
 
     /**
      * @inheritdoc
